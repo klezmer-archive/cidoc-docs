@@ -1,4 +1,4 @@
-/*
+﻿/*
 CIDOC CRM XML/HTML JavaScript scripts
 
 This JavaScript file contains all the scripts used in order to display the xml/html representation of each cidoc - crm version.
@@ -53,12 +53,3297 @@ var langCodes = {
     'zh': 'Chinese'
 };
 
-var xmlFile;
+var xmlFile = `
+<?xml version='1.0' encoding='UTF-8'?>
+<root modelIdentifier="CRMtex" version="2.0" releaseDate="June, 2023" classes="14" properties="17" modelDescriptionLink="https://www.cidoc-crm.org/crmtex/ModelVersion/version-2.0-0" namespace="http://www.cidoc-crm.org/extensions/crmtex/" lang="en">
+  <!--
+XML encoding of the Classes and Properties declarations of CRMtex v2.0 June, 2023 (https://www.cidoc-crm.org/crmtex/ModelVersion/version-2.0-0).
+
+Created by FORTH-ICS - February, 2024
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
+
+-->
+  <modelDependencies>
+    <model modelName="Cidoc-CRM v7.1.2" modelSpecificationLink="https://www.cidoc-crm.org/versions-of-the-cidoc-crm"/>
+    <model modelName="CRMinf v0.7(b)" modelSpecificationLink="https://www.cidoc-crm.org/crminf/fm_releases"/>
+    <model modelName="CRMsci v2.0" modelSpecificationLink="https://www.cidoc-crm.org/crmsci/fm_releases"/>
+    <model modelName="FRBRoo v2.4" modelSpecificationLink="https://www.cidoc-crm.org/frbroo/fm_releases"/>
+  </modelDependencies>
+  <classes>
+    <class id="TX1">
+      <fullName>TX1 Written Text</fullName>
+      <className>Written Text</className>
+      <superClassOf id="TX7"/>
+      <subClassOf id="E25"/>
+      <scopeNote>&lt;p&gt;This class comprises visible or tactile marks (called glyphs or graphs), which relate in a systematic way to units of speech, intentionally traced (i.e., “written”) on some kind of physical support by using specific techniques and tools, with the purpose of conveying a message towards a given receiver or group of receivers.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The signs composing the inscription engraved on the South side of the attic of the Arch of Constantine (E22) in Rome (see section 1.3.1).&lt;/li&gt;&lt;li&gt;The signs composing the text written on papyrus PSI XIII 1304 containing the so-called &lt;em&gt;Hellenica Oxyrhynchia&lt;/em&gt; (TM 59482&lt;sup&gt;&lt;sup&gt;&lt;a href="#footnote-7" id="footnote-ref-7"&gt;[7]&lt;/a&gt;&lt;/sup&gt;&lt;/sup&gt;).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX1(x) ⇒ E25(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP4 has segment (is segment of): TX7 Written Text Segment&lt;/p&gt;&lt;p&gt;TXP8 has component (is component of): TX9 Glyph&lt;/p&gt;&lt;p&gt;TXP9 is encoded using (was used to encode): TX3 Writing System&lt;/p&gt;&lt;p&gt;TXP12 has style (is style of): TX10 Style&lt;/p&gt;&lt;p&gt;(TXP12.1 has type: E55 Type)&lt;/p&gt;</properties>
+    </class>
+    <class id="TX2">
+      <fullName>TX2 Writing</fullName>
+      <className>Writing</className>
+      <subClassOf id="F28"/>
+      <scopeNote>&lt;p&gt;This class describes the activity of communicating information by means of permanent, visible marks in a non-mechanical way, using various techniques (painting, sculpture, etc.) and by means of specific tools, on a given support.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The process of engraving in the marble of the inscription (TX1) placed on the south attic of the Arch of Constantine (E22) in Rome.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX2(x) ⇒ F28(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP1 used writing system (writing system used by): TX3 Writing System&lt;/p&gt;&lt;p&gt;TXP5 wrote (was written by): TX1 Written Text&lt;/p&gt;</properties>
+    </class>
+    <class id="TX3">
+      <fullName>TX3 Writing System</fullName>
+      <className>Writing System</className>
+      <subClassOf id="E29"/>
+      <scopeNote>&lt;p&gt;This class represents a conventional symbolic system designed to represent units of a natural language with the purpose of recording and transmitting information. A writing system consists of a set of symbols (graphemes, TX8), instantiated through physical signs of a visual or tactile nature (glyphs, TX9) representing linguistic units of any kind and the related syntactic (i.e., graphotactic) rules.&lt;/p&gt;&lt;p&gt;It is used to produce a TX1 Written Text during a TX2 Writing event.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin alphabet used to encode the signs (TX1) composing the text (E33) of the inscription in Latin language occurring on the Arch of Constantine (E22).&lt;/li&gt;&lt;li&gt;The Roman Latin writing system for creating public inscriptions.&lt;/li&gt;&lt;li&gt;The Cypriot syllabary&lt;sup&gt;&lt;sup&gt;&lt;a href="#footnote-8" id="footnote-ref-8"&gt;[8]&lt;/a&gt;&lt;/sup&gt;&lt;/sup&gt; used in Iron Age Cyprus for codifying the Arcado-Cypriot dialect.&lt;/li&gt;&lt;li&gt;The Chinese (Han) script used by Wang Xizhi to write the manuscript &lt;em&gt;Lanting Xu&lt;/em&gt; (“Orchid Pavilion Preface”).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX3(x) ⇒ E29(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP6 encodes (is encoding of): E56 Language&lt;/p&gt;&lt;p&gt;TXP16 employs script (is employed by): TX13 Script&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</properties>
+    </class>
+    <class id="TX4">
+      <fullName>TX4 Writing Field</fullName>
+      <className>Writing Field</className>
+      <subClassOf id="E25"/>
+      <scopeNote>&lt;p&gt;This class describes the portion of the physical carrier arranged and usually reserved and delimited for the purpose of accommodating a written text, highlighting and isolating it from the other parts of the object to which it belongs, enhancing and guaranteeing its readability. This entity is paramount specially in epigraphy, in which a specific element called “epigraphic field” has been defined by the discipline itself. Its importance is also evident in papyrology and codicology, where a clear distinction between area(s) containing the written text and empty parts of the support (margins, &lt;em&gt;intercolumnia&lt;/em&gt;, etc.) is significant for the definition of styles and periods of the document.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The portion of the marble tombstone&lt;sup&gt;&lt;sup&gt;&lt;a href="#footnote-9" id="footnote-ref-9"&gt;[9]&lt;/a&gt;&lt;/sup&gt;&lt;/sup&gt; (E22) of M. Helvius Geminus from Ephesus reserved for accommodating the inscription (TX1).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX4(x) ⇒ E25(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP2 includes (is included within): TX1 Written Text&lt;/p&gt;</properties>
+    </class>
+    <class id="TX5">
+      <fullName>TX5 Text Recognition</fullName>
+      <className>Text Recognition</className>
+      <subClassOf id="S4"/>
+      <subClassOf id="E65"/>
+      <scopeNote>&lt;p&gt;This class comprises activities of recognizing physical features on some surface, often an instance of TX4 Writing Field, as an arrangement of a series of identifiable glyphs of some known script, deciphered or not, in an order characteristic for a text.&lt;/p&gt;&lt;p&gt;For study purposes, the text recognition procedure requires a scientific autoptic examination of the text. An autoptic examination consists of an accurate analysis of the surface and the signs, and prescribes the use of specific tools and procedures for establishing the exact value of each sign on the physical feature. Deterioration of the original medium or “sloppy” writing may render parts of the original text as undecipherable or ambiguous, which may be annotated in the transcript following epigraphic standards; a text recognition typically results in a record of an equivalent sequence of graphemes on another persistent medium in a scholarly established form of representation of the respective graphemes, often called a “transcript”.&lt;/p&gt;&lt;p&gt;An instance of TX5 Text Recognition may in particular apply even to a single glyph, typically forming part of an instance of TX5 Text Recognition applying to a larger sequence of glyphs containing the former glyph.&lt;/p&gt;&lt;p&gt;The recognition process may be assisted by mechanical means, imaging technology, or a traditional squeeze for incised glyphs. In case the recognition process is solely based on the latter, the observation concerns only the representations on the latter as present to the researcher in some physical form or projection and should unambiguously be documented as such.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;In case the recognized text has not been documented in a transcript, text recognition may constitute an implicit part of an overarching reading process, instance of TX14 Reading, which has resulted in other noteworthy propositions related to the content of the recognized text. On the other side, recognition of single glyphs or contracted parts of texts, as they are characteristic for the use of ligatured scripts, may quite well be implicitly supported by the reader’s comprehension of the text and the creator of the transcript may have chosen not to annotate parts that the reader regarded as unambiguous. Since these cases can often hardly be separated from the shape recognition of the glyphs in isolation, documenting such implicit comprehension as a separate process may not be relevant. It is however regarded as good practice to document explicitly the reading process and associated interpretative reasoning for any non-trivial resolution of ambiguity or gaps in the recognized text that has a bearing on the transcript or further completion of the transcript.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The autoptic investigation of the South inscription (TX1) on the Arch of Constantine (E22) made by Rodolfo Lanciani between 1893 and 1901.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX5(x) ⇒ S4(x)&lt;/p&gt;&lt;p&gt;TX5(x) ⇒ E65(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP10 deciphered text (was deciphered by): E24 Physical Human-Made Thing&lt;/p&gt;&lt;p&gt;TXP13 deciphered via the representation (was representation used for deciphering): E36 Visual Item&lt;/p&gt;&lt;p&gt;TXP14 used copy or representation of (was deciphered via copy or representation): TX1 Written Text&lt;/p&gt;&lt;p&gt;TXP15 recorded correspondence (was recorded by): TX12 Grapheme Sequence&lt;/p&gt;</properties>
+    </class>
+    <class id="TX6">
+      <fullName>TX6 Transliteration</fullName>
+      <className>Transliteration</className>
+      <subClassOf id="E65"/>
+      <scopeNote>&lt;p&gt;This class comprises activities of exactly re-writing (i.e., re-encoding) an instance of TX12 Grapheme Sequence, i.e., the characters of a text, a contiguous part or a single character of it, by using a writing system (TX3) different from that of the original text, without changing the order of characters or words, by using standard correspondences.&lt;/p&gt;&lt;p&gt;This operation may apply a 1:1 relation between the signs of the two writing systems, a “transliteration” in the narrower sense (e.g., the ALA-LC Romanization of Greek to Latin). It may also apply an approximation of the sounds of a language, as defined by the source writing system, by that of the target writing system, normally called a “transcription” (e.g., the “rōmaji” Romanization of Japanese), or a mixture of both (e.g. the  ELOT 743 Type 2 – transcription of Greek to Latin letters). In a broader sense, the term “transcription” also applies to the activity of re-encoding a text using the same writing system (see example 1). The &lt;em&gt;P16 used specific object (was used for)&lt;/em&gt; property can be used to specify the applied method of correspondence.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Transcription, in Latin letters, of the Latin inscription(s) (TX1) on the Arch of Constantine (E22) reported in &lt;em&gt;Corpus Inscriptionum Latinarum &lt;/em&gt;(CIL VI 1139).&lt;/li&gt;&lt;li&gt;The transliteration and the transcription of the ancient Persian name of king Darius I, written in Persian cuneiform &lt;img src="https://cidoc-crm.org/extensions/crmtex/html/xml-html/images_2.0/crmtex_img_011.png"&gt;, into Latin script as respectively ‘da-a-ra-ya-va-u-ša’ and ‘Dârayavauš’.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX6(x) ⇒ E65(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP11 transcribed (was transcribed by): TX12 Grapheme Sequence&lt;/p&gt;</properties>
+    </class>
+    <class id="TX7">
+      <fullName>TX7 Written Text Segment</fullName>
+      <className>Written Text Segment</className>
+      <superClassOf id="TX9"/>
+      <subClassOf id="TX1"/>
+      <scopeNote>&lt;p&gt;This class describes portions of text considered to be of particular significance by scholars, as witnesses of a certain meaning or bearers of a particular phenomenon relevant to the investigation, study and understanding of a text. Examples of such text portions are columns, fragments, sections, paragraphs, as well as single words or signs, or other components of a written text. To each of these entities can be associated a single production event (TX2) or destruction event (E6), as in the case of letters or words damaged or worn by atmospheric agents or human interventions, as well as specific conditions (E3) for documenting its status during the text recognition process (TX5). The relationship between a written text (TX1) and its components is documented through the TXP4&lt;em&gt; has segment&lt;/em&gt; property.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The “INSTINCTV DIVINITATIS” text portion of the inscription (TX1) on the Arch of Constantine (E22), commented by Rodolfo Lanciani in 1892, in his book &lt;em&gt;Pagan and Christian Rome&lt;/em&gt; (see section 1.3.1).&lt;/li&gt;&lt;li&gt;The first paragraph of the Darius I’s inscription (TX1) in Bagistan.  &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX7(x) ⇒ TX1(x)&lt;/p&gt;</inFirstOrderLogic>
+    </class>
+    <class id="TX8">
+      <fullName>TX8 Grapheme</fullName>
+      <className>Grapheme</className>
+      <subClassOf id="E55"/>
+      <scopeNote>&lt;p&gt;This class comprises symbols used as kinds of atomic units with distinctive value in a given writing system in order to represent linguistic units of some level to encode elements of a message. According to the typology of the writing system, the represented linguistic units can be phonemes (as in Latin), syllables (as in Mycenaean Linear B), up to complete words (as in Chinese and Sumerian scripts).&lt;/p&gt;&lt;p&gt;A writing system also provides the conventions determining how the graphemes are to be used to write a language (orthographic rules).&lt;/p&gt;&lt;p&gt;In some writing systems, graphemes may also be used as auxiliary signs, for instance, for disambiguating senses of homonyms, as in the Japanese writing system, or to mark the semantic categories of the words, as in the ancient Egyptian determinatives.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The abstract unit “S” of the Latin alphabet, used to represent the /s/ sound&lt;/li&gt;&lt;li&gt;The abstract unit &lt;img src="https://cidoc-crm.org/extensions/crmtex/html/xml-html/images_2.0/crmtex_img_012.png"&gt; of the ancient Persian syllabary, used to represent the /da/ syllable.&lt;/li&gt;&lt;li&gt;The abstract unit “安” of the Han script, used to represent the meaning “peace”.&lt;/li&gt;&lt;li&gt;行きます, ching, gyo, iku, zuku.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX8(x) ⇒ E55(x)&lt;/p&gt;</inFirstOrderLogic>
+    </class>
+    <class id="TX9">
+      <fullName>TX9 Glyph</fullName>
+      <className>Glyph</className>
+      <subClassOf id="TX7"/>
+      <scopeNote>&lt;p&gt;This class describes the physical, concrete features traced by a writer, representing the material manifestations of the graphemes needed to codify a linguistic expression. Glyphs are typically observed by the scholars during a text recognition activity (TX5) carried out to decode and recognise the graphemes (TX8) they represent.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The S-shaped feature engraved on the second line of the South inscription on the Arch of Constantine, representing the letter (grapheme) “S” of the Latin writing system used to render the sound of the /s/ phoneme (see section 1.3.1).&lt;/li&gt;&lt;li&gt;The first feature engraved on the first line of Darius I’s inscription (TX1) in Bagistan, representing the ideal syllabogram &lt;img src="https://cidoc-crm.org/extensions/crmtex/html/xml-html/images_2.0/crmtex_img_013.png"&gt; of the ancient Persian syllabary, used to render the /da/ syllable.  &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX9(x) ⇒ TX7(x)&lt;/p&gt;</inFirstOrderLogic>
+    </class>
+    <class id="TX10">
+      <fullName>TX10 Style</fullName>
+      <className>Style</className>
+      <subClassOf id="E29"/>
+      <scopeNote>&lt;p&gt;This class describes stylistic variations of texts, including local script styles (as the Carolingian minuscule for the Latin script) and individual scribal hands. It includes: the general appearance of the script, in terms of general design, aspects related to a bilinear system (i.e., upper- and lowercase), measures (i.e., large, medium or small), shape and number of strokes forming a character, its order and direction. A style includes also information about ductus (the direction the text), ligatures and &lt;em&gt;nexi&lt;/em&gt; (i.e., the connection between characters obtained by tracing them without detaching the writing instrument from the support and using one or more strokes in common), and the writing angle (i.e., the position the writing instrument is located with respect to the support). The style corresponds to fonts and their variations in the modern printing process.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The &lt;em&gt;Roman square capitals&lt;/em&gt; style, also called &lt;em&gt;capitalis monumentalis&lt;/em&gt;, or &lt;em&gt;capitalis quadrata &lt;/em&gt;used to write the inscription on the Arch of Constantine.&lt;/li&gt;&lt;li&gt;The “Carolingian minuscule” style used in the Carolingian Gospel Book identified as “British Library, Add MS 11848”. &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX10(x) ⇒ E29(x)&lt;/p&gt;</inFirstOrderLogic>
+    </class>
+    <class id="TX11">
+      <fullName>TX11 Grapheme Occurrence</fullName>
+      <className>Grapheme Occurrence</className>
+      <subClassOf id="TX12"/>
+      <scopeNote>&lt;p&gt;This class comprises single occurrences of a Grapheme used as an atomic unit at a particular position in the abstract form of a given particular piece of text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The ideal letter “S” of the Latin alphabet, used to represent the /s/ sound, rendered by the specific S-shaped feature engraved on the second line of the South inscription on the attic of the Arch of Constantine (see section 1.3.1)&lt;/li&gt;&lt;li&gt;The ideal ‘da’ syllabogram of the ancient Persian syllabary, used to represent the /da/ syllable rendered by the cuneiform sign &lt;img src="https://cidoc-crm.org/extensions/crmtex/html/xml-html/images_2.0/crmtex_img_014.png"&gt; engraved on the first line of Darius I’s inscription (TX1) in Bagistan.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX11(x) ⇒ TX12(x)&lt;/p&gt;</inFirstOrderLogic>
+    </class>
+    <class id="TX12">
+      <fullName>TX12 Grapheme Sequence</fullName>
+      <className>Grapheme Sequence</className>
+      <superClassOf id="TX11"/>
+      <subClassOf id="E90"/>
+      <scopeNote>&lt;p&gt;This class comprises particular sequences of Graphemes used for representing the abstract written form of a section of a given particular text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The grapheme sequence ‘INSTINCTV DIVINITATIS’ [as recognised by the autoptic investigation of the Arch of Constantine, carried out by Rodolfo Lanciani]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX12(x) ⇒ E90(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP17 has part (forms part of): TX12 Grapheme Sequence&lt;/p&gt;</properties>
+    </class>
+    <class id="TX13">
+      <fullName>TX13 Script</fullName>
+      <className>Script</className>
+      <subClassOf id="E89"/>
+      <scopeNote>&lt;p&gt;This class comprises functionally complete sets of mutually different graphemes employed by one or more languages, regardless of the specific operating rules in a particular language. A writing system, on the other hand, also refers to the set of relations between symbols and linguistic units they represent. The same language may be written using different scripts.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin script used by the Italian and English writing systems.&lt;/li&gt;&lt;li&gt;The Latin and the Greek scripts used for the encoding of the Oscan language, creating the Oscan-Greek and Oscan-Latin writing systems.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX13(x) ⇒ E89(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP7 has item (is item of): TX8 Grapheme&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</properties>
+    </class>
+    <class id="TX14">
+      <fullName>TX14 Reading</fullName>
+      <className>Reading</className>
+      <subClassOf id="I1"/>
+      <scopeNote>&lt;p&gt;This class describes the complete intellectual activity, involving the interaction of visual-perceptual, linguistic, and conceptual systems, leading from text recognition (TX5) until its association with a complete linguistic meaning.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The reading of the South inscription (TX1) on the Arch of Constantine (E22) made by Rodolfo Lanciani between 1893 and 1901.&lt;/li&gt;&lt;li&gt;The reading of the Greek text present on the Derveni papyrus (E22).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TX5(x) ⇒ I1(x)&lt;/p&gt;</inFirstOrderLogic>
+      <properties>&lt;p&gt;TXP18 read (was read by): TX1 Written Text&lt;/p&gt;</properties>
+    </class>
+
+    <!-- ============================================================== -->
+    <!--                 BEGIN EXTERNAL CLASSES                         -->
+    <!-- ============================================================== -->
+    <class id="S1" external="true">
+      <fullName>S1 Matter Removal</fullName>
+      <className>Matter Removal</className>
+      <superClassOf id="E80"/>
+      <superClassOf id="S2"/>
+      <subClassOf id="E7"/>
+    </class>
+    <class id="S2" external="true">
+      <fullName>S2 Sample Taking</fullName>
+      <className>Sample Taking</className>
+      <superClassOf id="S3"/>
+      <superClassOf id="S24"/>
+      <subClassOf id="S1"/>
+    </class>
+    <class id="S3" external="true">
+      <fullName>S3 Measurement by Sampling</fullName>
+      <className>Measurement by Sampling</className>
+      <subClassOf id="S2"/>
+      <subClassOf id="S21"/>
+    </class>
+    <class id="S4" external="true">
+      <fullName>S4 Observation</fullName>
+      <className>Observation</className>
+      <superClassOf id="S21"/>
+      <superClassOf id="S19"/>
+      <superClassOf id="S23"/>
+      <subClassOf id="E13"/>
+    </class>
+    <class id="S5" external="true">
+      <fullName>S5 Inference Making</fullName>
+      <className>Inference Making</className>
+      <superClassOf id="S6"/>
+      <superClassOf id="S7"/>
+      <superClassOf id="S8"/>
+      <subClassOf id="E13"/>
+    </class>
+    <class id="S6" external="true">
+      <fullName>S6 Data Evaluation</fullName>
+      <className>Data Evaluation</className>
+      <subClassOf id="S5"/>
+    </class>
+    <class id="S7" external="true">
+      <fullName>S7 Simulation or Prediction</fullName>
+      <className>Simulation or Prediction</className>
+      <subClassOf id="S5"/>
+    </class>
+    <class id="S8" external="true">
+      <fullName>S8 Categorical Hypothesis Building</fullName>
+      <className>Categorical Hypothesis Building</className>
+      <subClassOf id="S5"/>
+    </class>
+    <class id="S9" external="true">
+      <fullName>S9 Property Type</fullName>
+      <className>Property Type</className>
+      <subClassOf id="E55"/>
+    </class>
+    <class id="S10" external="true">
+      <fullName>S10 Material Substantial</fullName>
+      <className>Material Substantial</className>
+      <superClassOf id="S14"/>
+      <superClassOf id="S11"/>
+      <superClassOf id="E18"/>
+      <subClassOf id="E70"/>
+      <subClassOf id="S15"/>
+    </class>
+    <class id="S11" external="true">
+      <fullName>S11 Amount of Matter</fullName>
+      <className>Amount of Matter</className>
+      <superClassOf id="S12"/>
+      <superClassOf id="S13"/>
+      <subClassOf id="S10"/>
+    </class>
+    <class id="S12" external="true">
+      <fullName>S12 Amount of Fluid</fullName>
+      <className>Amount of Fluid</className>
+      <subClassOf id="S11"/>
+      <subClassOf id="S14"/>
+    </class>
+    <class id="S13" external="true">
+      <fullName>S13 Sample</fullName>
+      <className>Sample</className>
+      <subClassOf id="S11"/>
+    </class>
+    <class id="S14" external="true">
+      <fullName>S14 Fluid Body</fullName>
+      <className>Fluid Body</className>
+      <superClassOf id="S12"/>
+      <subClassOf id="S10"/>
+    </class>
+    <class id="S15" external="true">
+      <fullName>S15 Observable Entity</fullName>
+      <className>Observable Entity</className>
+      <superClassOf id="E5"/>
+      <superClassOf id="S10"/>
+      <subClassOf id="E1"/>
+    </class>
+    <class id="S17" external="true">
+      <fullName>S17 Physical Genesis</fullName>
+      <className>Physical Genesis</className>
+      <superClassOf id="E12"/>
+      <subClassOf id="E63"/>
+      <subClassOf id="S18"/>
+    </class>
+    <class id="S18" external="true">
+      <fullName>S18 Alteration</fullName>
+      <className>Alteration</className>
+      <superClassOf id="S17"/>
+      <superClassOf id="E11"/>
+      <subClassOf id="E5"/>
+    </class>
+    <class id="S19" external="true">
+      <fullName>S19 Encounter Event</fullName>
+      <className>Encounter Event</className>
+      <subClassOf id="S4"/>
+    </class>
+    <class id="S20" external="true">
+      <fullName>S20 Rigid Physical Feature</fullName>
+      <className>Rigid Physical Feature</className>
+      <superClassOf id="E27"/>
+      <superClassOf id="S22"/>
+      <subClassOf id="E26"/>
+      <subClassOf id="E53"/>
+    </class>
+    <class id="S21" external="true">
+      <fullName>S21 Measurement</fullName>
+      <className>Measurement</className>
+      <superClassOf id="S3"/>
+      <superClassOf id="E16"/>
+      <subClassOf id="S4"/>
+    </class>
+    <class id="S22" external="true">
+      <fullName>S22 Segment of Matter</fullName>
+      <className>Segment of Matter</className>
+      <subClassOf id="S20"/>
+    </class>
+    <class id="S23" external="true">
+      <fullName>S23 Position Determination</fullName>
+      <className>Position Determination</className>
+      <subClassOf id="S4"/>
+    </class>
+    <class id="S24" external="true">
+      <fullName>S24 Sample Splitting</fullName>
+      <className>Sample Splitting</className>
+      <subClassOf id="S2"/>
+    </class>
+    <class id="E1" external="true">
+      <fullName>E1 CRM Entity</fullName>
+      <className>CRM Entity</className>
+    </class>
+    <class id="E2" external="true">
+      <fullName>E2 Temporal Entity</fullName>
+      <className>Temporal Entity</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E3" external="true">
+      <fullName>E3 Condition State</fullName>
+      <className>Condition State</className>
+      <subClassOf id="E2" />
+    </class>
+    <class id="E4" external="true">
+      <fullName>E4 Period</fullName>
+      <className>Period</className>
+      <subClassOf id="E2" />
+      <subClassOf id="E92" />
+    </class>
+    <class id="E5" external="true">
+      <fullName>E5 Event</fullName>
+      <className>Event</className>
+      <subClassOf id="E4" />
+    </class>
+    <class id="E6" external="true">
+      <fullName>E6 Destruction</fullName>
+      <className>Destruction</className>
+      <subClassOf id="E64" />
+    </class>
+    <class id="E7" external="true">
+      <fullName>E7 Activity</fullName>
+      <className>Activity</className>
+      <subClassOf id="E5" />
+    </class>
+    <class id="E8" external="true">
+      <fullName>E8 Acquisition</fullName>
+      <className>Acquisition</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E9" external="true">
+      <fullName>E9 Move</fullName>
+      <className>Move</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E10" external="true">
+      <fullName>E10 Transfer of Custody</fullName>
+      <className>Transfer of Custody</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E11" external="true">
+      <fullName>E11 Modification</fullName>
+      <className>Modification</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E12" external="true">
+      <fullName>E12 Production</fullName>
+      <className>Production</className>
+      <subClassOf id="E11" />
+      <subClassOf id="E63" />
+    </class>
+    <class id="E13" external="true">
+      <fullName>E13 Attribute Assignment</fullName>
+      <className>Attribute Assignment</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E14" external="true">
+      <fullName>E14 Condition Assessment</fullName>
+      <className>Condition Assessment</className>
+      <subClassOf id="E13" />
+    </class>
+    <class id="E15" external="true">
+      <fullName>E15 Identifier Assignment</fullName>
+      <className>Identifier Assignment</className>
+      <subClassOf id="E13" />
+    </class>
+    <class id="E16" external="true">
+      <fullName>E16 Measurement</fullName>
+      <className>Measurement</className>
+      <subClassOf id="E13" />
+    </class>
+    <class id="E17" external="true">
+      <fullName>E17 Type Assignment</fullName>
+      <className>Type Assignment</className>
+      <subClassOf id="E13" />
+    </class>
+    <class id="E18" external="true">
+      <fullName>E18 Physical Thing</fullName>
+      <className>Physical Thing</className>
+      <subClassOf id="E72" />
+    </class>
+    <class id="E19" external="true">
+      <fullName>E19 Physical Object</fullName>
+      <className>Physical Object</className>
+      <subClassOf id="E18" />
+    </class>
+    <class id="E20" external="true">
+      <fullName>E20 Biological Object</fullName>
+      <className>Biological Object</className>
+      <subClassOf id="E19" />
+    </class>
+    <class id="E21" external="true">
+      <fullName>E21 Person</fullName>
+      <className>Person</className>
+      <subClassOf id="E20" />
+      <subClassOf id="E39" />
+    </class>
+    <class id="E22" external="true">
+      <fullName>E22 Human-Made Object</fullName>
+      <className>Human-Made Object</className>
+      <subClassOf id="E19" />
+      <subClassOf id="E24" />
+    </class>
+    <class id="E24" external="true">
+      <fullName>E24 Physical Human-Made Thing</fullName>
+      <className>Physical Human-Made Thing</className>
+      <subClassOf id="E18" />
+      <subClassOf id="E71" />
+    </class>
+    <class id="E25" external="true">
+      <fullName>E25 Human-Made Feature</fullName>
+      <className>Human-Made Feature</className>
+      <subClassOf id="E24" />
+      <subClassOf id="E26" />
+    </class>
+    <class id="E26" external="true">
+      <fullName>E26 Physical Feature</fullName>
+      <className>Physical Feature</className>
+      <subClassOf id="E18" />
+    </class>
+    <class id="E27" external="true">
+      <fullName>E27 Site</fullName>
+      <className>Site</className>
+      <subClassOf id="E26" />
+    </class>
+    <class id="E28" external="true">
+      <fullName>E28 Conceptual Object</fullName>
+      <className>Conceptual Object</className>
+      <subClassOf id="E71" />
+    </class>
+    <class id="E29" external="true">
+      <fullName>E29 Design or Procedure</fullName>
+      <className>Design or Procedure</className>
+      <subClassOf id="E73" />
+    </class>
+    <class id="E30" external="true">
+      <fullName>E30 Right</fullName>
+      <className>Right</className>
+      <subClassOf id="E89" />
+    </class>
+    <class id="E31" external="true">
+      <fullName>E31 Document</fullName>
+      <className>Document</className>
+      <subClassOf id="E73" />
+    </class>
+    <class id="E32" external="true">
+      <fullName>E32 Authority Document</fullName>
+      <className>Authority Document</className>
+      <subClassOf id="E31" />
+    </class>
+    <class id="E33" external="true">
+      <fullName>E33 Linguistic Object</fullName>
+      <className>Linguistic Object</className>
+      <subClassOf id="E73" />
+    </class>
+    <class id="E34" external="true">
+      <fullName>E34 Inscription</fullName>
+      <className>Inscription</className>
+      <subClassOf id="E33" />
+      <subClassOf id="E37" />
+    </class>
+    <class id="E35" external="true">
+      <fullName>E35 Title</fullName>
+      <className>Title</className>
+      <subClassOf id="E33" />
+      <subClassOf id="E41" />
+    </class>
+    <class id="E36" external="true">
+      <fullName>E36 Visual Item</fullName>
+      <className>Visual Item</className>
+      <subClassOf id="E73" />
+    </class>
+    <class id="E37" external="true">
+      <fullName>E37 Mark</fullName>
+      <className>Mark</className>
+      <subClassOf id="E36" />
+    </class>
+    <class id="E39" external="true">
+      <fullName>E39 Actor</fullName>
+      <className>Actor</className>
+      <subClassOf id="E77" />
+    </class>
+    <class id="E41" external="true">
+      <fullName>E41 Appellation</fullName>
+      <className>Appellation</className>
+      <subClassOf id="E90" />
+    </class>
+    <class id="E42" external="true">
+      <fullName>E42 Identifier</fullName>
+      <className>Identifier</className>
+      <subClassOf id="E41" />
+    </class>
+    <class id="E52" external="true">
+      <fullName>E52 Time-Span</fullName>
+      <className>Time-Span</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E53" external="true">
+      <fullName>E53 Place</fullName>
+      <className>Place</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E54" external="true">
+      <fullName>E54 Dimension</fullName>
+      <className>Dimension</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E55" external="true">
+      <fullName>E55 Type</fullName>
+      <className>Type</className>
+      <subClassOf id="E28" />
+    </class>
+    <class id="E56" external="true">
+      <fullName>E56 Language</fullName>
+      <className>Language</className>
+      <subClassOf id="E55" />
+    </class>
+    <class id="E57" external="true">
+      <fullName>E57 Material</fullName>
+      <className>Material</className>
+      <subClassOf id="E55" />
+    </class>
+    <class id="E58" external="true">
+      <fullName>E58 Measurement Unit</fullName>
+      <className>Measurement Unit</className>
+      <subClassOf id="E55" />
+    </class>
+    <class id="E59" external="true">
+      <fullName>E59 Primitive Value</fullName>
+      <className>Primitive Value</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E60" external="true">
+      <fullName>E60 Number</fullName>
+      <className>Number</className>
+      <subClassOf id="E59" />
+    </class>
+    <class id="E61" external="true">
+      <fullName>E61 Time Primitive</fullName>
+      <className>Time Primitive</className>
+      <subClassOf id="E41" />
+      <subClassOf id="E59" />
+    </class>
+    <class id="E62" external="true">
+      <fullName>E62 String</fullName>
+      <className>String</className>
+      <subClassOf id="E59" />
+    </class>
+    <class id="E63" external="true">
+      <fullName>E63 Beginning of Existence</fullName>
+      <className>Beginning of Existence</className>
+      <subClassOf id="E5" />
+    </class>
+    <class id="E64" external="true">
+      <fullName>E64 End of Existence</fullName>
+      <className>End of Existence</className>
+      <subClassOf id="E5" />
+    </class>
+    <class id="E65" external="true">
+      <fullName>E65 Creation</fullName>
+      <className>Creation</className>
+      <subClassOf id="E7" />
+      <subClassOf id="E63" />
+    </class>
+    <class id="E66" external="true">
+      <fullName>E66 Formation</fullName>
+      <className>Formation</className>
+      <subClassOf id="E7" />
+      <subClassOf id="E63" />
+    </class>
+    <class id="E67" external="true">
+      <fullName>E67 Birth</fullName>
+      <className>Birth</className>
+      <subClassOf id="E63" />
+    </class>
+    <class id="E68" external="true">
+      <fullName>E68 Dissolution</fullName>
+      <className>Dissolution</className>
+      <subClassOf id="E64" />
+    </class>
+    <class id="E69" external="true">
+      <fullName>E69 Death</fullName>
+      <className>Death</className>
+      <subClassOf id="E64" />
+    </class>
+    <class id="E70" external="true">
+      <fullName>E70 Thing</fullName>
+      <className>Thing</className>
+      <subClassOf id="E77" />
+    </class>
+    <class id="E71" external="true">
+      <fullName>E71 Human-Made Thing</fullName>
+      <className>Human-Made Thing</className>
+      <subClassOf id="E70" />
+    </class>
+    <class id="E72" external="true">
+      <fullName>E72 Legal Object</fullName>
+      <className>Legal Object</className>
+      <subClassOf id="E70" />
+    </class>
+    <class id="E73" external="true">
+      <fullName>E73 Information Object</fullName>
+      <className>Information Object</className>
+      <subClassOf id="E89" />
+      <subClassOf id="E90" />
+    </class>
+    <class id="E74" external="true">
+      <fullName>E74 Group</fullName>
+      <className>Group</className>
+      <subClassOf id="E39" />
+    </class>
+    <class id="E77" external="true">
+      <fullName>E77 Persistent Item</fullName>
+      <className>Persistent Item</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E78" external="true">
+      <fullName>E78 Curated Holding</fullName>
+      <className>Curated Holding</className>
+      <subClassOf id="E24" />
+    </class>
+    <class id="E79" external="true">
+      <fullName>E79 Part Addition</fullName>
+      <className>Part Addition</className>
+      <subClassOf id="E11" />
+    </class>
+    <class id="E80" external="true">
+      <fullName>E80 Part Removal</fullName>
+      <className>Part Removal</className>
+      <subClassOf id="E11" />
+    </class>
+    <class id="E81" external="true">
+      <fullName>E81 Transformation</fullName>
+      <className>Transformation</className>
+      <subClassOf id="E63" />
+      <subClassOf id="E64" />
+    </class>
+    <class id="E83" external="true">
+      <fullName>E83 Type Creation</fullName>
+      <className>Type Creation</className>
+      <subClassOf id="E65" />
+    </class>
+    <class id="E85" external="true">
+      <fullName>E85 Joining</fullName>
+      <className>Joining</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E86" external="true">
+      <fullName>E86 Leaving</fullName>
+      <className>Leaving</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E87" external="true">
+      <fullName>E87 Curation Activity</fullName>
+      <className>Curation Activity</className>
+      <subClassOf id="E7" />
+    </class>
+    <class id="E89" external="true">
+      <fullName>E89 Propositional Object</fullName>
+      <className>Propositional Object</className>
+      <subClassOf id="E28" />
+    </class>
+    <class id="E90" external="true">
+      <fullName>E90 Symbolic Object</fullName>
+      <className>Symbolic Object</className>
+      <subClassOf id="E28" />
+      <subClassOf id="E72" />
+    </class>
+    <class id="E92" external="true">
+      <fullName>E92 Spacetime Volume</fullName>
+      <className>Spacetime Volume</className>
+      <subClassOf id="E1" />
+    </class>
+    <class id="E93" external="true">
+      <fullName>E93 Presence</fullName>
+      <className>Presence</className>
+      <subClassOf id="E92" />
+    </class>
+    <class id="E94" external="true">
+      <fullName>E94 Space Primitive</fullName>
+      <className>Space Primitive</className>
+      <subClassOf id="E41" />
+      <subClassOf id="E59" />
+  &amp;lt;gml:coordinates&amp;gt;45.67, 88.56&amp;lt;/gml:coordinates&amp;gt;
+  &amp;lt;/gml:Point&amp;gt;
+  &lt;/pre&gt;
+    </class>
+    <class id="E95" external="true">
+      <fullName>E95 Spacetime Primitive</fullName>
+      <className>Spacetime Primitive</className>
+      <subClassOf id="E41" />
+      <subClassOf id="E59" />
+  &amp;lt;name&amp;gt; Byzantine Empire &amp;lt;/name&amp;gt;
+  &amp;lt;TimeSpan&amp;gt;
+    &amp;lt;begin&amp;gt;330&amp;lt;/begin&amp;gt;
+    &amp;lt;end&amp;gt;1453&amp;lt;/end&amp;gt;
+  &amp;lt;/TimeSpan&amp;gt;
+  &amp;lt;Polygon&amp;gt;
+    &amp;lt;altitudeMode&amp;gt;clampToGround&amp;lt;/altitudeMode&amp;gt;
+    &amp;lt;outerBoundaryIs&amp;gt;
+      &amp;lt;LinearRing&amp;gt;
+        &amp;lt;coordinates&amp;gt;18.452787460,40.85553626,0    17.2223187,40.589098,....0 17.2223,39.783&amp;lt;/coordinates&amp;gt;
+      &amp;lt;/LinearRing&amp;gt;
+    &amp;lt;/outerBoundaryIs&amp;gt;
+  &amp;lt;/Polygon&amp;gt;
+  &amp;lt;/Placemark&amp;gt;
+  &lt;/pre&gt;
+    </class>
+    <class id="E96" external="true">
+      <fullName>E96 Purchase</fullName>
+      <className>Purchase</className>
+      <subClassOf id="E8" />
+    </class>
+    <class id="E97" external="true">
+      <fullName>E97 Monetary Amount</fullName>
+      <className>Monetary Amount</className>
+      <subClassOf id="E54" />
+    </class>
+    <class id="E98" external="true">
+      <fullName>E98 Currency</fullName>
+      <className>Currency</className>
+      <subClassOf id="E58" />
+    </class>
+    <class id="E99" external="true">
+      <fullName>E99 Product Type</fullName>
+      <className>Product Type</className>
+      <subClassOf id="E55" />
+    </class>
+    <class id="I1" external="true">
+      <fullName>I1 Argumentation</fullName>
+      <className>Argumentation</className>
+      <subClassOf id="E13" />
+      <superClassOf id="S4" />
+      <superClassOf id="S5" />
+    </class>
+    <class id="F28" external="true">
+      <fullName>F28 Expression Creation</fullName>
+      <className>Expression Creation</className>
+      <subClassOf id="E12" />
+      <subClassOf id="E65" />
+    </class>
+  </classes>
+  <properties>
+    <property id="TXP1">
+      <fullName>TXP1 used writing system (writing system used for)</fullName>
+      <directName>used writing system</directName>
+      <inverseName>writing system used for</inverseName>
+      <domain id="TX2"/>
+      <range id="TX3"/>
+      <subPropertyOf id="P33"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the specific instance of TX3 Writing System employed during the writing event (TX2) that led to the creation of a written text (TX1).&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Roman stonecutter &lt;em&gt;used writing system &lt;/em&gt;“Latin” (TX3) for the engraving (TX2) of the inscription on the Arch of Constantine (TX1) (see section 1.3.1)&lt;/li&gt;&lt;li&gt;The Greek scribe &lt;em&gt;used writing system &lt;/em&gt;“Greek”&lt;em&gt; &lt;/em&gt;(TX3) to trace (TX2) in ink the letters that compose the text of the Papyrus of Derveni (TX1).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP1(x,y) ⇒ TX2(x)&lt;/p&gt;&lt;p&gt;TXP1(x,y) ⇒ TX3(y)&lt;/p&gt;&lt;p&gt;TXP1(x,y) ⇒ P33(x,y)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP2">
+      <fullName>TXP2 includes (is included within)</fullName>
+      <directName>includes</directName>
+      <inverseName>is included within</inverseName>
+      <domain id="TX4"/>
+      <range id="TX1"/>
+      <subPropertyOf id="P56"/>
+      <quantification>one to many (0,n:0,1)</quantification>
+      <scopeNote>&lt;p&gt;This property describes the relation existing between a TX1 Written Text and the TX4 Writing Field, specifically created to accommodate the text, within which it is inscribed. This relation becomes quite relevant in the very frequent case where more than a single text is found on different areas of a specific support.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The South framework (TX4) carved by the Roman stonecutter on top of the Arch &lt;em&gt;includes &lt;/em&gt;the inscription on the South face of the Arch of Constantine (TX1).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP2(x,y) ⇒ TX1(x)&lt;/p&gt;&lt;p&gt;TXP2(x,y) ⇒ TX4(y)&lt;/p&gt;&lt;p&gt;TXP2(x,y) ⇒ P56(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP4">
+      <fullName>TXP4 has segment (is segment of)</fullName>
+      <directName>has segment</directName>
+      <inverseName>is segment of</inverseName>
+      <domain id="TX1"/>
+      <range id="TX7"/>
+      <subPropertyOf id="P46"/>
+      <quantification>one to many (0,n:0,1)</quantification>
+      <scopeNote>&lt;p&gt;This property is intended to correlate a text and the different parts of it which a scholar can identify, such as: letters, words, lines, columns, pages, or any other scan that can be made by scholars because it is considered to have a particular relevance for the investigation of the text itself.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The “INSTINCTV DIVINITATIS” text portion &lt;em&gt;is segment of&lt;/em&gt; the inscription (TX1) on the Arch of Constantine reported and commented by Rodolfo Lanciani in 1892 in his book &lt;em&gt;Pagan and Christian Rome&lt;/em&gt; (see section 1.3.1).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP4(x,y) ⇒ TX1(x)&lt;/p&gt;&lt;p&gt;TXP4(x,y) ⇒ TX7(y)&lt;/p&gt;&lt;p&gt;TXP4(x,y) ⇒ P46(x,y)&lt;/p&gt;&lt;p&gt;TXP4 (x,y) ∧ TX9(x) ⇒ ¬TX7(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP5">
+      <fullName>TXP5 wrote (was written by)</fullName>
+      <directName>wrote</directName>
+      <inverseName>was written by</inverseName>
+      <domain id="TX2"/>
+      <range id="TX1"/>
+      <subPropertyOf id="P108"/>
+      <quantification>one to one (0,1:1,1)</quantification>
+      <scopeNote>&lt;p&gt;This property is used to describe in detail the close relationship between a text and the writing event that led to its production.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The activity (TX2) carried out by the Greek stonecutters &lt;em&gt;wrote &lt;/em&gt;the Gortyn Law inscription (TX1) on  the wall of the Amphitheatre of Gortyn, Crete.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP5(x,y) ⇒ TX2(x)&lt;/p&gt;&lt;p&gt;TXP5(x,y) ⇒ TX1(y)&lt;/p&gt;&lt;p&gt;TXP5(x,y) ⇒ P108(x,y)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP6">
+      <fullName>TXP6 encodes (is encoding of)</fullName>
+      <directName>encodes</directName>
+      <inverseName>is encoding of</inverseName>
+      <domain id="TX3"/>
+      <range id="E56"/>
+      <subPropertyOf id="P2"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property is used to indicate the language encoded by the TX3 Writing System and used for writing, reading or rendering (i.e. transcribing) a TX1 Written Text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin alphabet (TX3), used to encode the identical inscriptions (TX1) on the Arch of Constantine, &lt;em&gt;encodes&lt;/em&gt; the Latin language (E56) used to convey the message of the inscriptions.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP6(x,y) ⇒ TX3(x)&lt;/p&gt;&lt;p&gt;TXP6(x,y) ⇒ E56(y)&lt;/p&gt;&lt;p&gt;TXP6(x,y) ⇒ P2(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP7">
+      <fullName>TXP7 has item (is item of)</fullName>
+      <directName>has item</directName>
+      <inverseName>is item of</inverseName>
+      <domain id="TX13"/>
+      <range id="TX8"/>
+      <subPropertyOf id="P67"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX13 Script with an instance of TX8 Grapheme employed by this script. Different instances of TX13 Script may have some graphemes in common.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin script (TX13) &lt;em&gt;has item &lt;/em&gt;the ideal capital letter “S”.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP7(x,y) ⇒ TX3(x)&lt;/p&gt;&lt;p&gt;TXP7(x,y) ⇒ TX8(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP8">
+      <fullName>TXP8 has component (is component of)</fullName>
+      <directName>has component</directName>
+      <inverseName>is component of</inverseName>
+      <domain id="TX1"/>
+      <range id="TX9"/>
+      <subPropertyOf id="P46"/>
+      <quantification>one to many (0,n:0,1)</quantification>
+      <scopeNote>&lt;p&gt;This property is used to state the (physical) belonging of a glyph to a given TX1 Written Text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The inscription (TX1) on the South face of the Arch of Constantine, &lt;em&gt;has component &lt;/em&gt;the S-shaped glyph (TX9) engraved on the second line, representing the letter (TX8) “S” of the Latin writing system (TX3).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP8(x,y) ⇒ TX1(x)&lt;/p&gt;&lt;p&gt;TXP8(x,y) ⇒ TX9(y)&lt;/p&gt;&lt;p&gt;TXP8(x,y) ⇒ P46(x,y)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP9">
+      <fullName>TXP9 is encoded using (was used to encode)</fullName>
+      <directName>is encoded using</directName>
+      <inverseName>was used to encode</inverseName>
+      <domain id="TX1"/>
+      <range id="TX3"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property has the purpose of directly associating a TX1 Written Text with the TX3 Writing System used for encoding it. It is a shortcut of the more fully articulated path from TX1 Written Text through &lt;em&gt;TXP5i was written by&lt;/em&gt;, TX2 Writing, &lt;em&gt;TXP1 used writing system&lt;/em&gt; to TX3 Writing System.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Gortyn Law inscriptions (TX1), engraved on the wall of the Amphitheatre of Gortyn (Crete), &lt;em&gt;is encoded using&lt;/em&gt; the Greek alphabet (TX3). &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP9(x,y) ⇒ TX1(x)&lt;/p&gt;&lt;p&gt;TXP9(x,y) ⇒ TX3(y)&lt;/p&gt;&lt;p&gt;TXP9(x,y) ⇔ (∃z)[TX2(z)] ˄ TXP5(z, x) ˄ TXP1(z, y)]&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP10">
+      <fullName>TXP10 deciphered text (was deciphered by)</fullName>
+      <directName>deciphered text</directName>
+      <inverseName>was deciphered by</inverseName>
+      <domain id="TX5"/>
+      <range id="E24"/>
+      <subPropertyOf id="O8"/>
+      <quantification>one to one (0,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX5 Text Recognition with an instance of E24 Physical Human-Made Thing carrying a glyph or a sequence of glyphs that was recognized in the respective activity of text recognition. Typically, the associated instance of E24 Physical Human-Made Thing is more specifically an instance of TX1 Written Text, however, a text may also be recognized from a mechanical copy, a photograph, squeeze or other form of material copy of a written original, which would not by itself constitute an instance of TX1 Written Text. In the latter case, the material copy should be associated with the original written text using the property ‘P130 shows features’.&lt;/p&gt;&lt;p&gt;If the text was actually recognized only from a digital representation, this property should not be used, rather the property &lt;em&gt;TXP13 deciphered via the representation&lt;/em&gt; should be used instead.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The autoptic investigation (TX5) carried out by Rodolfo Lanciani between 1893 and 1901, &lt;em&gt;deciphered &lt;/em&gt;the South inscription (TX1) on the Arch of Constantine.&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP10(x,y) ⇒ TX5(x)&lt;/p&gt;&lt;p&gt;TXP10(x,y) ⇒ E24(y)&lt;/p&gt;&lt;p&gt;TXP10(x,y) ⇒ O8(x,y)&lt;/p&gt;&lt;p&gt;TXP10(x, z1) ∧ TXP14(x, z2)  ⇒ P130(z1, z2)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP11">
+      <fullName>TXP11 transcribed (was transcribed by)</fullName>
+      <directName>transcribed</directName>
+      <inverseName>was transcribed by</inverseName>
+      <domain id="TX6"/>
+      <range id="TX12"/>
+      <subPropertyOf id="P16"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property describes the relation between an activity of TX6&lt;em&gt; &lt;/em&gt;Transliteration and the identified sequence of graphemes (TX12) represented in an instance of TX1 Written Text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The transcription (TX6) of the S-shaped feature engraved on the second line of the South inscription of the Arch of Constantine &lt;em&gt;transcribed&lt;/em&gt; the prototypical letter “S” (TX8) of the Latin writing system (TX3).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP11(x,y) ⇒ TX6(x)&lt;/p&gt;&lt;p&gt;TXP11(x,y) ⇒ TX12(y)&lt;/p&gt;&lt;p&gt;TXP11(x,y) ⇒ P16(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP12">
+      <fullName>TXP12 has style (is style of)</fullName>
+      <directName>has style</directName>
+      <inverseName>is style of</inverseName>
+      <domain id="TX1"/>
+      <range id="TX10"/>
+      <subPropertyOf id="P33"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property describes information about the style used for the realization of the written text (TX1). The property &lt;em&gt;TXP12.1 has type&lt;/em&gt; allows the nature of the style to be specified, for example to record the direction, orientation or the linear system of the text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin text in the Carolingian Gospel Book identified as “British Library, Add MS 11848”&lt;sup&gt;&lt;sup&gt;&lt;a href="#footnote-10" id="footnote-ref-10"&gt;[10]&lt;/a&gt;&lt;/sup&gt;&lt;/sup&gt;, &lt;em&gt;has style&lt;/em&gt; “Carolingian minuscule”&lt;/li&gt;&lt;li&gt;The inscription (TX1) on the Arch of Constantine &lt;em&gt;has style&lt;/em&gt; ductus (TX10) &lt;em&gt;has type&lt;/em&gt; dextroverse (E55) &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP12(x,y) ⇒ TX1(x)&lt;/p&gt;&lt;p&gt;TXP12(x,y) ⇒ TX10(y)&lt;/p&gt;&lt;p&gt;TXP12(x,y) ⇒ P33(x,y)&lt;/p&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="TXP12.1">
+        <identifierText>&lt;p&gt;TXP12.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55"/>
+      </propertyOfProperty>
+    </property>
+    <property id="TXP13">
+      <fullName>TXP13 deciphered via the representation (was representation used for deciphering)</fullName>
+      <directName>deciphered via the representation</directName>
+      <inverseName>was representation used for deciphering</inverseName>
+      <domain id="TX5"/>
+      <range id="E36"/>
+      <subPropertyOf id="P16"/>
+      <quantification>one to one (0,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX5 Text Recognition with an instance of  E36 Visual Item, capturing the optical impression of an instance of TX1 Written Text by some mechanical method, that was used for recognizing the text without access to the original text and without an explicitly documented material copy or electronic display device that was used for the process.&lt;/p&gt;&lt;p&gt;If the text was actually recognized from an autoptic recognition or from a material reproduction, this property may not be used but the property “TXP10 deciphered text (was deciphered by)” should be used instead.&lt;/p&gt;&lt;p&gt;This property should also not be used, if the recognition of the text was actually carried out from the original text or a material copy of it together with an auxiliary instance of E36 Visual Item. In this case, the use of the auxiliary material should be documented with the more general property &lt;em&gt;P16 used specific object.&lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The recognition of text in the Antikythera mechanism (TX5) &lt;em&gt;deciphered via the representation&lt;/em&gt; produced using BTI imaging (E36). &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP13(x,y) ⇒ TX5(x)&lt;/p&gt;&lt;p&gt;TXP13(x,y) ⇒ E36(y)&lt;/p&gt;&lt;p&gt;TXP13(x,y) ⇒ P16(x,y)&lt;/p&gt;&lt;p&gt;TXP13(x, y) ⇒ (∃z) [TXP14(x, z) ∧ P138(y, z) ^ ¬TXP10(x, z)]&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP14">
+      <fullName>TXP14 used copy or representation of (was deciphered via copy or representation)</fullName>
+      <directName>used copy or representation of</directName>
+      <inverseName>was deciphered via copy or representation</inverseName>
+      <domain id="TX5"/>
+      <range id="TX1"/>
+      <subPropertyOf id="P16"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX5 Text Recognition, carried out only via copies or representations of a text, with the original instance of TX1 Written Text that was represented on the used copies or digital surrogates.&lt;/p&gt;&lt;p&gt;This property is to be used only for non-autoptic recognition. If this particular recognition of the text was actually carried out from the original text, the property &lt;em&gt;TXP10 deciphered text&lt;/em&gt; should be used for associating the instance of  TX5 Text Recognition with the original instance of TX1 Written Text.&lt;/p&gt;&lt;p&gt;If some form of material copy of the written text was used for the text recognition, then this material copy should be associated with the original written text using the property ‘P130 shows features of’.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The non-autoptic recognition of the inscription text on the Arch of Constantine (TX5) &lt;em&gt;used a copy or representation of&lt;/em&gt; the written text (TX1) on the Arch of Constantine [performed using a photo of the arch].&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP14(x,y) ⇒ TX5(x)&lt;/p&gt;&lt;p&gt;TXP14(x,y) ⇒ TX1(y)&lt;/p&gt;&lt;p&gt;TXP14(x,y) ⇒ P16(x,y)&lt;/p&gt;&lt;p&gt;TPX14(x, z2) ∧ TXP10(x, z1) ⇒ P130(z2, z1)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP15">
+      <fullName>TXP15 recorded correspondence (was recorded by)</fullName>
+      <directName>recorded correspondence</directName>
+      <inverseName>was recorded by</inverseName>
+      <domain id="TX5"/>
+      <range id="TX12"/>
+      <subPropertyOf id="P94"/>
+      <quantification>one to one (0,1:1,1)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX5 Text Recognition with an instance of  TX12 Grapheme Sequence that was created by this activity of text recognition for recording and representing as faithfully as possible the exact value of each sign on the physical material of the recognized instance of TX1 Written Text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The autoptic investigation carried out by Rodolfo Lanciani  (TX5) &lt;em&gt;recorded correspondence &lt;/em&gt;the grapheme sequence ‘INSTINCTV DIVINITATIS’ on the Arch of Constantine (TX12) .&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP15(x,y) ⇒ TX5(x)&lt;/p&gt;&lt;p&gt;TXP15(x,y) ⇒ TX12(y)&lt;/p&gt;&lt;p&gt;TXP15(x,y) ⇒ P94(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP16">
+      <fullName>TXP16 employs script (is employed by)</fullName>
+      <directName>employs script</directName>
+      <inverseName>is employed by</inverseName>
+      <domain id="TX3"/>
+      <range id="TX13"/>
+      <subPropertyOf id="P148"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX3 Writing System with one of the instances of the script (TX13) it employs.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Latin writing system used in the inscription of the Arch of Constantine (TX3) &lt;em&gt;employs script&lt;/em&gt; the Latin script (TX13).&lt;/li&gt;&lt;li&gt;The Oscan writing system used in the inscription of the Tabula Bantina (TX3) &lt;em&gt;employs script&lt;/em&gt; the Latin script (TX13).&lt;/li&gt;&lt;li&gt;The Oscan writing system (TX3) used in the inscription of the Arch of Constantine &lt;em&gt;employs script&lt;/em&gt; the Greek script (TX13).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP16(x,y) ⇒ TX3(x)&lt;/p&gt;&lt;p&gt;TXP16(x,y) ⇒ TX13(y)&lt;/p&gt;&lt;p&gt;TXP16 (x,y) ⇒ P148(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP17">
+      <fullName>TXP17 has part (forms part of)</fullName>
+      <directName>has part</directName>
+      <inverseName>forms part of</inverseName>
+      <domain id="TX12"/>
+      <range id="TX12"/>
+      <subPropertyOf id="P106"/>
+      <quantification>one to many (0,n:0,1)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX12 Grapheme Sequence with another instance of TX12 Grapheme Sequence appearing at a particular position of the sequence. The property can be also used by an instance of TX11 Grapheme Occurrence (subclass of TX12 Grapheme Sequence) for denoting that a grapheme occurrence has part another grapheme occurrence. Note that a grapheme occurrence may be a symbolic composite containing another grapheme occurrence, such as the minute character “e” on top of the character “u” in former German writing systems denoting the symbol for “ü”.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The “DIVINITATIS” grapheme sequence (TX12), corresponding to the glyph sequence of the inscription (TX1) on the Arch of Constantine, &lt;em&gt;has part&lt;/em&gt; the “AT” grapheme sequence (TX12) [which appears to be damaged].&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP17(x,y) ⇒ TX12(x)&lt;/p&gt;&lt;p&gt;TXP17(x,y) ⇒ TX12(y)&lt;/p&gt;&lt;p&gt;TXP17(x,y) ⇒ P106(x,y)&lt;/p&gt;&lt;p&gt;&lt;strong&gt;	       	&lt;/strong&gt;TXP17(x,y) ∧ TX11(x) ⇒ ¬TX12(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="TXP18">
+      <fullName>TXP18 read (was read by)</fullName>
+      <directName>read</directName>
+      <inverseName>was read by</inverseName>
+      <domain id="TX14"/>
+      <range id="TX1"/>
+      <subPropertyOf id="P16"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of TX14 Reading with an instance of TX1 Written Text whose linguistic meaning was interpreted/understood through the reading process. It is a shortcut of the fully developed path from TX14 Reading through &lt;em&gt;P9 consists of&lt;/em&gt;, TX5 Text Recognition, &lt;em&gt;TXP10 deciphered tex&lt;/em&gt;t, to TX1 Written Text.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Reading the Greek text present on the Derveni papyrus (TX14) &lt;em&gt;read &lt;/em&gt;the papyrus (TX1) [interpreted the linguistic meaning that was carried by it]  &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;TXP18(x,y) ⇒ TX14(x)&lt;/p&gt;&lt;p&gt;TXP18(x,y) ⇒ TX1 (y)&lt;/p&gt;&lt;p&gt;TXP18(x,y) ⇒ P16(x,y)&lt;/p&gt;&lt;p&gt;TXP18(x,y) ⇒ (∃z) [TX5(z) ˄ P9(x,z) ˄ TXP10(z, y)]&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+
+    <!-- ============================================================== -->
+    <!--                 BEGIN EXTERNAL PROPERTIES                      -->
+    <!-- ============================================================== -->
+    <property id="O1" external="true">
+      <fullName>O1 diminished (was diminished by)</fullName>
+      <directName>diminished</directName>
+      <inverseName>was diminished by</inverseName>
+      <domain id="S1"/>
+      <range id="S10"/>
+      <superPropertyOf id="P112"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S1 Matter Removal with the instance of S10 Material Substantial that this activity diminished.&lt;/p&gt;&lt;p&gt;Although an instance of S1 Matter Removal activity normally concerns only one item of S10 Material Substantial, it is possible to imagine circumstances under which more than one item might be diminished by a single Matter Removal activity.&lt;/p&gt;&lt;p&gt;An instance S1 Matter Removal activity requires to diminish at least one item of S10 Material Substantial. This may be realized by any of the subproperties of O1 &lt;em&gt;diminished&lt;/em&gt;. Therefore the instantiation of a particular subproperty of O1 &lt;em&gt;diminished &lt;/em&gt;is not necessary.&lt;em&gt; &lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The removal of the fill from the interior of the ‘tomb of Lagadas’ at Derveni Thessaloniki by the excavators in 1995 (S1) diminished the width of the cross-section of the burial chamber and the fill of the façade. (S10) (Papasotiriou et al., 2010).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O1(x,y) ⇒ S1(x)&lt;/p&gt;&lt;p&gt;O1(x,y) ⇒ S10(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O2" external="true">
+      <fullName>O2 removed (was removed by)</fullName>
+      <directName>removed</directName>
+      <inverseName>was removed by</inverseName>
+      <domain id="S1"/>
+      <range id="S11"/>
+      <superPropertyOf id="O5"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S1 Matter Removal with the instance of S11 Amount of Matter that it has removed.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The ‘La Gioconda of the Prado’ layer removal by the conservators of Prado Museum in Madrid (S1) removed the layer of black overpainting (S11) that covered the background of it (Museo del Prado, 2012)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O2(x,y) ⇒ S1(x)&lt;/p&gt;&lt;p&gt;O2(x,y) ⇒ S11(y)&lt;/p&gt;&lt;p&gt;O2(x,y) ⇒ O1(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O3" external="true">
+      <fullName>O3 sampled from (was sample by)</fullName>
+      <directName>sampled from</directName>
+      <inverseName>was sample by</inverseName>
+      <domain id="S2"/>
+      <range id="S10"/>
+      <superPropertyOf id="O27"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S2 Sample Taking with the instance S10 Material Substantial from which a sample was taken. In particular, it may be a feature or a fluid body from which a sample was removed.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Water Sample Taking 74001(S2) sampled from the acquifer (S10) that overlaps with borehole 10/G5 (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;li&gt;The collection (S2) of micro-sample 7, sampled from the painting (S10) ‘Cupid complaining to Venus’ (Cranach) by Joyce Plesters in June 1963 (The National Gallery, London, 1963).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O3(x,y) ⇒ S2(x)&lt;/p&gt;&lt;p&gt;O3(x,y) ⇒ S10(y)&lt;/p&gt;&lt;p&gt;O3(x,y) ⇒ O2(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O4" external="true">
+      <fullName>O4 sampled at (was sampling location of)</fullName>
+      <directName>sampled at</directName>
+      <inverseName>was sampling location of</inverseName>
+      <domain id="S2"/>
+      <range id="E53"/>
+      <quantification>necessary one to many (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S2 Sample Taking with the instance of E53 Place ("spot") at which this activity sampled. It identifies the narrowest relevant area on the material substantial from which the sample was taken. This may be known or given in absolute terms or relative to an instance of the material substantial from which it was taken. If samples are taken from more than one spot, the sample taking activity must be documented by separate instances for each spot.&lt;/p&gt;&lt;p&gt;The property P7 took place at, inherited from E4 Period, describes the position of the area in which the sampling activity occurred; this latter comprises the space within which operators and instruments were contained during the activity, and the sample taking spot.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Water Sample Taking 74001(S2) sampled at borehole 10/G5 at depth 0 which falls within the water district 10/G5 in Central Macedonia (E53) (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;li&gt;The collection (S2) of micro-sample 7 (S13) sampled at the area of the apple (E53) shown on the painting ‘Cupid complaining to Venus’ (Cranach) (The National Gallery, London, 1963)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O4(x,y) ⇒ S2(x)&lt;/p&gt;&lt;p&gt;O4(x,y) ⇒ E53(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O5" external="true">
+      <fullName>O5 removed (was removed by)</fullName>
+      <directName>removed</directName>
+      <inverseName>was removed by</inverseName>
+      <domain id="S2"/>
+      <range id="S13"/>
+      <superPropertyOf id="O29"/>
+      <subPropertyOf id="O2"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S2 Sample Taking with the instance of S13 Sample that was taken during the activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Lithology Sample Taking 201 (S2) removed&lt;em&gt; &lt;/em&gt;sample 2B (S13) (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;li&gt;The sampling (S2) undertaken by Joyce Plesters in June 1963 while she was working on the painting ‘Cupid complaining to Venus’ (Cranach), removed micro-sample 7 (S13) (The National Gallery, London, 1963).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O5(x,y) ⇒ S2(x)&lt;/p&gt;&lt;p&gt;O5(x,y) ⇒ S13(y)&lt;/p&gt;&lt;p&gt;O5(x,y) ⇒ O2(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O6" external="true">
+      <fullName>O6 is former or current part of (has former or current part)</fullName>
+      <directName>is former or current part of</directName>
+      <inverseName>has former or current part</inverseName>
+      <domain id="S12"/>
+      <range id="S14"/>
+      <subPropertyOf id="O25"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S12&lt;em&gt; &lt;/em&gt;Amount of Fluid with an instance of S14 Fluid Body which formed or forms part of it. It allows instances of S14 Fluid Body to be analyzed into elements of S12 Amount of Fluid.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;J.K.’s blood sample 0019FCF5 (S12) is former or current part of J.K.’s blood (S14) (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O6(x,y) ⇒ S12(x)&lt;/p&gt;&lt;p&gt;O6(x,y) ⇒ S14(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O7" external="true">
+      <fullName>O7 confines (is confined by)</fullName>
+      <directName>confines</directName>
+      <inverseName>is confined by</inverseName>
+      <domain id="S20"/>
+      <range id="S10"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S20 Rigid Physical Feature with an instance of S10 Material Substantial that it partially or completely confines. It describes cases in which rigid features such as stratigraphic layers, walls, dams, riverbeds, etc. form the boundaries of some item such as another stratigraphic layer or the waters of a river.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Stavros – Farsala artesian acquifer (S20) confines the overexploited groundwater of the area (S10) (Rozos et al., 2017)&lt;/li&gt;&lt;li&gt;The posthole (S20) confines the organic material (S10) identified in the 1997 analysis of the post holes of the structure 2 in the Tutu archaeological village site (Righter, 2002)&lt;/li&gt;&lt;li&gt;Borehole No1234 confines&lt;em&gt; &lt;/em&gt;intake No5 (Lucchese et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013 Kritikos et al., 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O7(x,y) ⇒ S20(x)&lt;/p&gt;&lt;p&gt;O7(x,y) ⇒ S10(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O8" external="true">
+      <fullName>O8 observed (was observed by)</fullName>
+      <directName>observed</directName>
+      <inverseName>was observed by</inverseName>
+      <domain id="S4"/>
+      <range id="S15"/>
+      <superPropertyOf id="O24"/>
+      <superPropertyOf id="O32"/>
+      <subPropertyOf id="P140"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S4 Observation with an instance of S15 Observable Entity that was observed. Specifically it describes that a thing, a feature, a phenomenon or its reaction is observed by an activity of Observation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The engineers’ observation on the slope of Panagopoula coastal site, near Patras, on the 25th–26th April 1971 and the 3rd May 1971(S4) &lt;em&gt;observed&lt;/em&gt; the rotational landslide at the same site (S15) (Tavoularis et al., 2017).&lt;/li&gt;&lt;li&gt;The survey (S4) of Sinai MS GREEK 418 observed a detached triple-braided clasp strap (S15) (Honey and Pickwoad, 2010).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O8(x,y) ⇒ S4(x)&lt;/p&gt;&lt;p&gt;O8(x,y) ⇒ S15(y)&lt;/p&gt;&lt;p&gt;O8(x,y) ⇒ P140(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O9" external="true">
+      <fullName>O9 observed property type (property type was observed by)</fullName>
+      <directName>observed property type</directName>
+      <inverseName>property type was observed by</inverseName>
+      <domain id="S4"/>
+      <range id="S9"/>
+      <subPropertyOf id="P177"/>
+      <quantification>one to one (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S4 Observation with the instance of S9 Property Type for which the observation provides a value or evidence, such as “concentration of nitrate” observed in the water from a particular borehole. Encoding the observed property by type, observed entity and value (properties O9, O10, O16) is a method to circumscribe the reification of the observed property by the respective instance of S4 Observation.&lt;/p&gt;&lt;p&gt;In an RDFS encoding, this circumscription can be transformed into an explicit representation of the observed property in terms of a formal ontology either by use of a reification construct or by the use of a Named Graph containing the observed property. The latter representation allows for more formal reasoning with the model, the former is more flexible about the kinds of observations.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The seismic hazard analysis and recording by EPPO in 1990 (S4), in the area of Attiki observed property type share wave velocity (S9) and recorded it (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;li&gt;The Gas Chromatography analysis (S4) of the sample ‘mid-blue paint from the sky’ observed property type retention time (S9). (Foister, 2015)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O9(x,y) ⇒ S4(x)&lt;/p&gt;&lt;p&gt;O9(x,y) ⇒ S9(y)&lt;/p&gt;&lt;p&gt;O9(x,y) ⇒ P177(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O10" external="true">
+      <fullName>O10 assigned dimension (dimension was assigned by)</fullName>
+      <directName>assigned dimension</directName>
+      <inverseName>dimension was assigned by</inverseName>
+      <domain id="S6"/>
+      <range id="E54"/>
+      <subPropertyOf id="P141"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S6 Data Evaluation with an instance of E54 Dimension that a data evaluation activity has assigned. In that case, dimensions may be determined by making evaluations on observational data based on mathematical inference rules and calculations.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The shock wave recording (S6) carried out by EPPO in 1999 assigned dimension PSA_10(E54) [The dimension had value 0.0008.] (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O10(x,y) ⇒ S6(x)&lt;/p&gt;&lt;p&gt;O10(x,y) ⇒ E54(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O11" external="true">
+      <fullName>O11 described (was described by)</fullName>
+      <directName>described</directName>
+      <inverseName>was described by</inverseName>
+      <domain id="S6"/>
+      <range id="S15"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S6 Data Evaluation with an instance of S15 Observable Entity for which a data evaluation activity provides a description. This description of any Observable Entity is based on data evaluations.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The quantitative analysis of Munsell colour data carried out by C.T. Brown in 1999 in Yukatan, Mexico (S6) described the slipped sherds of Mayapan period ceramics (S15) (Ruck and Brown, 2015).&lt;/li&gt;&lt;li&gt;The linear extrapolation of overall figure height from the size of the fingers (S6) described the statue of Hercules (S15) [The statue is located in Amman] (‘Temple of Hercules (Amman)’, Wikipedia, 2022).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O11(x,y) ⇒ S6(x)&lt;/p&gt;&lt;p&gt;O11(x,y) ⇒ S15(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O12" external="true">
+      <fullName>O12 has dimension (is dimension of)</fullName>
+      <directName>has dimension</directName>
+      <inverseName>is dimension of</inverseName>
+      <domain id="S15"/>
+      <range id="E54"/>
+      <quantification>one to many, dependent (0,n:1,1)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S15 Observable Entity with an instance of E54 Dimension that the observable entity has. It offers no information about how and when an E54 Dimension was established. In case the instance of S15 Observable Entity is more specifically an instance of E18 Physical Thing, using the property O12 has dimension (is dimension of) is equivalent to using the property P43 has dimension (is dimension of). In other words, using the one implies the other.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The earthquake of Mexico city in 2017 (E7) has dimension magnitude 6.2 Richter (Mindock, 2017). &lt;/li&gt;&lt;li&gt;The landslide that was activated in Parnitha in 1999 after the earthquake (E26), has dimension crest length &amp;gt; 70 (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O12(x,y) ⇒ S15(x)&lt;/p&gt;&lt;p&gt;O12(x,y) ⇒ E54(y)&lt;/p&gt;&lt;p&gt;[O12(x,y) ∧ E18(x)] ⇒ P43(x,y)&lt;/p&gt;&lt;p&gt;[P43(x,y) ∧ E18(x)] ⇒ O12(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O13" external="true">
+      <fullName>O13 triggered (was triggered by)</fullName>
+      <directName>triggered</directName>
+      <inverseName>was triggered by</inverseName>
+      <domain id="E5"/>
+      <range id="E5"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E5 Event that triggered another instance of E5 Event with the latter. It identifies the interaction between events: an event can activate (trigger) other events in a target system that is in a situation of sustained tension, such as a trap or an unstable mountain slope giving way to a land slide after a rain or earthquake. In that sense the triggering event is interpreted as a cause. However, the association of the two events is based on their temporal proximity, with the triggering event ending when the triggered event starts.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The earthquake of Parnitha in 1999 (E5) triggered the rotational landslide that was observed along the road on the same day (E5). (fictitious)&lt;/li&gt;&lt;li&gt;The explosion at the Montserrat massif in 2007 (E5) (near Barcelona, Spain) triggered the&lt;em&gt; &lt;/em&gt;rock fall event (E5) which happened on 2007-02-14 (Vilajosana et al., 2008).&lt;/li&gt;&lt;li&gt;The 1966 flood in Florence (E5) triggered mould growth on books (E5) stored in flooded library rooms (Rubinstein, N., 1966)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O13(x,y) ⇒ E5(x)&lt;/p&gt;&lt;p&gt;O13(x,y) ⇒ E5(y)&lt;/p&gt;&lt;p&gt;O13(x,y) ⇒ P182(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O15" external="true">
+      <fullName>O15 occupied (was occupied by)</fullName>
+      <directName>occupied</directName>
+      <inverseName>was occupied by</inverseName>
+      <domain id="S10"/>
+      <range id="E53"/>
+      <scopeNote>&lt;p&gt;This property associates an instance of S10 Material Substantial with the instance of E53 Place that this substance occupied. It describes the space filled (occupied) by a physical matter. This property is the development of the shortcut expressed in the proposition of classification: “S20 Physical Feature” isA “E53 Place”. This property is equivalent to P156 occupies (is occupied by) with domain E18 Physical Thing and range E53 Place.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The layer of pink plaster that occupied the block 30 floor of the area X. on 2009-02-03. [The plaster covered the floor] (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O15(x,y) ⇒ S10(x)&lt;/p&gt;&lt;p&gt;O15(x,y) ⇒ E53(y)&lt;/p&gt;&lt;p&gt;O15(x,y) ∧ E18(x) ⇔ P156(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O16" external="true">
+      <fullName>O16 observed value (value was observed by)</fullName>
+      <directName>observed value</directName>
+      <inverseName>value was observed by</inverseName>
+      <domain id="S4"/>
+      <range id="E1"/>
+      <superPropertyOf id="O30"/>
+      <superPropertyOf id="P40"/>
+      <subPropertyOf id="P141"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates a value assigned to an entity observed by S4 Observation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The surface survey at the bronze age site of Mitrou in east Lokris carried out by Cornell University in 1989 (S4) observed value 600 (of sherds) (E1) (Kramer-Hajos and O’Neill, 2008).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O16(x,y) ⇒ S4(x)&lt;/p&gt;&lt;p&gt;O16(x,y) ⇒ E1(y)&lt;/p&gt;&lt;p&gt;O16(x,y) ⇒ P141(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O17" external="true">
+      <fullName>O17 generated (was generated by)</fullName>
+      <directName>generated</directName>
+      <inverseName>was generated by</inverseName>
+      <domain id="S17"/>
+      <range id="E18"/>
+      <superPropertyOf id="P108"/>
+      <subPropertyOf id="O18"/>
+      <quantification>one to many, necessary (1,n:0,1)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S17 Physical Genesis event with an instance of E18 Physical Thing that the event generated.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The landslide of Parnitha in 1999 generated the head of the landslide feature. (fictitious)&lt;/li&gt;&lt;li&gt;The mud flow in the western region of Thessaly million years ago generated&lt;em&gt; &lt;/em&gt;the deposits of solidified mud with irregular surface in the area. (fictitious)&lt;/li&gt;&lt;li&gt;The introduction of my copper samples in the salt-spray apparatus (S17) generated new corrosion layers of cuprite and malachite (E18). (Velios, 1998)&lt;/li&gt;&lt;/ul&gt;</examples>
+    </property>
+    <property id="O18" external="true">
+      <fullName>O18 altered (was altered by)</fullName>
+      <directName>altered</directName>
+      <inverseName>was altered by</inverseName>
+      <domain id="S18"/>
+      <range id="E18"/>
+      <superPropertyOf id="P31"/>
+      <superPropertyOf id="O17"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S18 Alteration process with an instance of E18 Physical Thing which was altered by this activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The death of the trees caused by beetle infestation in 1995 (S18), altered the Brazilian forest (E18) (Paine, 2008). &lt;/li&gt;&lt;li&gt;The application of tension (S18) altered the humidified parchment of the Lanhydrock Pedigree (E18) (Pickwoad, 2010).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O18(x,y) ⇒ S18(x)&lt;/p&gt;&lt;p&gt;O18(x,y) ⇒ E18(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O19" external="true">
+      <fullName>O19 encountered object (was object encountered through)</fullName>
+      <directName>encountered object</directName>
+      <inverseName>was object encountered through</inverseName>
+      <domain id="S19"/>
+      <range id="E18"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S19 Encounter Event with an instance of E18 Physical Thing that was encountered or observed as present during the event.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The encounter of a marble floor during the digging of a well in 1750 (S19) encountered object the Villa of the Papyri in Herculaneum (E18). (Sider, 1990, p. 536)&lt;/li&gt;&lt;li&gt;The encounter of oak planks from a ship during a dig in a mound at the farm Lille Oseberg in Norway, in 1904 (S19) encountered object the Oseberg Ship (E18). (Ferguson, 2009, p.10-11)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O19(x,y) ⇒ S19(x)&lt;/p&gt;&lt;p&gt;O19(x,y) ⇒ E18(y)&lt;/p&gt;&lt;p&gt;O19(x,y) ⇒ (∃z)[ E53(z) ∧ O21(x,z)]&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O20" external="true">
+      <fullName>O20 sampled from type of part (type of part was sampled by)</fullName>
+      <directName>sampled from type of part</directName>
+      <inverseName>type of part was sampled by</inverseName>
+      <domain id="S2"/>
+      <range id="E55"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates the activity of a Sample Taking with the type of the location part from which a sample was taken. It is a shortcut of the property O4 sampled at, and it is used as an alternative property, identifying features and material substantial as types of parts of sampling positions.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The sampling (S2) of tissue for DNA analysis of human remains in an archaeological site, sampled from type of part molar tooth (E55). (fictitious)&lt;/li&gt;&lt;li&gt;The sampling (S2) undertaken by Joyce Plesters in June 1963 while she was working on the painting ‘Cupid complaining to Venus’ (Cranach), sampled from type of part paint (E55). (The National Gallery, London, 1963)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O20(x,y) ⇒ S2(x)&lt;/p&gt;&lt;p&gt;O20(x,y) ⇒ E55(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O21" external="true">
+      <fullName>O21 encountered at (witnessed encounter)</fullName>
+      <directName>encountered at</directName>
+      <inverseName>witnessed encounter</inverseName>
+      <domain id="S19"/>
+      <range id="E53"/>
+      <quantification>many to many, necessary (1,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S19 Encounter Event with an instance of E53 Place at which the things, which were encountered, were observed to be present. This may be given in absolute terms or in terms relative to the observed thing. The associated place must be within the boundaries of the E53 Place at which the S19 Encounter Event took place, if that has been given. Note, that the encountered object may be larger and extend beyond the place of encounter, such as a corner of a building being excavated.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The encounter of the Oseberg Ship in 1904 (S19) encountered at the farm Lille Oseberg in Norway (E53). (Ferguson, 2009, p.10-11)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O21(x,y) ⇒ S19(x)&lt;/p&gt;&lt;p&gt;O21(x,y) ⇒ E53(y)&lt;/p&gt;&lt;p&gt;O21(x,y) ⇒ (∃z)[ E53(z) ∧ P161(x,z) ∧ P89(y,z)]&lt;/p&gt;&lt;p&gt;O21(x,y) ⇒ (∃z,v,w)[ E93(w) ∧ E18(z) ∧ E52(v) ∧ O19(x,z) ∧ P195(w,z) ∧ P4(x,v) ∧ P164(w,v) ∧ P197(w,y)]&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O23" external="true">
+      <fullName>O23 is defined by (defines)</fullName>
+      <directName>is defined by</directName>
+      <inverseName>defines</inverseName>
+      <domain id="S22"/>
+      <range id="E92"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the E92 Spacetime Volume that defines a S22 Segment of Matter. The spatial boundaries of the E92 Spacetime Volume are defined through S4 Observation or declaration while the temporal boundaries are confined by S18 Alteration events.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The accumulation zone (S22) of the landslide is defined by the evolution of the landslide of Santomerion village in 2008 (E92) (Litoseliti et al., 2014).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O23(x,y) ⇒ S22(x)&lt;/p&gt;&lt;p&gt;O23(x,y) ⇒ E92(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O24" external="true">
+      <fullName>O24 measured (was measured by)</fullName>
+      <directName>measured</directName>
+      <inverseName>was measured by</inverseName>
+      <domain id="S21"/>
+      <range id="S15"/>
+      <superPropertyOf id="P39"/>
+      <subPropertyOf id="O8"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S21 Measurement with the instance of S15 Observable Entity to which it applied. An instance of S15 Observable Entity may be measured more than once. Material and immaterial things and processes may be measured, e.g. the number of words in a text, or the duration of an event.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The sensor measurement by IGME in 1999 (S21) measured the landslide displacement (S15) in the area of Parnitha (Lucchese et al., 2013; Kritikos et al., 2013; InGeoCloudS, 2012; InGeoCloudS, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O24(x,y) ⇒ S21(x)&lt;/p&gt;&lt;p&gt;O24(x,y) ⇒ S15(y)&lt;/p&gt;&lt;p&gt;O24(x,y) ⇒ O8(x,y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O25" external="true">
+      <fullName>O25 contains (is contained in)</fullName>
+      <directName>contains</directName>
+      <inverseName>is contained in</inverseName>
+      <domain id="S10"/>
+      <range id="S10"/>
+      <superPropertyOf id="P46"/>
+      <superPropertyOf id="O6"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property describes that an instance of S10 Material Substantial was or is contained in another instance of S10 Material Substantial regardless of whether the identity of the involved instances is based on the persistence of the form of material or on material substance that may change form.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The opal specimen from Jalisco in Mexico (E18) contains the fluid inclusion of the specimen (S14). (Rentro, 2019)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O25(x,y) ⇒ E18(x)&lt;/p&gt;&lt;p&gt;O25(x,y) ⇒ E18(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O27" external="true">
+      <fullName>O27 split (was source for)</fullName>
+      <directName>split</directName>
+      <inverseName>was source for</inverseName>
+      <domain id="S24"/>
+      <range id="S13"/>
+      <subPropertyOf id="O3"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S24 Sample Splitting with the instance of S13 Sample which is the original sample being split.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The subsampling activity by Godfrey et al. in 2000 (S24) split the homogenous Sample (S13). [Part of the finely ground sample from fragment GT993 was taken to be used in ICP-AES analysis.] (Godfrey et al., 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O27(x,y) ⇒ S24(x)&lt;/p&gt;&lt;p&gt;O27(x,y) ⇒ S13(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O28" external="true">
+      <fullName>O28 is conceptually greater than (is conceptually less than)</fullName>
+      <directName>is conceptually greater than</directName>
+      <inverseName>is conceptually less than</inverseName>
+      <domain id="E55"/>
+      <range id="E55"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property allows an instance of E55 Type from a particular concept scheme or vocabulary to be declared as having an order relative to other instances of E55 Type in the same or other concept schemes, without necessarily having a specific value associated with either instance. This allows, for example, for an E55 Type instance representing the concept of "good" in a conservation report vocabulary to be greater than the E55 Type instance representing the concept of "average" in the same vocabulary. This property is transitive, and thus if "average" is greater than "poor", then "good" is also greater than "poor". In the domain of statistics, types that participate in this kind of relationship are called "Ordinal Variables"; as opposed to those without order which are called "Nominal Variables". This property allows for queries that select based on the relative position of participating E55 Types.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;In the condition survey of the manuscripts of the library of the Saint Catherine Monastery, the option ‘supple’ (E55) is conceptually greater than the option ‘stiff’ (E55). [These options are used for assessing parchment on page 2, section 2 of the survey form and within the context of the dry conditions of the Sinai desert where the Monastery is, ‘supple’ is considered better because it is less brittle] (Pickwoad, 2004)&lt;/li&gt;&lt;/ul&gt;</examples>
+    </property>
+    <property id="O29" external="true">
+      <fullName>O29 removed sub-sample (was sub-sample removed by)</fullName>
+      <directName>removed sub-sample</directName>
+      <inverseName>was sub-sample removed by</inverseName>
+      <domain id="S24"/>
+      <range id="S13"/>
+      <subPropertyOf id="O5"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S24 Sample Splitting with the resulting instance of S13 Sample that has been removed from the original sample. The new sample (i.e. the sub-sample) maintains the characteristic qualities of the original.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The subsampling activity by Godfrey et al. in 2000 (S24) removed sub-sample the ICP-AES subsample (S13). [This sub-sample was used for elemental analysis using inductively coupled plasma atomic emission spectrometry (ICP-AES) to reveal the composition of the original sample.] (Godfrey et al., 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O29(x,y) ⇒ S24(x)&lt;/p&gt;&lt;p&gt;O29(x,y) ⇒ S13(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O30" external="true">
+      <fullName>O30 determined position (was determined by)</fullName>
+      <directName>determined position</directName>
+      <inverseName>was determined by</inverseName>
+      <domain id="S23"/>
+      <range id="E94"/>
+      <subPropertyOf id="O16"/>
+      <quantification>many to many (0,n:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S23 Position Determination with the instance of E94 Space Primitive which is the result of that determination. The instance of E94 Space Primitive approximates the place occupied by the entity whose position is being determined.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The determination of the position of the Titanic for the initial distress call after hitting an iceberg (S23) determined position 41°44′N 50°24′W (E94). [This was quickly determined via ‘dead reckoning’, i.e. based on the distance travelled since the previous known location, extrapolating a previous dead reckoning for 14 April 1912 20:00] (Halpern, 2011, Boxhall, 1962)&lt;/li&gt;&lt;li&gt;The determination of the position of the Titanic by officer Joseph G. Boxhall after the initial distress signal was sent (S23) determined position 41°46′N 50°14′W (E94). [This was again determined via dead reckoning but extrapolating Boxhall's own determination shortly after 20:00, and revised the original position.] (Halpern, 2011, Boxhall, 1962)&lt;/li&gt;&lt;li&gt;The calculation of the position of the Titanic by Robert Ballard's team after the Titanic ship-wreck was found (S23) determined position 41°43′32′′N 49°56′49′′W (E94). [This was the position of the centre of the ‘boiler field’, part of the Titanic debris] (Ballard et al., 1987)&lt;/li&gt;&lt;li&gt;Samuel Halpern’s 2007 determination of the position of the Titanic at the time of the collision (S23) determined position 41°45.5′N 49°55′W (E94). [This was based on the position of the boiler field and the ocean drift at the time.] (Halpern, 2007)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O30(x,y) ⇒ S23(x)&lt;/p&gt;&lt;p&gt;O30(x,y) ⇒ E94(y)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O31" external="true">
+      <fullName>O31 has validity time-span (is time-span validity for)</fullName>
+      <directName>has validity time-span</directName>
+      <inverseName>is time-span validity for</inverseName>
+      <domain id="S23"/>
+      <range id="E52"/>
+      <subPropertyOf id="P4"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of S23 Position Determination with the instance of E52 Time-Span for which the determination is valid according to the observer at the time of the observation. No inferences can be made in relation to the validity of the determination outside this time-span despite the fact that some entities are relatively stable and their positions may remain the same after the determination. The time-span of validity should fall within the overall time-span of the process of determination.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The determination of the position of the Titanic for the initial distress call after hitting an iceberg (S23) has validity time-span the time of the collision (E52). [This is a plausible guess based on Boxhall’s account; the collision was on 14 April 1912 23:40 ship’s time.] (Halpern, 2011, Boxhall, 1962)&lt;/li&gt;&lt;li&gt;The determination of the position of the Titanic by officer Joseph G. Boxhall after the initial distress signal was sent (S23) has validity time-span the time of the collision (E52). [Boxhall was convinced of the correctness of his position determination until his death.] (Halpern 2011, Boxhall, 1962)&lt;/li&gt;&lt;li&gt;The determination of the position of the Titanic by Robert Ballard's team after the Titanic ship-wreck was found (S23) has validity time-span the time of the position determination (E52). [This time period falls within the 1&lt;sup&gt;st&lt;/sup&gt; of September 1985 00:48, i.e. the first encounter of a piece of Titanic debris and 1987] (Ballard et al., 1987)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O31(x,y) ⇒ S23(x)&lt;/p&gt;&lt;p&gt;O31(x,y) ⇒ E52(y)&lt;/p&gt;&lt;p&gt;Oxx2(x,y) ⇒ P4(x,z) ) ∧ P86(y,z)&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+    <property id="O32" external="true">
+      <fullName>O32 determined position of (was located by)</fullName>
+      <directName>determined position of</directName>
+      <inverseName>was located by</inverseName>
+      <domain id="S23"/>
+      <range id="S15"/>
+      <subPropertyOf id="O8"/>
+      <quantification>many to one, necessary (1,1:0,n)</quantification>
+      <scopeNote>&lt;p&gt;This property connects an instance of S23 Position Determination with the instance of S15 Observable Entity whose position is being determined.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The determination of the position of the Titanic for the initial distress call after hitting an iceberg (S23) determined position of the Titanic (E22). (Halpern, 2011)&lt;/li&gt;&lt;li&gt;The determination of the position of the Titanic by officer Joseph G. Boxhall after the initial distress signal was sent (S23) determined position of the Titanic (E22) (Halpern, 2011)&lt;/li&gt;&lt;li&gt;The determination of the position of the Titanic by Robert Ballard's team after the Titanic ship-wreck was found (S23) determined position of the Titanic. [More precisely it determined the position of the centre of the ‘boiler field’ of Titanic’s debris] (E22) (Ballard et al., 1987)&lt;/li&gt;&lt;li&gt;Samuel Halpern’s 2007 determination of the position of the Titanic at the time of the collision (S23) determined position of the Titanic (E22). (Halpern, 2007)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;p&gt;O32(x,y) ⇒ S23(x)&lt;/p&gt;&lt;p&gt;O32 (x,y) ⇒ S15(y)&lt;/p&gt;&lt;p&gt;O32 (x,y) ⇒ (∃z,u,v,w) [E93(z) ∧ P195(z,y) ∧ E52(w) ∧ O31(x,w) ∧ P164(z,w) ∧ E94(v)&lt;/p&gt;&lt;p&gt;∧ O30(x,v) ∧ E53(u) ∧ P161(z,u) ∧ P121(v,u)]&lt;/p&gt;</inFirstOrderLogic>
+    </property>
+
+    <property id="P1" external="true">
+      <fullName>P1 is identified by (identifies)</fullName>
+      <directName>is identified by</directName>
+      <inverseName>identifies</inverseName>
+      <domain id="E1" />
+      <range id="E41" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the naming or identification of any real-world item by a name or any other identifier. &lt;/p&gt;&lt;p&gt;This property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.&lt;/p&gt;&lt;p&gt;This property is a shortcut for the path from E1 CRM Entity through &lt;em&gt;P140i was attributed by&lt;/em&gt;, E15 Identifier Assignment, &lt;em&gt;P37 assigned &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E42 Identifier. &lt;/p&gt;&lt;p&gt;It is also a shortcut for the path from E1 CRM Entity through &lt;em&gt;P1 is identified by&lt;/em&gt;, E41 Appellation, &lt;em&gt;P139 has alternative form&lt;/em&gt; to E41 Appellation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The capital of Italy (E53) &lt;em&gt;is identified by&lt;/em&gt; “Rome” (E41). (Leach, 2017)&lt;/li&gt;&lt;li&gt;Text 25014–32 (E33) &lt;em&gt;is identified by&lt;/em&gt; “The Decline and Fall of the Roman Empire” (E35). (Gibbon, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P1(x,y) ⇒ E1(x)&lt;/li&gt;&lt;li&gt;P1(x,y) ⇒ E41(y)&lt;/li&gt;&lt;li&gt;P1(x,y) ⇐ (∃z) [E15(z)˄ P140i(x,z) ˄ P37(z,y)]&lt;/li&gt;&lt;li&gt;P1(x,y) ⇐ (∃z) [E41(z)˄ P1(x,z) ˄ P139(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P2" external="true">
+      <fullName>P2 has type (is type of)</fullName>
+      <directName>has type</directName>
+      <inverseName>is type of</inverseName>
+      <domain id="E1" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property allows sub-typing of CIDOC CRM entities –a form of specialisation – through the use of a terminological hierarchy, or thesaurus. &lt;/p&gt;&lt;p&gt;The CIDOC CRM is intended to focus on the high-level entities and relationships needed to describe data structures. Consequently, it does not specialise entities any further than is required for this immediate purpose. However, entities in the isA hierarchy of the CIDOC CRM may by specialised into any number of sub-entities, which can be defined in the E55 Type hierarchy. E41 Appellation, for example, may be specialised into “e-mail address”, “telephone number”, “post office box”, “URL”, etc., none of which figures explicitly in the CIDOC CRM class hierarchy. A comprehensive explanation about refining CIDOC CRM concepts by E55 Type is given in the section “About Types” in the section on “Specific Modelling Constructs” of this document.&lt;/p&gt;&lt;p&gt;This property is a shortcut for the path from E1 CRM Entity through &lt;em&gt;P41i was classified by, &lt;/em&gt;E17 Type Assignment, &lt;em&gt;P42 assigned &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E55 Type.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;“enquiries@cidoc-crm.org” (E41) &lt;em&gt;has type&lt;/em&gt; e-mail address (E55). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P2(x,y) ⇒ E1(x)&lt;/li&gt;&lt;li&gt;P2(x,y) ⇒ E55(y)&lt;/li&gt;&lt;li&gt;P2(x,y) ⇐ (∃z) [E17(z)] ˄ P41i(x,z) ˄ P42(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P3" external="true">
+      <fullName>P3 has note</fullName>
+      <directName>has note</directName>
+      <domain id="E1" />
+      <range id="E62" />
+      <quantification>&lt;p&gt;one to many (0,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property is a container for all informal descriptions about an object that have not been expressed in terms of CIDOC CRM constructs. &lt;/p&gt;&lt;p&gt;In particular, it captures the characterisation of the item itself, its internal structures, appearance, etc.&lt;/p&gt;&lt;p&gt;Like property &lt;em&gt;P2 has type (is type of)&lt;/em&gt;, this property is a consequence of the restricted focus of the CIDOC CRM. The aim is not to capture, in a structured form, everything that can be said about an item; indeed, the CIDOC CRM formalism is not regarded as sufficient to express everything that can be said. Good practice requires use of distinct note fields for different aspects of a characterisation. The &lt;em&gt;P3.1 has type &lt;/em&gt;property of &lt;em&gt;P3 has note&lt;/em&gt; allows differentiation of specific notes, e.g. “construction”, “decoration”, etc. &lt;/p&gt;&lt;p&gt;An item may have many notes, but a note is attached to a specific item.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Coffee mug – OXCMS:1983.1.1 (E19) &lt;em&gt;has note&lt;/em&gt; “chipped at edge of handle” (E62) &lt;em&gt;has type&lt;/em&gt; Condition (E55). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P3(x,y) ⇒ E1(x)&lt;/li&gt;&lt;li&gt;P3(x,y) ⇒ E62(y) &lt;/li&gt;&lt;li&gt;P3(x,y,z) ⇒ [P3(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P3.1">
+        <identifierText>&lt;p&gt;P3.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P4" external="true">
+      <fullName>P4 has time-span (is time-span of)</fullName>
+      <directName>has time-span</directName>
+      <inverseName>is time-span of</inverseName>
+      <domain id="E2" />
+      <range id="E52" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E2 Temporal Entity with the instance of E52 Time-Span during which it was on-going. The associated instance of E52 Time-Span is understood as the real time-span during which the phenomena making up the temporal entity instance were active. More than one instance of E2 Temporal Entity may share a common instance of E52 Time-Span only if they come into being and end being due to identical declarations or events.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Yalta Conference (E7) &lt;em&gt;has time-span&lt;/em&gt; Yalta Conference time-span (E52). (Harbutt, 2010)&lt;em&gt; &lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P4(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt;P4(x,y) ⇒ E52(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P5" external="true">
+      <fullName>P5 consists of (forms part of)</fullName>
+      <directName>consists of</directName>
+      <inverseName>forms part of</inverseName>
+      <domain id="E3" />
+      <range id="E3" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the decomposition of an instance of E3 Condition State into discrete, subsidiary states. &lt;/p&gt;&lt;p&gt;It is assumed that the sub-states into which the condition state is analysed form a logical whole, although the entire story may not be completely known, and that the sub-states are in fact constitutive of the general condition state. For example, a general condition state of “in ruins” may be decomposed into the individual stages of decay. &lt;/p&gt;&lt;p&gt;This property is transitive and asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Condition State of the ruined Parthenon (E3) &lt;em&gt;consists of&lt;/em&gt; the bombarded state after the explosion of a Venetian shell in 1687 (E3). (Mommsen, 1941)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P5(x,y) ⇒ E3(x)&lt;/li&gt;&lt;li&gt;P5(x,y) ⇒ E3(y)&lt;/li&gt;&lt;li&gt;[P5(x,y) ∧ P5(y,z)] ⇒ P5(x,z)&lt;/li&gt;&lt;li&gt;P5(x,y) ⇒ ¬P5(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P7" external="true">
+      <fullName>P7 took place at (witnessed)</fullName>
+      <directName>took place at</directName>
+      <inverseName>witnessed</inverseName>
+      <domain id="E4" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the spatial location of an instance of E4 Period. &lt;/p&gt;&lt;p&gt;The related instance of E53 Place should be seen as a wider approximation of the geometric area within which the phenomena that characterise the period in question occurred, see below. &lt;em&gt;P7 took place at (witnessed)&lt;/em&gt; does not convey any meaning other than spatial positioning (frequently on the surface of the earth). For example, the period “Révolution française” can be said to have taken place in “France in 1789”; the “Victorian” period may be said to have taken place in “Britain from 1837-1901” and its colonies, as well as other parts of Europe and North America. An instance of E4 Period can take place at multiple non-contiguous, non-overlapping locations.&lt;/p&gt;&lt;p&gt;Any place where something happened includes the spatial projection of the happening given in the same geometric reference system. For instance, HMS Victory, as place of Lord Nelson's dying, includes the location of his body relative to the hull of HMS Victory at his time of death as the most precise location of his death. By the definition of &lt;em&gt;P161 has spatial projection&lt;/em&gt;, an instance of E4 Period takes place on all its spatial projections to respective reference systems, that is, instances of E53 Place. Therefore, this property implies the more fully developed path from E4 Period through &lt;em&gt;P161 has spatial projection&lt;/em&gt;, E53 Place, &lt;em&gt;P89 falls within&lt;/em&gt; to E53 Place, where both places are defined in the same geometric reference system. The relation between an instance of E53 Place and its reference system can conveniently be documented via the property &lt;em&gt;P157 is at rest relative to (provides reference space for)&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;Something that has happened at a given place can also be considered to have happened at a smaller place within it: for example, it is reasonable to say Caesar’s murder took place in Rome, but also on the Forum Romanum, and more precisely in the Curia. It is characteristic for different historical sources to use varying precision in such statements, without being in contradiction with each other. This may be due to lack of knowledge or to the relevance of the precision for the purpose of the statement. In information integration, the more precise statement improves the overall knowledge.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The period “Révolution française” (E4) &lt;em&gt;took place at &lt;/em&gt;the area covered by France in 1789 (E53). (Bertaud, 2004)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P7(x,y) ⇒ E4(x)&lt;/li&gt;&lt;li&gt;P7(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P7(x,y) ⇒ (∃z,u) [P157(y,u) ˄ P157(z,u) ˄ P161(x,z) ˄ P89(z,y)]&lt;/li&gt;&lt;li&gt;[E4(x) ˄ P157(y,u) ˄ P157(v,u) ˄ P7(x,y) ˄ P161(x,z) ˄ P89(z,v) ˄ P89(v,y)] ⇒ P7(x,v)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P8" external="true">
+      <fullName>P8 took place on or within (witnessed)</fullName>
+      <directName>took place on or within</directName>
+      <inverseName>witnessed</inverseName>
+      <domain id="E4" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the location of an instance of E4 Period with respect to an instance of E18 Physical Thing. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E4 Period through &lt;em&gt;P7 took place at&lt;/em&gt;, E53 Place, &lt;em&gt;P156i is occupied by&lt;/em&gt; to E18 Physical Thing.&lt;/p&gt;&lt;p&gt;It describes a period that can be located with respect to the space defined by an E19 Physical Object such as a ship or a building. The precise geographical location of the object during the period in question may be unknown or unimportant. &lt;/p&gt;&lt;p&gt;For example, the French and German armistice of 22&lt;sup&gt;nd&lt;/sup&gt; June 1940 was signed in the same railway carriage as the armistice of 11&lt;sup&gt;th&lt;/sup&gt; November 1918.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The coronation of Queen Elizabeth II (E7) &lt;em&gt;took place on or within&lt;/em&gt; Westminster Abbey (E18). (Strong, 2005)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P8(x,y) ⇒ E4(x)&lt;/li&gt;&lt;li&gt;P8(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P8(x,y) ⇐ (∃z) [E53(z) ˄ P7(x,z) ˄ P156i(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P9" external="true">
+      <fullName>P9 consists of (forms part of)</fullName>
+      <directName>consists of</directName>
+      <inverseName>forms part of</inverseName>
+      <domain id="E4" />
+      <range id="E4" />
+      <subPropertyOf id="P10i" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E4 Period with another instance of E4 Period that is defined by a subset of the phenomena that define the former. Therefore, the spacetime volume of the latter must fall within the spacetime volume of the former.&lt;/p&gt;&lt;p&gt;This property is transitive and asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Cretan Bronze Age (E4) &lt;em&gt;consists of &lt;/em&gt;Middle Minoan (E4). (Hood, 1971)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P9(x,y) ⇒ E4(x)&lt;/li&gt;&lt;li&gt;P9(x,y) ⇒ E4(y)&lt;/li&gt;&lt;li&gt;P9(x,y) ⇒ P10(y,x)&lt;/li&gt;&lt;li&gt;[P9(x,y) ∧ P9(y,z)] ⇒ P9(x,z)&lt;/li&gt;&lt;li&gt;P9(x,y) ⇒ ¬P9(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P10" external="true">
+      <fullName>P10 falls within (contains)</fullName>
+      <directName>falls within</directName>
+      <inverseName>contains</inverseName>
+      <domain id="E92" />
+      <range id="E92" />
+      <subPropertyOf id="P132" />
+      <quantification>&lt;p&gt;many to many, necessary, dependent (1,n:1,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E92 Spacetime Volume with another instance of E92 Spacetime Volume that falls within the latter. In other words, all points in the former are also points in the latter.&lt;/p&gt;&lt;p&gt;This property is transitive and reflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Great Plague (E4) &lt;em&gt;falls within&lt;/em&gt; The Gothic period (E4). (Porter, 2009)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P10(x,y) ⇒ E92(x)&lt;/li&gt;&lt;li&gt;P10(x,y) ⇒ E92(y)&lt;/li&gt;&lt;li&gt;P10(x,y) ⇒ P132(x,y)&lt;/li&gt;&lt;li&gt;P10(x,y) ∧ P10(y,z)] ⇒ P10(x,z)&lt;/li&gt;&lt;li&gt;P10(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P11" external="true">
+      <fullName>P11 had participant (participated in)</fullName>
+      <directName>had participant</directName>
+      <inverseName>participated in</inverseName>
+      <domain id="E5" />
+      <range id="E39" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the active or passive participation of instances of E39 Actors in an instance of E5 Event. &lt;/p&gt;&lt;p&gt;It documents known events in which an instance of E39 Actor has participated during the course of that actor’s life or history. The instances of E53 Place and E52 Time-Span where and when these events happened provide constraints about the presence of the related instances of E39 Actor in the past. Collective actors, i.e. instances of E74 Group, may physically participate in events via their representing instances of E21 Persons only. The participation of multiple actors in an event is most likely an indication of their acquaintance and interaction.&lt;/p&gt;&lt;p&gt;The property implies that the actor was involved in the event but does not imply any causal relationship. For instance, someone having been portrayed can be said to have participated in the creation of the portrait.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Napoleon (E21) &lt;em&gt;participated in&lt;/em&gt; The Battle of Waterloo (E7). (Dawson, 2018)&lt;/li&gt;&lt;li&gt;Maria (E21) &lt;em&gt;participated in &lt;/em&gt;Photographing of Maria (E7). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P11(x,y) ⇒ E5(x)&lt;/li&gt;&lt;li&gt;P11(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P11(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P12" external="true">
+      <fullName>P12 occurred in the presence of (was present at)</fullName>
+      <directName>occurred in the presence of</directName>
+      <inverseName>was present at</inverseName>
+      <domain id="E5" />
+      <range id="E77" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the active or passive presence of an E77 Persistent Item in an instance of E5 Event without implying any specific role. &lt;/p&gt;&lt;p&gt;It documents known events in which an instance of E77 Persistent Item was present during the course of its life or history. For example, an object may be the desk, now in a museum, on which a treaty was signed. The instance of E53 Place and the instance of E52 Time-Span where and when these events happened provide constraints about the presence of the related instance E77 Persistent Item in the past. Instances of E90 Symbolic Object, in particular information objects, are physically present in events via at least one of the instances of E18 Physical Thing carrying them. Note, that the human mind can be such a carrier. A precondition for a transfer of information to a person or another new physical carrier is the presence of the respective information object and this person or physical thing in one event.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Deckchair 42 (E19) &lt;em&gt;was present at&lt;/em&gt; the sinking of the Titanic (E5). (Aldridge, 2008)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P12(x,y) ⇒ E5(x)&lt;/li&gt;&lt;li&gt;P12(x,y) ⇒ E77(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P13" external="true">
+      <fullName>P13 destroyed (was destroyed by)</fullName>
+      <directName>destroyed</directName>
+      <inverseName>was destroyed by</inverseName>
+      <domain id="E6" />
+      <range id="E18" />
+      <subPropertyOf id="P93" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E6 Destruction to an instance of E18 Physical Thing that has been destroyed by it. &lt;/p&gt;&lt;p&gt;Destruction implies the end of an item’s life as a subject of cultural documentation – the physical matter of which the item was composed may in fact continue to exist. An instance of E6 Destruction may be contiguous with an instance of E12 Production that brings into existence a derived object composed partly of matter from the destroyed object.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Tay Bridge Disaster (E6) &lt;em&gt;destroyed&lt;/em&gt; the Tay Bridge (E22). (Thomas, 1972)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P13(x,y) ⇒ E6 (x)&lt;/li&gt;&lt;li&gt;P13(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P13(x,y) ⇒ P93(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P14" external="true">
+      <fullName>P14 carried out by (performed)</fullName>
+      <directName>carried out by</directName>
+      <inverseName>performed</inverseName>
+      <domain id="E7" />
+      <range id="E39" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the active participation of an instance of E39 Actor in an instance of E7 Activity. &lt;/p&gt;&lt;p&gt;It implies causal or legal responsibility. The &lt;em&gt;P14.1 in the role of&lt;/em&gt; property of the property specifies the nature of an Actor’s participation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The painting of the Sistine Chapel (E7) &lt;em&gt;carried out by&lt;/em&gt; Michelangelo Buonaroti (E21) &lt;em&gt;in the role of &lt;/em&gt;master craftsman (E55). (Goldscheider, 1953)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P14(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P14(x,y)⇒ E39(y)&lt;/li&gt;&lt;li&gt;P14(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;li&gt;P14(x,y,z) ⇒ [P14(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P14.1">
+        <identifierText>&lt;p&gt;P14.1 in the role of: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>in the role of</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P15" external="true">
+      <fullName>P15 was influenced by (influenced)</fullName>
+      <directName>was influenced by</directName>
+      <inverseName>influenced</inverseName>
+      <domain id="E7" />
+      <range id="E1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This is a high-level property, which captures the relationship between an instance of E7 Activity and anything, that is, an instance of E1 CRM Entity, that may have had some bearing upon it.&lt;/p&gt;&lt;p&gt;The property has more specific subproperties.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The designing of the Sydney Harbour Bridge (E7) &lt;em&gt;was influenced by&lt;/em&gt; the Tyne Bridge (E22). (Dorman Long, 1932)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P15(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P15(x,y) ⇒ E1(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P16" external="true">
+      <fullName>P16 used specific object (was used for)</fullName>
+      <directName>used specific object</directName>
+      <inverseName>was used for</inverseName>
+      <domain id="E7" />
+      <range id="E70" />
+      <subPropertyOf id="P12" />
+      <subPropertyOf id="P15" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the use of material or immaterial things in a way essential to the performance or the outcome of an instance of E7 Activity. &lt;/p&gt;&lt;p&gt;This property typically applies to tools, instruments, moulds, raw materials and items embedded in a product. It implies that the presence of the object in question was a necessary condition for the action. For example, the activity of writing this text required the use of a computer. An immaterial thing can be used if at least one of its carriers is present. For example, the software tools on a computer.&lt;/p&gt;&lt;p&gt;Another example is the use of a particular name by a particular group of people over some span to identify a thing, such as a settlement. In this case, the physical carriers of this name are at least the people understanding its use.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The writing of the scope note of the CIDOC CRM property “P16 used specific object” contained in the CIDOC CRM version 4.1 (E7) &lt;em&gt;used specific object &lt;/em&gt;Nicholas Crofts’ computer (E22) &lt;em&gt;mode of use&lt;/em&gt; Typing Tool; Storage Medium (E55). [the original scope note was later extended in the CIDOC CRM version 4.3] &lt;/li&gt;&lt;li&gt;The people of Iraq calling the place identified by TGN ‘7017998’ (E7) &lt;em&gt;used specific object&lt;/em&gt; “Quyunjig” (E41) &lt;em&gt;mode of use &lt;/em&gt;current; vernacular (E55).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P16(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P16(x,y) ⇒ E70(y)&lt;/li&gt;&lt;li&gt;P16(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;li&gt;P16(x,y) ⇒ P15(x,y)&lt;/li&gt;&lt;li&gt;P16(x,y,z) ⇒ [P16(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P16.1">
+        <identifierText>&lt;p&gt;P16.1 mode of use: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>mode of use</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P17" external="true">
+      <fullName>P17 was motivated by (motivated)</fullName>
+      <directName>was motivated by</directName>
+      <inverseName>motivated</inverseName>
+      <domain id="E7" />
+      <range id="E1" />
+      <subPropertyOf id="P15" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes an item or items that are regarded as a reason for carrying out the instance of E7 Activity. &lt;/p&gt;&lt;p&gt;For example, the discovery of a large hoard of treasure may call for a celebration, an order from headquarters can start a military manoeuvre. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The resignation of the chief executive (E7) &lt;em&gt;was motivated by&lt;/em&gt; the collapse of SwissAir (E68).&lt;/li&gt;&lt;li&gt;The coronation of Elizabeth II (E7) &lt;em&gt;was motivated by&lt;/em&gt; the death of George VI (E69). (Strong, 2005)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P17(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P17(x,y) ⇒ E1(y)&lt;/li&gt;&lt;li&gt;P17(x,y) ⇒ P15(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P19" external="true">
+      <fullName>P19 was intended use of (was made for)</fullName>
+      <directName>was intended use of</directName>
+      <inverseName>was made for</inverseName>
+      <domain id="E7" />
+      <range id="E71" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property relates an instance of E7 Activity with instances of E71 Human-Made Thing, created specifically for use in the activity. &lt;/p&gt;&lt;p&gt;This is distinct from the intended use of an item in some general type of activity such as the book of common prayer which was intended for use in Church of England services (see &lt;em&gt;P101&lt;/em&gt; &lt;em&gt;had as general use (was use of)&lt;/em&gt;).&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Lady Diana Spencer’s wedding dress (E71) &lt;em&gt;was made for&lt;/em&gt; Wedding of Prince Charles and Lady Diana Spencer (E7) &lt;em&gt;mode of use&lt;/em&gt; To Be Worn (E55). (Daly, 1981)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P19(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P19(x,y) ⇒ E71(y)&lt;/li&gt;&lt;li&gt;P19(x,y,z) ⇒ [P19(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P19.1">
+        <identifierText>&lt;p&gt;P19.1 mode of use: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>mode of use</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P20" external="true">
+      <fullName>P20 had specific purpose (was purpose of)</fullName>
+      <directName>had specific purpose</directName>
+      <inverseName>was purpose of</inverseName>
+      <domain id="E7" />
+      <range id="E5" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the relationship between a preparatory activity, an instance of E7 Activity and the instance of E5 Event that it is intended as a preparation for.&lt;/p&gt;&lt;p&gt;This includes activities, orders and other organisational actions, taken in preparation for other activities or events. &lt;/p&gt;&lt;p&gt;&lt;em&gt;P20 had specific purpose (was purpose of)&lt;/em&gt; implies that the activity succeeded in achieving its aim. If it does not succeed, such as the setting of a trap that did not catch anything, the unrealized intention should be documented using &lt;em&gt;P21 had general purpose (was purpose of): &lt;/em&gt;E55 Type and/or &lt;em&gt;P33 used specific technique (was used by):&lt;/em&gt; E29 Design or Procedure.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Van Eyck’s pigment grinding in 1432 (E7) &lt;em&gt;had specific purpose&lt;/em&gt; the painting of the Ghent altar piece (E12). (Borchert, 2008)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P20(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P20(x,y) ⇒ E5(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P21" external="true">
+      <fullName>P21 had general purpose (was purpose of)</fullName>
+      <directName>had general purpose</directName>
+      <inverseName>was purpose of</inverseName>
+      <domain id="E7" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes an intentional relationship between an instance of E7 Activity and some general goal or purpose, described as an instance of E55 Type. &lt;/p&gt;&lt;p&gt;This may involve activities intended as preparation for some type of activity or event. &lt;em&gt;P21 had general purpose (was purpose of)&lt;/em&gt; differs from &lt;em&gt;P20 had specific purpose (was purpose of&lt;/em&gt; in that no specific event is implied as the purpose. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Van Eyck’s pigment grinding (E7) &lt;em&gt;had general purpose&lt;/em&gt; painting (E55). (Borchert, 2008)&lt;/li&gt;&lt;li&gt;The setting of trap 2742 on 17&lt;sup&gt;th&lt;/sup&gt; May 1874 (E7) &lt;em&gt;had general purpose &lt;/em&gt;catching moose (E55). [activity type] (fictitious)&lt;/li&gt;&lt;li&gt;The construction of the Berlin Wall starting 13&lt;sup&gt;th&lt;/sup&gt; August 1961 (E12) had general purpose preventing emigration (E55). (History.com Editors, 2020)&lt;/li&gt;&lt;li&gt;The reinforcement of the Mexico-United States barrier between the United States of America and Mexico in Fall 2019 (E11) had general purpose preventing immigration (E55).&lt;/li&gt;&lt;li&gt;The rebuilding of the city walls of Heraklion by the Venetian rulers starting in 1462 (E12) &lt;em&gt;had general purpose&lt;/em&gt; preventing conquest by enemy (E55). (YouIngGreece.com, 2020)&lt;/li&gt;&lt;li&gt;The building of the seawall in Hamamatsu, Shizuoka, Japan between 2014 and 2020 (E12) &lt;em&gt;had general purpose&lt;/em&gt; preventing inland flooding by tsunami (E55).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P21(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P21(x,y) ⇒ E55(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P22" external="true">
+      <fullName>P22 transferred title to (acquired title through)</fullName>
+      <directName>transferred title to</directName>
+      <inverseName>acquired title through</inverseName>
+      <domain id="E8" />
+      <range id="E39" />
+      <subPropertyOf id="P14" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor that acquires the legal ownership of an object as a result of an instance of E8 Acquisition. &lt;/p&gt;&lt;p&gt;The property will typically describe an Actor purchasing or otherwise acquiring an object from another Actor. However, title may also be acquired without any corresponding loss of title by another Actor, through legal fieldwork such as hunting, shooting, or fishing.&lt;/p&gt;&lt;p&gt;In reality, the title is either transferred to or from someone, or both.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The acquisition of the Amoudruz collection by the Geneva Ethnography Museum (E8) &lt;em&gt;transferred title to &lt;/em&gt;the Geneva Ethnography Museum (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P22(x,y) ⇒ E8(x)&lt;/li&gt;&lt;li&gt;P22(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P22(x,y) ⇒ P14(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P23" external="true">
+      <fullName>P23 transferred title from (surrendered title through)</fullName>
+      <directName>transferred title from</directName>
+      <inverseName>surrendered title through</inverseName>
+      <domain id="E8" />
+      <range id="E39" />
+      <subPropertyOf id="P14" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance(s) of E39 Actor who relinquish legal ownership as the result of an instance of E8 Acquisition.&lt;/p&gt;&lt;p&gt;The property will typically be used to describe a person donating or selling an object to a museum. In reality, the title is either transferred to or from someone, or both.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The acquisition of the Amoudruz collection by the Geneva Ethnography Museum (E8) &lt;em&gt;transferred title from &lt;/em&gt;the Heirs of Amoudruz (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P23(x,y) ⇒ E8(x)&lt;/li&gt;&lt;li&gt;P23(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P23(x,y) ⇒ P14(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P24" external="true">
+      <fullName>P24 transferred title of (changed ownership through)</fullName>
+      <directName>transferred title of</directName>
+      <inverseName>changed ownership through</inverseName>
+      <domain id="E8" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance(s) of E18 Physical Thing involved in an instance of E8 Acquisition. &lt;/p&gt;&lt;p&gt;In reality, an acquisition must refer to at least one transferred item.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The acquisition of the Amoudruz collection by the Geneva Ethnography Museum (E8) &lt;em&gt;transferred title of&lt;/em&gt; the&lt;em&gt; &lt;/em&gt;Amoudruz Collection (E78).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P24(x,y) ⇒ E8(x)&lt;/li&gt;&lt;li&gt;P24(x,y) ⇒ E18(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P25" external="true">
+      <fullName>P25 moved (moved by)</fullName>
+      <directName>moved</directName>
+      <inverseName>moved by</inverseName>
+      <domain id="E9" />
+      <range id="E19" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance of E19 Physical Object that was moved by an instance of E9 Move. A move must concern at least one object.&lt;/p&gt;&lt;p&gt;The property implies the object’s passive participation. For example, Monet’s painting “Impression sunrise” was moved for the first Impressionist exhibition in 1874. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Monet´s “Impression sunrise” (E22) &lt;em&gt;moved by&lt;/em&gt; preparations for the First Impressionist Exhibition (E9).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P25(x,y) ⇒ E9(x)&lt;/li&gt;&lt;li&gt;P25(x,y) ⇒ E19(y)&lt;/li&gt;&lt;li&gt;P25(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P26" external="true">
+      <fullName>P26 moved to (was destination of)</fullName>
+      <directName>moved to</directName>
+      <inverseName>was destination of</inverseName>
+      <domain id="E9" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies a destination, an instance of E53 Place, of an instance of E9 Move. &lt;/p&gt;&lt;p&gt;A move will be linked to a destination, such as the move of an artifact from storage to display. A move may be linked to many terminal instances of E53 Place by multiple instances of this property. In this case the move describes a distribution of a set of objects. The area of the move includes the origin(s), route and destination(s).&lt;/p&gt;&lt;p&gt;Therefore, the described destination is an instance of E53 Place which &lt;em&gt;P89 falls within (contains) &lt;/em&gt;the instance of E53 Place the move &lt;em&gt;P7 took place at.&lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The movement of the exhibition “Tutankhamun: Treasures of the Golden Pharaoh” between 15&lt;sup&gt;th&lt;/sup&gt; September and 2&lt;sup&gt;nd&lt;/sup&gt; November 2019 (E9) &lt;em&gt;moved to&lt;/em&gt; the Saatchi Gallery London (E53).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P26(x,y) ⇒ E9(x)&lt;/li&gt;&lt;li&gt;P26(x,y) ⇒ E53(y) &lt;/li&gt;&lt;li&gt;P26(x,y) ⇒ (∃z) [E53(z) ∧ P7(x,z) ∧ P89(y,z)] &lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P27" external="true">
+      <fullName>P27 moved from (was origin of)</fullName>
+      <directName>moved from</directName>
+      <inverseName>was origin of</inverseName>
+      <domain id="E9" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an origin, an instance of E53 Place, of an instance of E9 Move.&lt;/p&gt;&lt;p&gt;A move will be linked to an origin, such as the move of an artifact from storage to display. A move may be linked to many starting instances of E53 Place by multiple instances of this property. In this case the move describes the picking up of a set of objects. The area of the move includes the origin(s), route and destination(s).&lt;/p&gt;&lt;p&gt;Therefore, the described origin is an instance of E53 Place which &lt;em&gt;P89 falls within (contains) &lt;/em&gt;the instance of E53 Place the move &lt;em&gt;P7 took place at.&lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The movement of the exhibition “Tutankhamun: Treasures of the Golden Pharaoh” between 15&lt;sup&gt;th&lt;/sup&gt; September and 2&lt;sup&gt;nd&lt;/sup&gt; November 2019 (E9) &lt;em&gt;moved from&lt;/em&gt; Paris, Grande Halle de la Villette (E53).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P27(x,y) ⇒ E9(x)&lt;/li&gt;&lt;li&gt;P27(x,y) ⇒ E53(y) &lt;/li&gt;&lt;li&gt;P27(x,y) ⇒ (∃z) [E53(z) ∧ P7(x,z) ∧ P89(y,z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P28" external="true">
+      <fullName>P28 custody surrendered by (surrendered custody through)</fullName>
+      <directName>custody surrendered by</directName>
+      <inverseName>surrendered custody through</inverseName>
+      <domain id="E10" />
+      <range id="E39" />
+      <subPropertyOf id="P14" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance(s) of E39 Actor who surrender custody of an instance of E18 Physical Thing in an instance of E10 Transfer of Custody. &lt;/p&gt;&lt;p&gt;The property will typically describe an Actor surrendering custody of an object when it is handed over to someone else’s care. On occasion, physical custody may be surrendered involuntarily, e.g. through accident, loss, or theft.&lt;/p&gt;&lt;p&gt;In reality, custody is either transferred to someone or from someone, or both.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Secure Deliveries Inc. crew (E74) &lt;em&gt;surrendered custody&lt;/em&gt; &lt;em&gt;through &lt;/em&gt;the delivery of the paintings by Secure Deliveries Inc. to the National Gallery (E10).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P28(x,y) ⇒ E10(x)&lt;/li&gt;&lt;li&gt;P28(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P28(x,y) ⇒ P14(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P29" external="true">
+      <fullName>P29 custody received by (received custody through)</fullName>
+      <directName>custody received by</directName>
+      <inverseName>received custody through</inverseName>
+      <domain id="E10" />
+      <range id="E39" />
+      <subPropertyOf id="P14" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance(s) of E39 Actor who receive custody of an instance of E18 Physical Thing in an instance of E10 Transfer of Custody. &lt;/p&gt;&lt;p&gt;The property will typically describe Actors receiving custody of an object when it is handed over from another Actor’s care. On occasion, physical custody may be received involuntarily or illegally, e.g. through accident, unsolicited donation, or theft.&lt;/p&gt;&lt;p&gt;In reality, custody is either transferred to someone or from someone, or both.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Representatives of The National Gallery (E74) &lt;em&gt;received custody&lt;/em&gt; &lt;em&gt;through&lt;/em&gt; the delivery of the paintings by Secure Deliveries Inc. to the National Gallery (E10).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P29(x,y) ⇒ E10(x)&lt;/li&gt;&lt;li&gt;P29(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P29(x,y) ⇒ P14(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P30" external="true">
+      <fullName>P30 transferred custody of (custody transferred through)</fullName>
+      <directName>transferred custody of</directName>
+      <inverseName>custody transferred through</inverseName>
+      <domain id="E10" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance(s) of E18 Physical Thing concerned in an instance of E10 Transfer of Custody. &lt;/p&gt;&lt;p&gt;The property will typically describe the object that is handed over by an instance of E39 Actor to the custody of another instance of E39 Actor. On occasion, physical custody may be transferred involuntarily or illegally, e.g. through accident, unsolicited donation, or theft.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The delivery of the paintings by Secure Deliveries Inc. to the National Gallery (E10) &lt;em&gt;transferred custody of&lt;/em&gt; paintings from The Iveagh Bequest (E19).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P30(x,y) ⇒ E10(x)&lt;/li&gt;&lt;li&gt;P30(x,y) ⇒ E18(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P31" external="true">
+      <fullName>P31 has modified (was modified by)</fullName>
+      <directName>has modified</directName>
+      <inverseName>was modified by</inverseName>
+      <domain id="E11" />
+      <range id="E18" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing modified in an instance of E11 Modification.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The rebuilding of the German Reichstag in Berlin (E11) &lt;em&gt;has modified&lt;/em&gt; the Reichstag in Berlin (E24). (Foster, 2000)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P31(x,y) ⇒ E11(x)&lt;/li&gt;&lt;li&gt;P31(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P31(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P32" external="true">
+      <fullName>P32 used general technique (was technique of)</fullName>
+      <directName>used general technique</directName>
+      <inverseName>was technique of</inverseName>
+      <domain id="E7" />
+      <range id="E55" />
+      <subPropertyOf id="P125" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the technique or method, modelled as an instance of E55 Type, that was employed in an instance of E7 Activity. &lt;/p&gt;&lt;p&gt;These techniques should be drawn from an external E55 Type hierarchy of consistent terminology of general techniques or methods such as embroidery, oil-painting, carbon dating, etc. Specific documented techniques should be described as instances of E29 Design or Procedure. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The ornamentation of silver cup 113 (E11) &lt;em&gt;used general technique&lt;/em&gt; gold-plating (E55). [A Design or Procedure type] (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P32(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P32(x,y) ⇒ E55(y) &lt;/li&gt;&lt;li&gt;P32(x,y) ⇒ P125(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P33" external="true">
+      <fullName>P33 used specific technique (was used by)</fullName>
+      <directName>used specific technique</directName>
+      <inverseName>was used by</inverseName>
+      <domain id="E7" />
+      <range id="E29" />
+      <subPropertyOf id="P16" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies a specific instance of E29 Design or Procedure in order to carry out an instance of E7 Activity or parts of it. &lt;/p&gt;&lt;p&gt;The property differs from &lt;em&gt;P32 used general technique (was technique of)&lt;/em&gt; in that P33 refers to an instance of E29 Design or Procedure, which is a concrete information object in its own right rather than simply being a term or a method known by tradition. &lt;/p&gt;&lt;p&gt;Typical examples would include intervention plans for conservation or the construction plans of a building.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The ornamentation of silver cup 232 (E11) &lt;em&gt;used specific technique&lt;/em&gt; ‘Instructions for golden chase work by A N Other’ (E29). (fictitious)&lt;/li&gt;&lt;li&gt;The rebuilding of the German Reichstag in Berlin (E11) &lt;em&gt;used specific technique&lt;/em&gt; Architectural plans by Foster and Partners (E29). (Foster, 2000)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P33(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P33(x,y) ⇒ E29(y)&lt;/li&gt;&lt;li&gt;P33(x,y) ⇒ P16(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P34" external="true">
+      <fullName>P34 concerned (was assessed by)</fullName>
+      <directName>concerned</directName>
+      <inverseName>was assessed by</inverseName>
+      <domain id="E14" />
+      <range id="E18" />
+      <subPropertyOf id="P140" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing that was assessed during an instance of E14 Condition Assessment. &lt;/p&gt;&lt;p&gt;Conditions may be assessed either by direct observation or using recorded evidence. In the latter case the instance of E18 Physical Thing does not need to be present or extant at the time of assessment.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The condition assessment of the silver collection in 1997 (E14) &lt;em&gt;concerned&lt;/em&gt; silver cup 232 (E22). (fictitious)&lt;/li&gt;&lt;li&gt;The condition assessment of the cover of MS Sinai Greek 418 (E14) &lt;em&gt;concerned&lt;/em&gt; the cover of MS Sinai Greek 418 (E22). (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;li&gt;The condition assessment of the endband cores of MS Sinai Greek 418 (E14) &lt;em&gt;concerned&lt;/em&gt; the endband cores of MS Sinai Greek 418 (E22). (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P34(x,y) ⇒ E14(x)&lt;/li&gt;&lt;li&gt;P34(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P34(x,y) ⇒ P140(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P35" external="true">
+      <fullName>P35 has identified (was identified by)</fullName>
+      <directName>has identified</directName>
+      <inverseName>was identified by</inverseName>
+      <domain id="E14" />
+      <range id="E3" />
+      <subPropertyOf id="P141" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E3 Condition State that was observed in an instance of E14 Condition Assessment activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The condition assessment of silver cup 232 in 1997 (E14) &lt;em&gt;has&lt;/em&gt; &lt;em&gt;identified&lt;/em&gt; oxidation traces were present in 1997 (E3).&lt;em&gt; &lt;/em&gt;[which&lt;em&gt; has type (P2)&lt;/em&gt; with oxidation traces (E55)] (fictitious)&lt;/li&gt;&lt;li&gt;The condition assessment of the cover of MS Sinai Greek 418 (E13) &lt;em&gt;has identified&lt;/em&gt; the condition state in November 2003 (E3). [which &lt;em&gt;has type&lt;/em&gt; fine (E55)] (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;li&gt;The condition assessment of the endband cores of MS Sinai Greek 418 (E14) &lt;em&gt;has identified&lt;/em&gt; the condition state in November 2003 (E3). [which &lt;em&gt;has type&lt;/em&gt; broken (E55)] (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P35(x,y) ⇒E14(x)&lt;/li&gt;&lt;li&gt;P35(x,y) ⇒ E3(y)&lt;/li&gt;&lt;li&gt;P35(x,y) ⇒ P141(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P37" external="true">
+      <fullName>P37 assigned (was assigned by)</fullName>
+      <directName>assigned</directName>
+      <inverseName>was assigned by</inverseName>
+      <domain id="E15" />
+      <range id="E42" />
+      <subPropertyOf id="P141" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the identifier that was assigned to an item in an instance of E15 Identifier Assignment.&lt;/p&gt;&lt;p&gt;The same identifier may be assigned on more than one occasion.&lt;/p&gt;&lt;p&gt;An identifier might be created prior to an assignment.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The identifier assignment on 1&lt;sup&gt;st&lt;/sup&gt; June 1997 of the silver cup donated by Martin Doerr (E15) &lt;em&gt;assigned&lt;/em&gt; “232” (E42) (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P37(x,y) ⇒ E15(x)&lt;/li&gt;&lt;li&gt;P37(x,y) ⇒ E42(y) &lt;/li&gt;&lt;li&gt;P37(x,y) ⇒ P141(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P38" external="true">
+      <fullName>P38 deassigned (was deassigned by)</fullName>
+      <directName>deassigned</directName>
+      <inverseName>was deassigned by</inverseName>
+      <domain id="E15" />
+      <range id="E42" />
+      <subPropertyOf id="P141" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the identifier that was deassigned from an instance of E1 CRM Entity.&lt;/p&gt;&lt;p&gt;De-assignment of an identifier may be necessary when an item is taken out of an inventory, a new numbering system is introduced or items are merged or split up. &lt;/p&gt;&lt;p&gt;The same identifier may be deassigned on more than one occasion.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The identifier assignment on 31&lt;sup&gt;st&lt;/sup&gt; July 2001 of the silver cup OXCMS:2001.1.32 (E15) &lt;em&gt;deassigned&lt;/em&gt; “232” (E42). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P38(x,y) ⇒ E15(x)&lt;/li&gt;&lt;li&gt;P38(x,y) ⇒ E42(y) &lt;/li&gt;&lt;li&gt;P38(x,y) ⇒ P141(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P39" external="true">
+      <fullName>P39 measured (was measured by)</fullName>
+      <directName>measured</directName>
+      <inverseName>was measured by</inverseName>
+      <domain id="E16" />
+      <range id="E18" />
+      <subPropertyOf id="P140" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E16 Measurement with the instance of E18 Physical Thing upon which it acted. The instance of E16 Measurement is specific to the measured object. An instance of E18 Physical Thing may be measured more than once with different results, constituting different instances of E16 Measurement.&lt;strong&gt; &lt;/strong&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The measurement of the height of silver cup 232 on 31&lt;sup&gt;st&lt;/sup&gt; August 1997 (E16) &lt;em&gt;measured&lt;/em&gt; silver cup 232 (E22). (fictitious)&lt;/li&gt;&lt;li&gt;The carbon 14 dating of the “Schoeninger Speer II” in 1996 (E16) &lt;em&gt;measured&lt;/em&gt; the “Schoeninger Speer II” (E22). [The carbon 14 dating of an approximately 400.000 year old complete Old Palaeolithic wooden spear found in Schoeningen, Niedersachsen, Germany, in 1995. See also, E16 Measurement.] (Kouwenhoven, 1997)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P39(x,y) ⇒ E16(x) &lt;/li&gt;&lt;li&gt;P39(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P39(x,y) ⇒ P140(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P40" external="true">
+      <fullName>P40 observed dimension (was observed in)</fullName>
+      <directName>observed dimension</directName>
+      <inverseName>was observed in</inverseName>
+      <domain id="E16" />
+      <range id="E54" />
+      <subPropertyOf id="P141" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the dimension that was observed in an E16 Measurement Event.&lt;/p&gt;&lt;p&gt;E54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.&lt;/p&gt;&lt;p&gt;Dimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.&lt;/p&gt;&lt;p&gt;Even though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The measurement of the height of silver cup 232 on 31&lt;sup&gt;st&lt;/sup&gt; August 1997 (E16) &lt;em&gt;observed dimension&lt;/em&gt; silver cup 232 height (E54). [which &lt;em&gt;has unit&lt;/em&gt; mm (E58), &lt;em&gt;has value&lt;/em&gt; 224 (E60)] (fictitious)&lt;/li&gt;&lt;li&gt;The carbon 14 dating of the “Schoeninger Speer II” in 1996 (E16) &lt;em&gt;observed dimension&lt;/em&gt; the carbon 14 based temporal distance from 1996 to the growth of the wood of the “Schoeninger Speer II” (E60). [The carbon 14 dating of an approximately 400.000 year old complete Old Palaeolithic wooden spear found in Schoeningen, Niederachsen, Germany, in 1995. See also: E16 Measurement.] (Kouwenhoven, 1997)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P40(x,y) ⇒ E16(x)&lt;/li&gt;&lt;li&gt;P40(x,y)⇒ E54(y)&lt;/li&gt;&lt;li&gt;P40(x,y) ⇒ P141(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P41" external="true">
+      <fullName>P41 classified (was classified by)</fullName>
+      <directName>classified</directName>
+      <inverseName>was classified by</inverseName>
+      <domain id="E17" />
+      <range id="E1" />
+      <subPropertyOf id="P140" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the item to which a type was assigned in an E17 Type Assignment activity.&lt;/p&gt;&lt;p&gt;Any instance of a CIDOC CRM entity may be assigned a type through type assignment. Type assignment events allow a more detailed path from E1 CRM Entity&lt;em&gt; &lt;/em&gt;through&lt;em&gt; P41i was classified by, &lt;/em&gt;E17 Type Assignment&lt;em&gt;, P42 assigned, &lt;/em&gt;to E55 Type for assigning types to objects compared to the shortcut offered by &lt;em&gt;P2&lt;/em&gt; &lt;em&gt;has type (is type of)&lt;/em&gt;.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The classification of silver cup 232 on 31&lt;sup&gt;st&lt;/sup&gt; August 1997 (E17) &lt;em&gt;classified&lt;/em&gt; silver cup 232 (E22). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P41(x,y) ⇒ E17(x)&lt;/li&gt;&lt;li&gt;P41(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P41(x,y) ⇒ P140(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P42" external="true">
+      <fullName>P42 assigned (was assigned by)</fullName>
+      <directName>assigned</directName>
+      <inverseName>was assigned by</inverseName>
+      <domain id="E17" />
+      <range id="E55" />
+      <subPropertyOf id="P141" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the type that was assigned to an entity by an E17 Type Assignment activity. &lt;/p&gt;&lt;p&gt;Type assignment events allow a more detailed path from E1 CRM Entity&lt;em&gt; &lt;/em&gt;through&lt;em&gt; P41i was classified by, &lt;/em&gt;E17 Type Assignment&lt;em&gt;, P42 assigned, &lt;/em&gt;to E55 Type for assigning types to objects compared to the shortcut offered by &lt;em&gt;P2&lt;/em&gt; &lt;em&gt;has type (is type of)&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;For example, a fragment of an antique vessel could be assigned the type “attic red figured belly handled amphora” by expert A. The same fragment could be assigned the type “shoulder handled amphora” by expert B.&lt;/p&gt;&lt;p&gt;A Type may be intellectually constructed independent from assigning an instance of it.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The classification of silver cup 232 on 31&lt;sup&gt;st&lt;/sup&gt; August 1997 (E17) &lt;em&gt;assigned&lt;/em&gt; goblet (E55). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P42(x,y) ⇒ E17(x)&lt;/li&gt;&lt;li&gt;P42(x,y)⇒ E55(y) &lt;/li&gt;&lt;li&gt;P42(x,y) ⇒ P141(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P43" external="true">
+      <fullName>P43 has dimension (is dimension of)</fullName>
+      <directName>has dimension</directName>
+      <inverseName>is dimension of</inverseName>
+      <domain id="E70" />
+      <range id="E54" />
+      <quantification>&lt;p&gt;one to many, dependent (0,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records an instance of E54 Dimension of some instance of E70 Thing.&lt;/p&gt;&lt;p&gt;In the case that the recorded property is a result of a measurement of an instance of E18 Physical Thing, this property is a shortcut of the more fully developed path from E18 Physical Thing&lt;em&gt; &lt;/em&gt;through&lt;em&gt; P39i was measured by, &lt;/em&gt;E16 Measurement&lt;em&gt;, P40 observed dimension &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E54 Dimension. &lt;/p&gt;&lt;p&gt;It offers no information about how and when an E54 Dimension was established, nor by whom. Knowledge about an instance of E54 Dimension need not be the result of a measurement; it may be the result of evaluating data or other information, which should be documented as an instance of E13 Attribute Assignment. &lt;/p&gt;&lt;p&gt;An instance of E54 Dimension is specific to an instance of E70 Thing.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;has dimension&lt;/em&gt; height of silver cup 232 (E54). [which &lt;em&gt;has unit (P91)&lt;/em&gt; mm (E58),&lt;em&gt; has value (P90)&lt;/em&gt; 224 (E60)] (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P43(x,y) ⇒ E70(x)&lt;/li&gt;&lt;li&gt;P43(x,y) ⇒ E54(y)&lt;/li&gt;&lt;li&gt;P43(x,y) ⇐ (∃z) [E16(z) ˄ P39i(x,z) ˄ P40(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P44" external="true">
+      <fullName>P44 has condition (is condition of)</fullName>
+      <directName>has condition</directName>
+      <inverseName>is condition of</inverseName>
+      <domain id="E18" />
+      <range id="E3" />
+      <quantification>&lt;p&gt;one to many, dependent (0,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records an E3 Condition State for some E18 Physical Thing.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E18 Physical Thing&lt;em&gt; &lt;/em&gt;through&lt;em&gt; P34i was assessed by, &lt;/em&gt;E14 Condition Assessment&lt;em&gt;, P35 has identified &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E3 Condition State. It offers no information about how and when the E3 Condition State was established, nor by whom. &lt;/p&gt;&lt;p&gt;An instance of E3 Condition State is specific to an instance of E18 Physical Thing.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;has&lt;/em&gt; &lt;em&gt;condition&lt;/em&gt; oxidation traces were present in 1997 (E3). [which &lt;em&gt;has type (P2)&lt;/em&gt; oxidation traces (E55)] (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P44(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P44(x,y) ⇒ E3(y)&lt;/li&gt;&lt;li&gt;P44(x,y) ⇐ (∃z) [E14(z) ˄ P34i(x,z) ˄ P35(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P45" external="true">
+      <fullName>P45 consists of (is incorporated in)</fullName>
+      <directName>consists of</directName>
+      <inverseName>is incorporated in</inverseName>
+      <domain id="E18" />
+      <range id="E57" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instances of E57 Materials of which an instance of E18 Physical Thing is composed.&lt;/p&gt;&lt;p&gt;All physical things consist of physical materials. &lt;em&gt;P45 consists of (is incorporated in)&lt;/em&gt; allows the different materials to be recorded. &lt;em&gt;P45 consists of (is incorporated in)&lt;/em&gt; refers here to observed material as opposed to the consumed raw material.&lt;/p&gt;&lt;p&gt;A material, such as a theoretical alloy, may not have any physical instances.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;consists of&lt;/em&gt; silver (E57). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P45(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P45(x,y) ⇒ E57(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P46" external="true">
+      <fullName>P46 is composed of (forms part of)</fullName>
+      <directName>is composed of</directName>
+      <inverseName>forms part of</inverseName>
+      <domain id="E18" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E18 Physical Thing with another instance of Physical Thing that forms part of it. The spatial extent of the composing part is included in the spatial extent of the whole.&lt;/p&gt;&lt;p&gt;Component elements, since they are themselves instances of E18 Physical Thing, may be further analysed into sub-components, thereby creating a hierarchy of part decomposition. An instance of E18 Physical Thing may be shared between multiple wholes, for example two buildings may share a common wall. This property does not specify when and for how long a component element resided in the respective whole. If a component is not part of a whole from the beginning of existence or until the end of existence of the whole, the classes E79 Part Addition and E90 Part Removal can be used to document when a component became part of a particular whole and/or when it stopped being a part of it. For the time-span of being part of the respective whole, the component is completely contained in the place the whole occupies.&lt;/p&gt;&lt;p&gt;This property is intended to describe specific components that are&lt;strong&gt; &lt;/strong&gt;individually documented, rather than general aspects. Overall descriptions of the structure of an instance of E18 Physical Thing are captured by the &lt;em&gt;P3&lt;/em&gt; &lt;em&gt;has note&lt;/em&gt; property.&lt;/p&gt;&lt;p&gt;The instances of E57 Material of which an instance of E18 Physical Thing is composed should be documented using &lt;em&gt;P45&lt;/em&gt; &lt;em&gt;consists of (is incorporated in)&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;This property is transitive and asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Royal carriage (E22) &lt;em&gt;forms part of&lt;/em&gt; the Royal train (E22).&lt;/li&gt;&lt;li&gt;The “Hog’s Back” (E24) &lt;em&gt;forms part of&lt;/em&gt; the “Fosseway” (E24).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P46(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P46(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P46(x,y) ⇒ P132(x,y)&lt;/li&gt;&lt;li&gt;[P46(x,y) ∧ P46(y,z)] ⇒ P46(x,z)&lt;/li&gt;&lt;li&gt;P46(x,y) ⇒ (∃uzw)[E93(u) ∧ P195i (x,u) ∧ E52(z) ∧ P164(u,z) ∧ E93(w) ∧ P195i (w,y) ∧ P164(w,z) ∧ P10(w,u)] &lt;/li&gt;&lt;li&gt;P46(x,y) ⇒ ¬P46(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P48" external="true">
+      <fullName>P48 has preferred identifier (is preferred identifier of)</fullName>
+      <directName>has preferred identifier</directName>
+      <inverseName>is preferred identifier of</inverseName>
+      <domain id="E1" />
+      <range id="E42" />
+      <subPropertyOf id="P1" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the preferred instance of E42 Identifier that was used to identify an instance of E1 CRM Entity at the time this property was recorded.&lt;/p&gt;&lt;p&gt;More than one preferred identifier may have been assigned to an item over time.&lt;/p&gt;&lt;p&gt;Use of this property requires an external mechanism for assigning temporal validity to the respective CIDOC CRM instance.&lt;/p&gt;&lt;p&gt;The fact that an identifier is a preferred one for an organisation can be better expressed in a context independent form by assigning a suitable instance of E55 Type to the respective instance of E15 Identifier Assignment using the &lt;em&gt;P2 has type&lt;/em&gt; property.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The pair of Lederhosen donated by Dr. Martin Doerr (E22) &lt;em&gt;has preferred identifier&lt;/em&gt; “OXCMS:2001.1.32” (E42). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P48(x,y) ⇒ E1(x)&lt;/li&gt;&lt;li&gt;P48(x,y) ⇒ E42(y) &lt;/li&gt;&lt;li&gt;P48(x,y) ⇒ P1(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P49" external="true">
+      <fullName>P49 has former or current keeper (is former or current keeper of)</fullName>
+      <directName>has former or current keeper</directName>
+      <inverseName>is former or current keeper of</inverseName>
+      <domain id="E18" />
+      <range id="E39" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor who has or has had custody of an instance of E18 Physical Thing at some time. This property leaves open the question if parts of this physical thing have been added or removed during the time-spans it has been under the custody of this actor, but it is required that at least a part which can unambiguously be identified as representing the whole has been under this custody for its whole time. The way, in which a representative part is defined, should ensure that it is unambiguous who keeps a part and who the whole and should be consistent with the identity criteria of the kept instance of E18 Physical Thing. &lt;/p&gt;&lt;p&gt;The distinction with &lt;em&gt;P50 has current keeper (is current keeper of)&lt;/em&gt; is that &lt;em&gt;P49 has former or current keeper (is former or current keeper of)&lt;/em&gt; leaves open the question as to whether the specified keepers are current. &lt;/p&gt;&lt;p&gt;This property is a shortcut for the more detailed path from E18 Physical Thing through &lt;em&gt;P30i custody transferred through,&lt;/em&gt; E10 Transfer of Custody, &lt;em&gt;P28 custody surrendered by&lt;/em&gt; &lt;em&gt;or P29 custody received by&lt;/em&gt; to E39 Actor.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The paintings from The Iveagh Bequest (E78) &lt;em&gt;has former or current keeper&lt;/em&gt; Secure Deliveries Inc. (E74). &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P49(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P49(x,y) ⇒ E39(y)&lt;/li&gt;&lt;li&gt;P49(x,y) ⇐ (∃z) [E10(z) ˄ P30i(x,z) ˄ [P28(z,y) ˅ P29(z,y) ]]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P50" external="true">
+      <fullName>P50 has current keeper (is current keeper of)</fullName>
+      <directName>has current keeper</directName>
+      <inverseName>is current keeper of</inverseName>
+      <domain id="E18" />
+      <range id="E39" />
+      <subPropertyOf id="P49" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor that had custody of an instance of E18 Physical Thing at the time of validity of the record or database containing the statement that uses this property.&lt;/p&gt;&lt;p&gt;This property is a shortcut for the more detailed path from E18 Physical Thing through, &lt;em&gt;P30i custody transferred through&lt;/em&gt;, E10 Transfer of Custody, &lt;em&gt;P29 custody received by&lt;/em&gt; to E39 Actor, if and only if the custody has not been surrendered by the receiving actor at any later time&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The paintings from The Iveagh Bequest (E78) &lt;em&gt;has current keeper &lt;/em&gt;The National Gallery (E74) (Iveagh Bequest, 1975)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P50(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P50(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P50(x,y) ⇒ P49(x,y)&lt;/li&gt;&lt;li&gt;P50(x,y) ⇐ (∃z) [[E10(z) ˄ P30i(x,z) ˄ P29(z,y) ]&lt;/li&gt;&lt;li&gt;˄ ¬ (∃w) [E10(w) ˄ P30i(x,w) ˄ P28(w,y)˄ P182(z,w)]]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P51" external="true">
+      <fullName>P51 has former or current owner (is former or current owner of)</fullName>
+      <directName>has former or current owner</directName>
+      <inverseName>is former or current owner of</inverseName>
+      <domain id="E18" />
+      <range id="E39" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance of E39 Actor that is or had been the legal owner (i.e. title holder) of an instance of E18 Physical Thing at some time.&lt;/p&gt;&lt;p&gt;The distinction with &lt;em&gt;P52 has current owner (is current owner of)&lt;/em&gt; is that &lt;em&gt;P51 has former or current owner (is former or current owner of)&lt;/em&gt; does not indicate whether the specified owners are current. &lt;/p&gt;&lt;p&gt;This property is a shortcut for the more detailed path from E18 Physical Thing through &lt;em&gt;P24i changed ownership through&lt;/em&gt;, E8 Acquisition, &lt;em&gt;P23 transferred title from&lt;/em&gt;, or &lt;em&gt;P22 transferred title to&lt;/em&gt; to E39 Actor.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The paintings from the Iveagh Bequest (E78) &lt;em&gt;has former or current owner &lt;/em&gt;Lord Iveagh (E21). (Bryant, 1990)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P51(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P51(x,y) ⇒ E39(y)&lt;/li&gt;&lt;li&gt;P51(x,y) ⇐ (∃z) [E8(z) ˄ P24i(x,z) ˄ [P23(z,y) ˅ P22(z,y) ]]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P52" external="true">
+      <fullName>P52 has current owner (is current owner of)</fullName>
+      <directName>has current owner</directName>
+      <inverseName>is current owner of</inverseName>
+      <domain id="E18" />
+      <range id="E39" />
+      <subPropertyOf id="P51" />
+      <subPropertyOf id="P105" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E21 Person or E74 Group that was the owner of an instance of E18 Physical Thing at the time of validity of the record or database containing the statement that uses this property.&lt;/p&gt;&lt;p&gt;This property is a shortcut for the more detailed path from E18 Physical Thing through, &lt;em&gt;P24i changed ownership through&lt;/em&gt;, E8 Acquisition, &lt;em&gt;P22 transferred title to&lt;/em&gt; to E39 Actor, if and only if this acquisition event is the most recent.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The paintings from the Iveagh Bequest (E78) &lt;em&gt;has current owner&lt;/em&gt; Historic England (E74). [This is still valid 2021 CE. The important collection of Old Master and British portraits was bequeathed to Kenwood by Edward Cecil Guinness, 1&lt;sup&gt;st&lt;/sup&gt; Earl of Iveagh, in 1927.] (Iveagh Bequest, 1975; Bryant, 1990)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P52(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P52(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P52(x,y) ⇒ P51(x,y)&lt;/li&gt;&lt;li&gt;P52(x,y) ⇒ P105(x,y)&lt;/li&gt;&lt;li&gt;P52(x,y) ⇐ (∃z) [[E8(z) ˄ P24i(x,z) ˄ P22(z,y) ]&lt;/li&gt;&lt;li&gt; ˄ ¬ (∃w) [E8(w) ˄ P24i(x,w) ˄ P23(w,y)˄ P182(z,w)]]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P53" external="true">
+      <fullName>P53 has former or current location (is former or current location of)</fullName>
+      <directName>has former or current location</directName>
+      <inverseName>is former or current location of</inverseName>
+      <domain id="E18" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance of E53 Place as the former or current location of an instance of E18 Physical Thing.&lt;/p&gt;&lt;p&gt;In the case of instances of E19 Physical Object, the property does not allow any indication of the Time-Span during which the instance of E19 Physical Object was located at this instance of E53 Place, nor if this is the current location.&lt;/p&gt;&lt;p&gt;In the case of immobile objects, the Place would normally correspond to the Place of creation.&lt;/p&gt;&lt;p&gt;This property is a shortcut. A more detailed representation can make use of the fully developed (i.e. indirect) path from E19 Physical Object&lt;em&gt;, &lt;/em&gt;though&lt;em&gt;, P25i moved by&lt;/em&gt;, E9 Move&lt;em&gt;, P26 moved to &lt;/em&gt;or&lt;em&gt; P27 moved from &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E53 Place.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;has former or current location&lt;/em&gt; Display Case 4, Room 23, Museum of Oxford (E53). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P53(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P53(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P53(x,y) ⇐ (∃z) [E9(z) ˄ P25i(x,z) ˄ [P26(z,y) ˅ P27(z,y)]]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P54" external="true">
+      <fullName>P54 has current permanent location (is current permanent location of)</fullName>
+      <directName>has current permanent location</directName>
+      <inverseName>is current permanent location of</inverseName>
+      <domain id="E19" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the foreseen permanent location of an instance of E19 Physical Object at the time of validity of the record or database containing the statement that uses this property.&lt;/p&gt;&lt;p&gt;&lt;em&gt;P54 has current permanent location (is current permanent location of)&lt;/em&gt; is similar to &lt;em&gt;P55 has current location (currently holds).&lt;/em&gt; However, it indicates the E53 Place currently reserved for an object, such as the permanent storage location or a permanent exhibit location. The object may be temporarily removed from the permanent location, for example when used in temporary exhibitions or loaned to another institution. The object may never actually be located at its permanent location.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;has current permanent location&lt;/em&gt; Shelf 3.1, Store 2, Museum of Oxford (E53). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P54(x,y) ⇒ E19(x)&lt;/li&gt;&lt;li&gt;P54(x,y) ⇒ E53(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P55" external="true">
+      <fullName>P55 has current location (currently holds)</fullName>
+      <directName>has current location</directName>
+      <inverseName>currently holds</inverseName>
+      <domain id="E19" />
+      <range id="E53" />
+      <subPropertyOf id="P53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property records the location of an instance of E19 Physical Object at the time of validity of the record or database containing the statement that uses this property.&lt;/p&gt;&lt;p&gt;This property is a specialisation of &lt;em&gt;P53&lt;/em&gt; &lt;em&gt;has former or current location (is former or current location of).&lt;/em&gt; It indicates that the instance of E53 Place associated with the instance of E19 Physical Object is the current location of the object. The property does not allow any indication of how long the object has been at the current location. &lt;/p&gt;&lt;p&gt;This property is a shortcut. A more detailed representation can make use of the fully developed (i.e., indirect) path from E19 Physical Object&lt;em&gt;, &lt;/em&gt;through&lt;em&gt;, P25i moved by, &lt;/em&gt;E9 Move&lt;em&gt;, P26 moved to &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E53 Place if and only if this Move is the most recent.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;has current location&lt;/em&gt; Display Cabinet 23, Room 4, British Museum (E53). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P55(x,y) ⇒ E19(x)&lt;/li&gt;&lt;li&gt;P55(x,y) ⇒ E53(y) &lt;/li&gt;&lt;li&gt;P55(x,y) ⇒ P53(x,y)&lt;/li&gt;&lt;li&gt;P55(x,y) ⇐ (∃z) [ [E9(z) ˄ P25i(x,z) ˄ P26(z,y)]&lt;/li&gt;&lt;li&gt; ˄ ¬​ (∃w) [E9(w) ˄ P25i(x,w) ˄ P27(w,y)˄ P182(z,w)]]​&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P56" external="true">
+      <fullName>P56 bears feature (is found on)</fullName>
+      <directName>bears feature</directName>
+      <inverseName>is found on</inverseName>
+      <domain id="E19" />
+      <range id="E26" />
+      <subPropertyOf id="P46" />
+      <quantification>&lt;p&gt;one to many, dependent (0,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E19 Physical Object to an instance of E26 Physical Feature that it bears.&lt;/p&gt;&lt;p&gt;An instance of E26 Physical Feature can only exist on one object. One object may bear more than one E26 Physical Feature. An instance of E27 Site should be considered as an instance of E26 Physical Feature on the surface of the Earth.&lt;/p&gt;&lt;p&gt;An instance B of E26 Physical Feature being a detail of the structure of another instance A of E26 Physical Feature can be linked to B by use of the property &lt;em&gt;P46 is composed of (forms part of)&lt;/em&gt;. This implies that the subfeature B is &lt;em&gt;P56i is found on&lt;/em&gt; the same E19 Physical Object as A. &lt;/p&gt;&lt;p&gt;This property is a shortcut. A more detailed representation can make use of the fully developed (i.e. indirect) path &lt;em&gt;E19 Physical Object, &lt;/em&gt;through&lt;em&gt;, P59 has section, &lt;/em&gt;E53 Place&lt;em&gt;, P53i is former or current location of &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E26 Physical Feature.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Silver cup 232 (E22) &lt;em&gt;bears feature &lt;/em&gt;32 mm scratch on silver cup 232 (E26). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P56(x,y) ⇒E19(x)&lt;/li&gt;&lt;li&gt;P56(x,y) ⇒ E26(y)&lt;/li&gt;&lt;li&gt;P56(x,y) ⇒ P46(x,y)&lt;/li&gt;&lt;li&gt;P56(x,y) ⇐ (∃z) [E53(z) ˄ P59(x,z) ˄ P53i(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P57" external="true">
+      <fullName>P57 has number of parts</fullName>
+      <directName>has number of parts</directName>
+      <domain id="E19" />
+      <range id="E60" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property documents the number of parts, an instance of E60 Number, of which an instance of E19 Physical Object is composed.&lt;/p&gt;&lt;p&gt;This may be used as a method of checking inventory counts with regard to aggregate or collective objects. What constitutes a part or component depends on the context and requirements of the documentation. Normally, the parts documented in this way would not be considered as worthy of individual attention.&lt;/p&gt;&lt;p&gt;For a more complete description, objects may be decomposed into their components and constituents using &lt;em&gt;P46 is composed of (forms parts of) &lt;/em&gt;and&lt;em&gt; P45 consists of (is incorporated in)&lt;/em&gt;. This allows each element to be described individually.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Chess set 233 (E22) &lt;em&gt;has number of&lt;/em&gt; &lt;em&gt;parts&lt;/em&gt; 33 (E60). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P57(x,y) ⇒ E19(x)&lt;/li&gt;&lt;li&gt;P57(x,y) ⇒ E60(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P59" external="true">
+      <fullName>P59 has section (is located on or within)</fullName>
+      <directName>has section</directName>
+      <inverseName>is located on or within</inverseName>
+      <domain id="E18" />
+      <range id="E53" />
+      <subPropertyOf id="P157i" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an area, i.e., an instance of E53 Place to the instance of E18 Physical Thing upon which it is found. This area may either be identified by a name, or by a geometry in terms of a coordinate system adapted to the shape of the respective instance of E18 Physical Thing. Typically, names identifying sections of physical objects are composed of the name of a kind of part and the name of the object itself, such as “The poop deck of H.M.S. Victory”, which is composed of “poop deck” and “H.M.S. Victory”.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;HMS Victory (E22) &lt;em&gt;has section&lt;/em&gt; HMS Victory section B347.6 (E53). (Goodwin, 2015)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P59(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P59(x,y) ⇒ E53(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P62" external="true">
+      <fullName>P62 depicts (is depicted by)</fullName>
+      <directName>depicts</directName>
+      <inverseName>is depicted by</inverseName>
+      <domain id="E24" />
+      <range id="E1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies something that is depicted by an instance of E24 Physical Human-Made Thing. Depicting is meant in the sense that an instance of E24 Physical Human-Made Thing intentionally shows, through its optical qualities or form, a representation of the entity depicted. Photographs are by default regarded as being intentional in this sense. Anything that is designed to change the properties of the depiction, such as an e-book reader, is specifically excluded. The property does not pertain to inscriptions or any other information encoding.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E24 Physical Human-Made Thing through &lt;em&gt;P65 shows visual item&lt;/em&gt;, E36 Visual Item,&lt;em&gt; P138 represents &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E1 CRM Entity&lt;em&gt;. P62.1 mode of depiction&lt;/em&gt; allows the nature of the depiction to be refined.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The painting “La Liberté guidant le peuple” by Eugène Delacroix (E22) &lt;em&gt;depicts&lt;/em&gt; the French “July Revolution” of 1830 (E7). (Delacroix, 1982)&lt;/li&gt;&lt;li&gt;The 20 pence coin held by the Department of Coins and Medals of the British Museum under registration number 2006,1101.126 (E22) &lt;em&gt;depicts&lt;/em&gt; Queen Elizabeth II (E21) &lt;em&gt;mode of depiction&lt;/em&gt; Profile (E55).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P62(x,y) ⇒ E24(x)&lt;/li&gt;&lt;li&gt;P62(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P62(x,y,z) ⇒ [P62(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P62(x,y) ⇐ (∃z) [E36(z) ˄ P65(x,z) ˄ P138(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P62.1">
+        <identifierText>&lt;p&gt;P62.1 mode of depiction: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>mode of depiction</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P65" external="true">
+      <fullName>P65 shows visual item (is shown by)</fullName>
+      <directName>shows visual item</directName>
+      <inverseName>is shown by</inverseName>
+      <domain id="E24" />
+      <range id="E36" />
+      <subPropertyOf id="P128" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property documents an instance of E36 Visual Item shown by an instance of E24 Physical Human-Made Thing.&lt;/p&gt;&lt;p&gt;This property is similar to &lt;em&gt;P62 depicts (is depicted by)&lt;/em&gt; in that it associates an instance of E24 Physical Human-Made Thing with a visual representation. However, &lt;em&gt;P65 shows visual item (is shown by)&lt;/em&gt; differs from the &lt;em&gt;P62 depicts (is depicted by)&lt;/em&gt; property in that it makes no claims about what the instance of E36 Visual Item is deemed to represent. An instance of E36 Visual Item identifies a recognisable image or visual symbol, regardless of what this image may or may not represent.&lt;/p&gt;&lt;p&gt;For example, all recent British coins bear a portrait of Queen Elizabeth II, a fact that is correctly documented using &lt;em&gt;P62 depicts (is depicted by)&lt;/em&gt;. Different portraits have been used at different periods, however. &lt;em&gt;P65 shows visual item (is shown by) &lt;/em&gt;can be used to refer to a particular portrait.&lt;/p&gt;&lt;p&gt;&lt;em&gt;P65 shows visual item (is shown by)&lt;/em&gt; may also be used for Visual Items such as signs, marks and symbols, for example the 'Maltese Cross' or the 'copyright symbol’ that have no particular representational content. &lt;/p&gt;&lt;p&gt;This property is part of the fully developed path E24 Physical Human-Made Thing, &lt;em&gt;P65 shows visual item&lt;/em&gt;, E36 Visual Item, &lt;em&gt;P138 represents to &lt;/em&gt;E1 CRM Entity which is shortcut by&lt;em&gt;, P62&lt;/em&gt; &lt;em&gt;depicts (is depicted by)&lt;/em&gt;.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;My T-Shirt (E22)&lt;em&gt; shows visual item&lt;/em&gt; Mona Lisa (E36). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P65(x,y) ⇒ E24(x)&lt;/li&gt;&lt;li&gt;P65(x,y) ⇒ E36(y) &lt;/li&gt;&lt;li&gt;P65(x,y) ⇒ P128(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P67" external="true">
+      <fullName>P67 refers to (is referred to by)</fullName>
+      <directName>refers to</directName>
+      <inverseName>is referred to by</inverseName>
+      <domain id="E89" />
+      <range id="E1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property documents that an instance of E89 Propositional Object makes a statement about an instance of E1 CRM Entity. &lt;em&gt;P67 refers to (is referred to by)&lt;/em&gt; has the &lt;em&gt;P67.1 has type&lt;/em&gt; link to an instance of E55 Type. This is intended to allow a more detailed description of the type of reference. This differs from &lt;em&gt;P129 is about (is subject of)&lt;/em&gt;, which describes the primary subject or subjects of the instance of E89 Propositional Object.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The eBay auction listing of 4&lt;sup&gt;th&lt;/sup&gt; July 2002 (E73) &lt;em&gt;refers to&lt;/em&gt; silver cup 232 (E22) &lt;em&gt;has type&lt;/em&gt; item for sale (E55). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P67(x,y) ⇒ E89(x)&lt;/li&gt;&lt;li&gt;P67(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P67(x,y,z) ⇒ [P67(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P67.1">
+        <identifierText>&lt;p&gt;P67.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P68" external="true">
+      <fullName>P68 foresees use of (use foreseen by)</fullName>
+      <directName>foresees use of</directName>
+      <inverseName>use foreseen by</inverseName>
+      <domain id="E29" />
+      <range id="E57" />
+      <subPropertyOf id="P67" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance of E57 Material foreseen to be used by an instance of E29 Design or Procedure. &lt;/p&gt;&lt;p&gt;E29 Designs and procedures commonly foresee the use of particular instances of E57 Material. The fabrication of adobe bricks, for example, requires straw, clay and water. This property enables this to be documented.&lt;/p&gt;&lt;p&gt;This property is not intended for the documentation of instances of E57 Materials that were used on a particular occasion when an instance of E29 Design or Procedure was executed.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The procedure for soda glass manufacture (E29) &lt;em&gt;foresees use of &lt;/em&gt;soda (E57). (Brooks, 1973)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P68(x,y) ⇒ E29(x)&lt;/li&gt;&lt;li&gt;P68(x,y) ⇒ E57(y) &lt;/li&gt;&lt;li&gt;P68(x,y) ⇒ P67(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P69" external="true">
+      <fullName>P69 has association with (is associated with)</fullName>
+      <directName>has association with</directName>
+      <inverseName>is associated with</inverseName>
+      <domain id="E29" />
+      <range id="E29" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property generalises relationships like whole-part, sequence, prerequisite or inspired by between instances of E29 Design or Procedure. Any instance of E29 Design or Procedure may be associated with other designs or procedures. The property is considered to be symmetrical unless otherwise indicated by &lt;em&gt;P69.1 has type&lt;/em&gt;. The property is not transitive.&lt;/p&gt;&lt;p&gt;This property is a directed relationship. The &lt;em&gt;P69.1 has type&lt;/em&gt; property of &lt;em&gt;P69 has association&lt;/em&gt; &lt;em&gt;with&lt;/em&gt; allows the nature of the association to be specified reading from domain to range; examples of types of association between instances of E29 Design or Procedure include: has part, follows, requires, etc.&lt;/p&gt;&lt;p&gt;Instances of this property are considered to be symmetric, in case no directed sense is provided for them by the property &lt;em&gt;P69.1 has type&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;The property can typically be used to model the decomposition of the description of a complete workflow into a series of separate procedures. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The procedure for glass blowing (E29) &lt;em&gt;has association with&lt;/em&gt; the procedure for glass heating (E29). (Brooks, 1973)&lt;/li&gt;&lt;li&gt;The set of instructions for performing Macbeth in Max Reinhardt's production in 1916 in Berlin at Deutsches Theater (E29) &lt;em&gt;has association with&lt;/em&gt; the scene design drawing by Ernst Stern reproduced at http://www.glopad.org/pi/fr/record/digdoc/1003814 (E29) &lt;em&gt;has type&lt;/em&gt; has part (E55).&lt;/li&gt;&lt;li&gt;The preparation of parchment (E29) &lt;em&gt;has association with&lt;/em&gt; soaking and unhairing of skin (E29) &lt;em&gt;has type&lt;/em&gt; has part (E55).&lt;/li&gt;&lt;li&gt;Stretching of skin (E29) &lt;em&gt;has association with&lt;/em&gt; soaking and unhairing of skin (E29) &lt;em&gt;has type&lt;/em&gt; follows (E55). (Poole and Reed, 1962)&lt;/li&gt;&lt;li&gt;The plan for reassembling the temples at Abu Simbel (E29) &lt;em&gt;has association with&lt;/em&gt; the plan for storing and transporting the blocks (E29) &lt;em&gt;has type&lt;/em&gt; follows (E55). (Loubiere, 1995)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P69(x,y) ⇒ E29(x)&lt;/li&gt;&lt;li&gt;P69(x,y) ⇒ E29(y)&lt;/li&gt;&lt;li&gt;P69(x,y,z) ⇒ [P69(x,y) ∧ E55(z)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P69.1">
+        <identifierText>&lt;p&gt;P69.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P70" external="true">
+      <fullName>P70 documents (is documented in)</fullName>
+      <directName>documents</directName>
+      <inverseName>is documented in</inverseName>
+      <domain id="E31" />
+      <range id="E1" />
+      <subPropertyOf id="P67" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the CRM Entities documented as instances of E31 Document. &lt;/p&gt;&lt;p&gt;Documents may describe any conceivable entity, hence the link to the highest-level entity in the CIDOC CRM class hierarchy. This property is intended for cases where a reference is regarded as making a proposition about reality. This may be of a documentary character, in the scholarly or scientific sense, or a more general statement.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The ‘Catalogue of the Greek coins of Arabia, Mesopotamia and Persia’ (E31) &lt;em&gt;documents&lt;/em&gt; parts of the British Museum’s Collection (E78). (British Museum &amp;amp; Hill, 1922)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P70(x,y) ⇒ E31(x)&lt;/li&gt;&lt;li&gt;P70(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P70(x,y) ⇒ P67(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P71" external="true">
+      <fullName>P71 lists (is listed in)</fullName>
+      <directName>lists</directName>
+      <inverseName>is listed in</inverseName>
+      <domain id="E32" />
+      <range id="E1" />
+      <subPropertyOf id="P67" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E32 Authority Document with an instance of E1 CRM Entity which it lists for reference purposes.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Art &amp;amp; Architecture Thesaurus (E32) &lt;em&gt;lists&lt;/em&gt; alcazars (E55). (http://vocab.getty.edu/page/aat/300006897)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P71(x,y) ⇒ E32(x)&lt;/li&gt;&lt;li&gt;P71(x,y) ⇒ E1(y)&lt;/li&gt;&lt;li&gt;P71(x,y) ⇒ P67(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P72" external="true">
+      <fullName>P72 has language (is language of)</fullName>
+      <directName>has language</directName>
+      <inverseName>is language of</inverseName>
+      <domain id="E33" />
+      <range id="E56" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance(s) of E33 Linguistic Object with an instance of E56 Language in which it is, at least partially, expressed. &lt;/p&gt;&lt;p&gt;Linguistic Objects are composed in one or more human languages. This property allows these languages to be documented.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The United States Declaration of Independence (E33&lt;em&gt;) has language&lt;/em&gt; 18&lt;sup&gt;th&lt;/sup&gt; Century English (E56). (Perley, 2017)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P72(x,y) ⇒ E33(x)&lt;/li&gt;&lt;li&gt;P72(x,y) ⇒ E56(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P73" external="true">
+      <fullName>P73 has translation (is translation of)</fullName>
+      <directName>has translation</directName>
+      <inverseName>is translation of</inverseName>
+      <domain id="E33" />
+      <range id="E33" />
+      <subPropertyOf id="P130i" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E33 Linguistic Object (A), to another instance of E33 Linguistic Object (B) which is the translation of A.&lt;/p&gt;&lt;p&gt;When an instance of E33 Linguistic Object is translated into a new language a new instance of E33 Linguistic Object is created, despite the translation being conceptually similar to the source.&lt;/p&gt;&lt;p&gt;This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;“Les Baigneurs” (E33) &lt;em&gt;has translation&lt;/em&gt; “The Bathers” (E33). (Spiers &amp;amp; Surenne, 1854)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P73(x,y) ⇒ E33(x)&lt;/li&gt;&lt;li&gt;P73(x,y) ⇒ E33(y) &lt;/li&gt;&lt;li&gt;P73(x,y) ⇒ P130i(x,y)&lt;/li&gt;&lt;li&gt;P73(x,y) ⇒ ¬P73(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P74" external="true">
+      <fullName>P74 has current or former residence (is current or former residence of)</fullName>
+      <directName>has current or former residence</directName>
+      <inverseName>is current or former residence of</inverseName>
+      <domain id="E39" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the current or former place of residence (an instance of E53 Place) of an instance of E39 Actor. &lt;/p&gt;&lt;p&gt;The residence may be either the place where the actor resides, or a legally registered address of any kind.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Queen Elizabeth II (E39) &lt;em&gt;has current or former residence&lt;/em&gt; Buckingham Palace (E53). (Robinson, 2000)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P74(x,y) ⇒ E39(x)&lt;/li&gt;&lt;li&gt;P74(x,y) ⇒ E53(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P75" external="true">
+      <fullName>P75 possesses (is possessed by)</fullName>
+      <directName>possesses</directName>
+      <inverseName>is possessed by</inverseName>
+      <domain id="E39" />
+      <range id="E30" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E39 Actor to an instance of E30 Right over which the actor holds or has held a legal claim. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Michael Jackson (E21) &lt;em&gt;possesses&lt;/em&gt; intellectual property rights on the Beatles’ back catalogue (E30). (Raga, 2016)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P75(x,y) ⇒ E39(x)&lt;/li&gt;&lt;li&gt;P75(x,y) ⇒ E30(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P76" external="true">
+      <fullName>P76 has contact point (provides access to)</fullName>
+      <directName>has contact point</directName>
+      <inverseName>provides access to</inverseName>
+      <domain id="E39" />
+      <range id="E41" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E39 Actor to an instance of E41 Appellation which a communication service uses to direct communications to this actor, such as an e-mail address, fax number, or postal address.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Research Libraries Group, Inc. (RLG) (E74)&lt;em&gt; has contact point &lt;/em&gt;“bl.ric@rlg.org” (E41)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P76(x,y) ⇒ E39(x)&lt;/li&gt;&lt;li&gt;P76(x,y) ⇒ E41(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P79" external="true">
+      <fullName>P79 beginning is qualified by</fullName>
+      <directName>beginning is qualified by</directName>
+      <domain id="E52" />
+      <range id="E62" />
+      <subPropertyOf id="P3" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E52 Time-Span with a note detailing the scholarly or scientific opinions and justifications about the certainty, precision, sources etc. of its beginning. Such notes may also be used to elaborate arguments about constraints or to give explanations of alternatives.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the Holocene (E52) &lt;em&gt;beginning is qualified by &lt;/em&gt;“The formal definition and dating of the GSSP (GlobalStratotype Section and Point) for the base of the Holocene using the Greenland NGRIP ice core, and selected auxiliary records” (E62). (Walker et al., 2009) &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P79(x,y) ⇒ E52(x)&lt;/li&gt;&lt;li&gt;P79(x,y) ⇒ E62(y) &lt;/li&gt;&lt;li&gt;P79(x,y) ⇒ P3(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P80" external="true">
+      <fullName>P80 end is qualified by</fullName>
+      <directName>end is qualified by</directName>
+      <domain id="E52" />
+      <range id="E62" />
+      <subPropertyOf id="P3" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E52 Time-Span with a note detailing the scholarly or scientific opinions and justifications about the end of this time-span concerning certainty, precision, sources etc. This property may also be used to describe arguments constraining possible dates and to distinguish reasons for alternative dates.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the Holocene (E52) &lt;em&gt;end is qualified by &lt;/em&gt;“still ongoing” (E62). (Walker et al., 2009)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P80(x,y) ⇒ E52(x) &lt;/li&gt;&lt;li&gt;P80(x,y) ⇒ E62(y) &lt;/li&gt;&lt;li&gt;P80(x,y) ⇒ P3(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P81" external="true">
+      <fullName>P81 ongoing throughout</fullName>
+      <directName>ongoing throughout</directName>
+      <domain id="E52" />
+      <range id="E61" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E52 Time-Span with an instance of E61 Time Primitive specifying a minimum period of time covered by it. Since Time-Spans may not have precisely known temporal extents, the CIDOC CRM supports statements about the minimum and maximum temporal extents of Time-Spans. This property allows a Time-Span’s minimum temporal extent (i.e., its inner boundary) to be assigned an E61 Time Primitive value. Time Primitives are treated by the CIDOC CRM as application or system specific date intervals, and are not further analysed. If different sources of evidence justify different minimum extents without contradicting each other, the smallest interval including all these extents will be the best estimate. This should be taken into account for information integration.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the development of the CIDOC CRM (E52)&lt;em&gt; ongoing throughout &lt;/em&gt;“1996-2003” (E61). (Doerr, 2003)&lt;/li&gt;&lt;li&gt;The Time-Span of the Thirty Years War (E52) &lt;em&gt;ongoing throughout&lt;/em&gt; “23&lt;sup&gt;rd&lt;/sup&gt; May 1618 AD until 24&lt;sup&gt;th&lt;/sup&gt; October 1648 AD” (E61). (Bonney, 2014)&lt;/li&gt;&lt;li&gt;The time-span of the First Intermediate Period of Ancient Egypt (7&lt;sup&gt;th&lt;/sup&gt; to 10&lt;sup&gt;th&lt;/sup&gt; dynasty) (E52) &lt;em&gt;ongoing throughout&lt;/em&gt; “2181 BC – 2160 BC” (E61). (Reid, 1993) [This is the minimal common agreement of two conflicting dates: James Henry Breasted dates the First Intermediate Period of Ancient Egypt (7&lt;sup&gt;th&lt;/sup&gt; to 10&lt;sup&gt;th&lt;/sup&gt; dynasty) from 2475BC to 2160BC in his Ancient Records (first published in 1906), volume 1, sections 58–75 (Breasted, 1906). Ian Shaw dates it from 2181BC to 2125BC in his Oxford History of Ancient Egypt (published in 2000), pp. 479–483 (Shaw, 2000).]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P81(x,y) ⇒ E52(x) &lt;/li&gt;&lt;li&gt;P81(x,y) ⇒ E61(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P82" external="true">
+      <fullName>P82 at some time within</fullName>
+      <directName>at some time within</directName>
+      <domain id="E52" />
+      <range id="E61" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the maximum period of time within which an E52 Time-Span falls. Since Time-Spans may not have precisely known temporal extents, the CIDOC CRM supports statements about the minimum and maximum temporal extents of Time-Spans. This property allows a Time-Span’s maximum temporal extent (i.e. its outer boundary) to be assigned an E61 Time Primitive value. Time Primitives are treated by the CIDOC CRM as application or system specific date intervals, and are not further analysed. If different sources of evidence justify different maximum extents without contradicting each other, the resulting intersection of all these extents will be the best estimate. This should be taken into account for information integration.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the development of the CIDOC CRM (E52)&lt;em&gt; at some time within &lt;/em&gt;“1992-infinity” (E61). (Doerr, 2003)&lt;/li&gt;&lt;li&gt;The Time-Span of the Battle in the Teutoburg Forest (E52) &lt;em&gt;at some time within&lt;/em&gt; “September 9 CE” (E61). (Andrews &amp;amp; Kesteven, 1977)&lt;/li&gt;&lt;li&gt;The time-Span of the death of Tut Ankh Amun (E52) &lt;em&gt;at some time within&lt;/em&gt;&lt;strong&gt;&lt;em&gt; &lt;/em&gt;“&lt;/strong&gt;December 1324 BC to February 1323 BC” (E61). (Murdoch, 2003)&lt;/li&gt;&lt;li&gt;The time-span of the First Intermediate Period of Ancient Egypt (7&lt;sup&gt;th&lt;/sup&gt; to 10&lt;sup&gt;th&lt;/sup&gt; dynasty) (E52) &lt;em&gt;at some time within&lt;/em&gt; “2475BC - 2125BC” (E61). (Reid, 1993)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P82(x,y) ⇒ E52(x) &lt;/li&gt;&lt;li&gt;P82(x,y) ⇒ E61(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P86" external="true">
+      <fullName>P86 falls within (contains)</fullName>
+      <directName>falls within</directName>
+      <inverseName>contains</inverseName>
+      <domain id="E52" />
+      <range id="E52" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the inclusion relationship between two instances of E52 Time-Span.&lt;/p&gt;&lt;p&gt;This property supports the notion that the temporal extent of an instance of E52 Time-Span falls within the temporal extent of another instance of E52 Time-Span. It addresses temporal containment only, and no contextual link between the two instances of E52 Time-Span is implied. This property is transitive and reflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the Apollo 11 moon mission (E52)&lt;em&gt; falls within &lt;/em&gt;the time-span of the reign of Queen Elizabeth II (E52). (Riley, 2009; Robinson, 2000)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P86(x,y) ⇒ E52(x) &lt;/li&gt;&lt;li&gt;P86(x,y) ⇒ E52(y)&lt;/li&gt;&lt;li&gt;[P86(x,y) ∧ P86(y,z)] ⇒ P86(x,z)&lt;/li&gt;&lt;li&gt;P86(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P89" external="true">
+      <fullName>P89 falls within (contains)</fullName>
+      <directName>falls within</directName>
+      <inverseName>contains</inverseName>
+      <domain id="E53" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary, dependent (1,n:1,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance of E53 Place that falls wholly within the extent of another instance of E53 Place.&lt;/p&gt;&lt;p&gt;It addresses spatial containment only and does not imply any relationship between things or phenomena occupying these places.&lt;/p&gt;&lt;p&gt;This property is transitive and reflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The area covered by the World Heritage Site of Stonehenge (E53) &lt;em&gt;falls within&lt;/em&gt; the area of Salisbury Plain (E53). (Pryor, 2016)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P89(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P89(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;[P89(x,y) ∧ P89(y,z)] ⇒ P89(x,z)&lt;/li&gt;&lt;li&gt;P89(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P90" external="true">
+      <fullName>P90 has value</fullName>
+      <directName>has value</directName>
+      <domain id="E54" />
+      <range id="E60" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property allows an instance of E54 Dimension to be approximated by an instance of E60 Number primitive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The height of silver cup 232 (E54) &lt;em&gt;has value &lt;/em&gt;226 (E60). (fictitious)&lt;/li&gt;&lt;li&gt;Christie’s hammer price for Vincent van Gogh’s “Still Life: Vase with Fifteen Sunflowers” in London on 30&lt;sup&gt;th&lt;/sup&gt; March 1987 (E97) &lt;em&gt;has value&lt;/em&gt; 24,750,000 (E60). &lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P90(x,y) ⇒ E54(x)&lt;/li&gt;&lt;li&gt;P90(x,y) ⇒ E60(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P91" external="true">
+      <fullName>P91 has unit (is unit of)</fullName>
+      <directName>has unit</directName>
+      <inverseName>is unit of</inverseName>
+      <domain id="E54" />
+      <range id="E58" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property shows the type of unit an instance of E54 Dimension was expressed in.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The height of silver cup 232 (E54) &lt;em&gt;has&lt;/em&gt; &lt;em&gt;unit &lt;/em&gt;mm (E58). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P91(x,y) ⇒ E54(x)&lt;/li&gt;&lt;li&gt;P91(x,y) ⇒ E58(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P92" external="true">
+      <fullName>P92 brought into existence (was brought into existence by)</fullName>
+      <directName>brought into existence</directName>
+      <inverseName>was brought into existence by</inverseName>
+      <domain id="E63" />
+      <range id="E77" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;one to many, necessary, dependent (1,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E63 Beginning of Existence to the instance of E77 Persistent Item brought into existence by it.&lt;/p&gt;&lt;p&gt;It allows a “start” to be attached to any instance of E77 Persistent Item being documented, i.e., as instances of E70 Thing, E72 Legal Object, E39 Actor, E41 Appellation and E55 Type.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The birth of Mozart (E67&lt;em&gt;) brought into existence&lt;/em&gt; Mozart (E21). (Deutsch, 1965)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P92(x,y) ⇒ E63(x)&lt;/li&gt;&lt;li&gt;P92(x,y) ⇒ E77(y) &lt;/li&gt;&lt;li&gt;P92(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P93" external="true">
+      <fullName>P93 took out of existence (was taken out of existence by)</fullName>
+      <directName>took out of existence</directName>
+      <inverseName>was taken out of existence by</inverseName>
+      <domain id="E64" />
+      <range id="E77" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E64 End of Existence to the instance of E77 Persistent Item taken out of existence by it.&lt;/p&gt;&lt;p&gt;In the case of immaterial things, the instance of E64 End of Existence is considered to take place with the destruction of the last physical carrier.&lt;/p&gt;&lt;p&gt;This allows an “end” to be attached to any instance of E77 Persistent Item being documented i.e. instances of E70 Thing, E72 Legal Object, E39 Actor, E41 Appellation, and E55 Type. For many instances of E77 Persistent Item we know the maximum life-span and can infer that they must have ended to exist. We assume in that case an instance of E64 End of Existence, which may be as unnoticeable as forgetting the secret knowledge by the last representative of some indigenous nation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The death of Mozart (E69) &lt;em&gt;took out of existence &lt;/em&gt;Mozart (E21). (Deutsch, 1965)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P93(x,y) ⇒ E64(x)&lt;/li&gt;&lt;li&gt;P93(x,y) ⇒ E77(y) &lt;/li&gt;&lt;li&gt;P93(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P94" external="true">
+      <fullName>P94 has created (was created by)</fullName>
+      <directName>has created</directName>
+      <inverseName>was created by</inverseName>
+      <domain id="E65" />
+      <range id="E28" />
+      <subPropertyOf id="P92" />
+      <quantification>&lt;p&gt;one to many, necessary, dependent (1,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E65 Creation to the instance of E28 Conceptual Object created by it. &lt;/p&gt;&lt;p&gt;It represents the act of conceiving the intellectual content of the instance of E28 Conceptual Object. It does not represent the act of creating the first physical carrier of the instance of E28 Conceptual Object. As an example, this is the composition of a poem, not its commitment to paper.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The composition of “The Four Friends” by A. A. Milne (E65) &lt;em&gt;has created &lt;/em&gt;“The Four Friends” by A. A. Milne (E33). (Milne, 2012)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P94(x,y) ⇒ E65(x)&lt;/li&gt;&lt;li&gt;P94(x,y) ⇒ E28(y) &lt;/li&gt;&lt;li&gt;P94(x,y) ⇒ P92(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P95" external="true">
+      <fullName>P95 has formed (was formed by)</fullName>
+      <directName>has formed</directName>
+      <inverseName>was formed by</inverseName>
+      <domain id="E66" />
+      <range id="E74" />
+      <subPropertyOf id="P92" />
+      <quantification>&lt;p&gt;one to many, necessary, dependent (1,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates the instance of E66 Formation with the instance of E74 Group that it founded.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The formation of the CIDOC CRM SIG at the August 2000 CIDOC Board meeting (E66) &lt;em&gt;has formed&lt;/em&gt; the CIDOC CRM Special Interest Group (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P95(x,y) ⇒ E66(x)&lt;/li&gt;&lt;li&gt;P95(x,y) ⇒ E74(y) &lt;/li&gt;&lt;li&gt;P95(x,y) ⇒ P92(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P96" external="true">
+      <fullName>P96 by mother (gave birth)</fullName>
+      <directName>by mother</directName>
+      <inverseName>gave birth</inverseName>
+      <domain id="E67" />
+      <range id="E21" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E67 Birth to an instance of E21 Person in the role of birth-giving mother.&lt;/p&gt;&lt;p&gt;Note that biological fathers are not necessarily participants in the Birth (see &lt;em&gt;P97&lt;/em&gt; &lt;em&gt;from father (was father for)&lt;/em&gt;). The instance of E21 Person being born is linked to the instance of E67 Birth with the property &lt;em&gt;P98&lt;/em&gt; &lt;em&gt;brought into life (was born)&lt;/em&gt;. This is not intended for use with general natural history material, only people. There is no explicit method for modelling conception and gestation except by using extensions.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The birth of Queen Elizabeth II (E67) &lt;em&gt;by mother&lt;/em&gt; Her Majesty Queen Elizabeth The Queen Mother (E21). (Parker, 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P96(x,y) ⇒ E67(x)&lt;/li&gt;&lt;li&gt;P96(x,y) ⇒ E21(y)&lt;/li&gt;&lt;li&gt;P96(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P97" external="true">
+      <fullName>P97 from father (was father for)</fullName>
+      <directName>from father</directName>
+      <inverseName>was father for</inverseName>
+      <domain id="E67" />
+      <range id="E21" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E67 Birth to an instance of E21 Person in the role of biological father.&lt;/p&gt;&lt;p&gt;Note that biological fathers are not seen as necessary participants in the birth, whereas birth-giving mothers are (see &lt;em&gt;P96&lt;/em&gt; &lt;em&gt;by mother (gave birth)&lt;/em&gt;). The Person being born is linked to the Birth with the property &lt;em&gt;P98&lt;/em&gt; &lt;em&gt;brought into life (was born)&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;This is not intended for use with general natural history material, only people. There is no explicit method for modelling conception and gestation except by using extensions. &lt;/p&gt;&lt;p&gt;An instance of E67 Birth is normally (but not always) associated with one biological father.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;King George VI (E21) &lt;em&gt;was father for&lt;/em&gt; the birth of Queen Elizabeth II (E67). (Parker, 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P97(x,y) ⇒ E67(x)&lt;/li&gt;&lt;li&gt;P97(x,y) ⇒ E21(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P98" external="true">
+      <fullName>P98 brought into life (was born)</fullName>
+      <directName>brought into life</directName>
+      <inverseName>was born</inverseName>
+      <domain id="E67" />
+      <range id="E21" />
+      <subPropertyOf id="P92" />
+      <quantification>&lt;p&gt;one to many, dependent (0,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E67 Birth event to an instance of E21 Person in the role of offspring.&lt;/p&gt;&lt;p&gt;Twins, triplets etc. are brought into life by the same instance of E67 Birth. This is not intended for use with general Natural History material, only people. There is no explicit method for modelling conception and gestation except by using extensions.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Birth of Queen Elizabeth II (E67) &lt;em&gt;brought into life&lt;/em&gt; Queen Elizabeth II (E21). (Parker, 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P98(x,y) ⇒ E67(x)&lt;/li&gt;&lt;li&gt;P98(x,y) ⇒ E21(y)&lt;/li&gt;&lt;li&gt;P98(x,y) ⇒ P92(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P99" external="true">
+      <fullName>P99 dissolved (was dissolved by)</fullName>
+      <directName>dissolved</directName>
+      <inverseName>was dissolved by</inverseName>
+      <domain id="E68" />
+      <range id="E74" />
+      <subPropertyOf id="P11" />
+      <subPropertyOf id="P93" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates the instance of E68 Dissolution with the instance of E74 Group that it disbanded.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The end of The Hole in the Wall Gang (E68) &lt;em&gt;dissolved&lt;/em&gt; The Hole in the Wall Gang (E74). (Patterson, 1998)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P99(x,y) ⇒ E68(x)&lt;/li&gt;&lt;li&gt;P99(x,y) ⇒ E74(y) &lt;/li&gt;&lt;li&gt;P99(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;li&gt;P99(x,y) ⇒ P93(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P100" external="true">
+      <fullName>P100 was death of (died in)</fullName>
+      <directName>was death of</directName>
+      <inverseName>died in</inverseName>
+      <domain id="E69" />
+      <range id="E21" />
+      <subPropertyOf id="P93" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E69 Death to the instance of E21 Person that died.&lt;/p&gt;&lt;p&gt;An instance of E69 Death may involve multiple people, for example in the case of a battle or disaster.&lt;/p&gt;&lt;p&gt;This is not intended for use with general natural history material, only people.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Mozart’s death (E69) &lt;em&gt;was death of&lt;/em&gt; Mozart (E21). (Sitwell, 2017)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P100(x,y) ⇒ E69(x)&lt;/li&gt;&lt;li&gt;P100(x,y) ⇒ E21(y)&lt;/li&gt;&lt;li&gt;P100(x,y) ⇒ P93(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P101" external="true">
+      <fullName>P101 had as general use (was use of)</fullName>
+      <directName>had as general use</directName>
+      <inverseName>was use of</inverseName>
+      <domain id="E70" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E70 Thing with an instance of E55 Type that describes the type of use that it was actually employed for.&lt;/p&gt;&lt;p&gt;It allows the relationship between particular things, both physical and immaterial, and the general methods and techniques of real use to be documented. This may well be different from the intended functional purpose of the instance of E70 Thing (which can be documented with &lt;em&gt;P103 was intended for (was intention of)&lt;/em&gt;). For example, it could be recorded that a particular wooden crate had a general use as a shelf support on a market stall even though it had been originally intended for carrying vegetables.&lt;/p&gt;&lt;p&gt;The use of this property is intended to allow the documentation of usage patterns attested in historical records or through scientific investigation (for instance ceramic residue analysis). It should not be used to document the intended, and thus assumed, use of an object.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Tony Gill’s Ford Mustang (E22) &lt;em&gt;had as general use&lt;/em&gt; transportation (E55).&lt;/li&gt;&lt;li&gt;The Egyptian unglazed vessel used in the 2003 study reported by Barnard et al. (E22) &lt;em&gt;had as general use&lt;/em&gt; camel milk preparation (E55). (Barnard et al., 2007)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P101(x,y) ⇒ E70(x)&lt;/li&gt;&lt;li&gt;P101(x,y) ⇒ E55(y) &lt;/li&gt;&lt;li&gt;P101(x,y) ⇒ (∃z)[E7(z) ∧ P16i(,x,z) ∧ P2(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P102" external="true">
+      <fullName>P102 has title (is title of)</fullName>
+      <directName>has title</directName>
+      <inverseName>is title of</inverseName>
+      <domain id="E71" />
+      <range id="E35" />
+      <subPropertyOf id="P1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E35 Title that has been applied to an instance of E71 Human-Made Thing. &lt;/p&gt;&lt;p&gt;The &lt;em&gt;P102.1&lt;/em&gt; &lt;em&gt;has type&lt;/em&gt; property of the &lt;em&gt;P102&lt;/em&gt; &lt;em&gt;has title (is title of)&lt;/em&gt; property enables the relationship between the title and the thing to be further clarified, for example, if the title was a given title, a supplied title etc.&lt;/p&gt;&lt;p&gt;It allows any human-made material or immaterial thing to be given a title. It is possible to imagine a title being created without a specific object in mind.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The first book of the Old Testament (E33) &lt;em&gt;has title&lt;/em&gt; “Genesis” (E35) &lt;em&gt;has type&lt;/em&gt; translated title (E55) (E55). (Brueggemann, 1982)&lt;/li&gt;&lt;li&gt;Monet’s painting from 1868-1869 held by Musée d’Orsay, Paris, under inventory number RF 1984 164 (E22) &lt;em&gt;has title&lt;/em&gt; “La Pie” (E35) &lt;em&gt;has type&lt;/em&gt; creator’s title (E55). (Musée d’Orsay, 2020)&lt;/li&gt;&lt;li&gt;Monet’s painting from 1868-1869 held by Musée d'Orsay, Paris, under inventory number RF 1984 164 (E22) &lt;em&gt;has title&lt;/em&gt; “The Magpie” (E35) &lt;em&gt;has type&lt;/em&gt; translated title (E55). (Musée d'Orsay, 2020)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P102(x,y) ⇒ E71(x)&lt;/li&gt;&lt;li&gt;P102(x,y) ⇒ E35(y) &lt;/li&gt;&lt;li&gt;P102(x,y,z) ⇒ [P102(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P102(x,y) ⇒ P1(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P102.1">
+        <identifierText>&lt;p&gt;P102.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P103" external="true">
+      <fullName>P103 was intended for (was intention of)</fullName>
+      <directName>was intended for</directName>
+      <inverseName>was intention of</inverseName>
+      <domain id="E71" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links an instance of E71 Human-Made Thing to an instance of E55 Type of usage or audience. It creates a relation between specific human-made things, both physical and immaterial, to E55 Types. This property can be used to specify intended methods and techniques of use or to characterise the intended audience by indicating a type of personal characteristic that everyone falling into the target audience has. &lt;/p&gt;&lt;p&gt;Note: A link between specific human-made things and a specific use activity should be expressed using &lt;em&gt;P19&lt;/em&gt; &lt;em&gt;was intended use of (was made for).&lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;This plate (E22) &lt;em&gt;was intended for&lt;/em&gt; being destroyed at wedding reception (E55). (fictitious)&lt;/li&gt;&lt;li&gt;“Reading for life, a first book for adults and their tutors” (E28) &lt;em&gt;was intended for&lt;/em&gt; adult literacy learners in the English language (E55). (Allen, 1987)&lt;/li&gt;&lt;li&gt;“Piglet has a bath” (E28), published on sealed plastic pages, &lt;em&gt;was intended for&lt;/em&gt; young children having a bath (E55). (Milne &amp;amp; Shepard, 1998)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P103(x,y) ⇒ E71(x)&lt;/li&gt;&lt;li&gt;P103(x,y) ⇒ E55(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P104" external="true">
+      <fullName>P104 is subject to (applies to)</fullName>
+      <directName>is subject to</directName>
+      <inverseName>applies to</inverseName>
+      <domain id="E72" />
+      <range id="E30" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property links a particular instance of E72 Legal Object to the instances of E30 Right to which it is subject.&lt;/p&gt;&lt;p&gt;The Right is held by an instance of E39 Actor as described by &lt;em&gt;P75&lt;/em&gt; &lt;em&gt;possesses (is possessed by)&lt;/em&gt;.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Beatles back catalogue (E89) &lt;em&gt;is subject to&lt;/em&gt; reproduction right on the Beatles back catalogue (E30). (Raga, 2016)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P104(x,y) ⇒ E72(x)&lt;/li&gt;&lt;li&gt;P104(x,y) ⇒ E30(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P105" external="true">
+      <fullName>P105 right held by (has right on)</fullName>
+      <directName>right held by</directName>
+      <inverseName>has right on</inverseName>
+      <domain id="E72" />
+      <range id="E39" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor who holds the instances of E30 Right to an instance of E72 Legal Object.&lt;/p&gt;&lt;p&gt;It is a superproperty of &lt;em&gt;P52 has current owner (is current owner of)&lt;/em&gt; because ownership is a right that is held on the owned object.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the fully developed path from E72 Legal Object,&lt;em&gt; P104 is subject to&lt;/em&gt;, E30 Right, &lt;em&gt;P75i is possessed by&lt;/em&gt; to E39 Actor.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Beatles back catalogue (E73) &lt;em&gt;right held by &lt;/em&gt;Michael Jackson (E21). (Raga, 2016)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P105(x,y) ⇒ E72(x)&lt;/li&gt;&lt;li&gt;P105(x,y) ⇒ E39(y)&lt;/li&gt;&lt;li&gt;P105(x,y) ⇐ (∃z) [E30(z) ˄ P104(x,z) ˄ P75i(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P106" external="true">
+      <fullName>P106 is composed of (forms part of)</fullName>
+      <directName>is composed of</directName>
+      <inverseName>forms part of</inverseName>
+      <domain id="E90" />
+      <range id="E90" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E90 Symbolic Object with a part of it that is by itself an instance of E90 Symbolic Object, such as fragments of texts or clippings from an image.&lt;/p&gt;&lt;p&gt;This property is transitive asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;This Scope note of property P106 (E33) &lt;em&gt;is composed of ‘&lt;/em&gt;fragments of texts’ (E33).&lt;/li&gt;&lt;li&gt;‘recognizable’ (E90) &lt;em&gt;is composed of&lt;/em&gt; ‘ecognizabl’ (E90).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P106(x,y) ⇒ E90(x)&lt;/li&gt;&lt;li&gt;P106(x,y) ⇒ E90(y)&lt;/li&gt;&lt;li&gt;[P106(x,y) ∧ P106(y,z)] ⇒ P106(x,z)&lt;/li&gt;&lt;li&gt;P106(x,y) ⇒ ¬P106(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P107" external="true">
+      <fullName>P107 has current or former member (is current or former member of)</fullName>
+      <directName>has current or former member</directName>
+      <inverseName>is current or former member of</inverseName>
+      <domain id="E74" />
+      <range id="E39" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E74 Group with an instance of E39 Actor that is or has been a member thereof.&lt;/p&gt;&lt;p&gt;Instances of E74 Group and E21 Person may all be members of instances of E74 Group. An instance of E74 Group may be founded initially without any member. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E74 Group&lt;em&gt;, P144i gained member by, &lt;/em&gt;E85 Joining&lt;em&gt;, P143 joined &lt;/em&gt;to E39 Actor&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;The property P107.1 &lt;em&gt;kind of member &lt;/em&gt;can be used to specify the type of membership or the role the member has in the group. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;László Moholy-Nagy (E21) &lt;em&gt;is current or former&lt;/em&gt; &lt;em&gt;member of&lt;/em&gt; Bauhaus (E74). (Moholy-Nagy, 2012)&lt;/li&gt;&lt;li&gt;National Museum of Science and Industry (E74) &lt;em&gt;has current or former member&lt;/em&gt; The National Railway Museum (E74). (Rolt, 1971)&lt;/li&gt;&lt;li&gt;The married couple Queen Elisabeth and Prince Phillip (E74) &lt;em&gt;has current or former member&lt;/em&gt; Prince Phillip (E21) &lt;em&gt;kind of member&lt;/em&gt; husband (E55). (Brandreth, 2004)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P107(x,y) ⇒ E74(x)&lt;/li&gt;&lt;li&gt;P107(x,y) ⇒ E39(y)&lt;/li&gt;&lt;li&gt;P107(x,y,z) ⇒ [P107(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P107(x,y) ⇐ (∃z) [E85(z) ˄ P144i(x,z) ˄ P143(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P107.1">
+        <identifierText>&lt;p&gt;P107.1 kind of member: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>kind of member</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P108" external="true">
+      <fullName>P108 has produced (was produced by)</fullName>
+      <directName>has produced</directName>
+      <inverseName>was produced by</inverseName>
+      <domain id="E12" />
+      <range id="E24" />
+      <subPropertyOf id="P31" />
+      <subPropertyOf id="P92" />
+      <quantification>&lt;p&gt;one to many, necessary, dependent (1,n:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E24 Physical Human-Made Thing that came into existence as a result of the instance of E12 Production.&lt;/p&gt;&lt;p&gt;The identity of an instance of E24 Physical Human-Made Thing is not defined by its matter, but by its existence as a subject of documentation. An E12 Production can result in the creation of multiple instances of E24 Physical Human-Made Thing.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The building of Rome (E12) &lt;em&gt;has&lt;/em&gt; &lt;em&gt;produced&lt;/em&gt; the Colosseum (E24). (Hopkins &amp;amp; Beard, 2011)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P108(x,y) ⇒ E12(x)&lt;/li&gt;&lt;li&gt;P108(x,y) ⇒ E24(y)&lt;/li&gt;&lt;li&gt;P108(x,y) ⇒ P31(x,y)&lt;/li&gt;&lt;li&gt;P108(x,y) ⇒ P92(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P109" external="true">
+      <fullName>P109 has current or former curator (is current or former curator of)</fullName>
+      <directName>has current or former curator</directName>
+      <inverseName>is current or former curator of</inverseName>
+      <domain id="E78" />
+      <range id="E39" />
+      <subPropertyOf id="P49" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor who assumed or has assumed overall curatorial responsibility for an instance of E78 Curated Holding.&lt;/p&gt;&lt;p&gt;It does not allow a history of curation to be recorded. This would require use of an event initiating a curator being responsible for a collection.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Robert Opie Collection (E78) &lt;em&gt;has current or former curator &lt;/em&gt;Robert Opie (E21). (https://www.robertopiecollection.com/)&lt;/li&gt;&lt;li&gt;The Mikael Heggelund Foslie’s coralline red algae Herbarium (E78) &lt;em&gt;has current or former curator &lt;/em&gt;Mikael Heggelund Foslie (E21). (Woelkerling et al., 2005)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P109(x,y) ⇒ E78(x)&lt;/li&gt;&lt;li&gt;P109(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P109(x,y) ⇒ P49(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P110" external="true">
+      <fullName>P110 augmented (was augmented by)</fullName>
+      <directName>augmented</directName>
+      <inverseName>was augmented by</inverseName>
+      <domain id="E79" />
+      <range id="E18" />
+      <subPropertyOf id="P31" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing that is added to (augmented) in an instance of E79 Part Addition.&lt;/p&gt;&lt;p&gt;Although an instance of E79 Part Addition event normally concerns only one instance of E18 Physical Thing, it is possible to imagine circumstances under which more than one item might be added to (augmented). For example, the artist Jackson Pollock trailing paint onto multiple canvasses.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The final nail-insertion Event (E79) &lt;em&gt;augmented &lt;/em&gt;Coffin of George VI (E22). (https://www.rct.uk/collection/2000811/the-coffin-of-king-george-vi-during-the-lying-in-state)&lt;/li&gt;&lt;li&gt;The attachment of the bronze hand of the Alpi Marittime sculpture (E79) &lt;em&gt;augmented&lt;/em&gt; the tree of the Alpi Marittime sculpture (E20). [https://giuseppepenone.com/en/words/maritime-alps] (Mangini, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P110(x,y) ⇒ E79(x)&lt;/li&gt;&lt;li&gt;P110(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P110(x,y) ⇒ P31(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P111" external="true">
+      <fullName>P111 added (was added by)</fullName>
+      <directName>added</directName>
+      <inverseName>was added by</inverseName>
+      <domain id="E79" />
+      <range id="E18" />
+      <subPropertyOf id="P16" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing that is added during an instance of E79 Part Addition activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The insertion of the final nail (E79) &lt;em&gt;added&lt;/em&gt; the last nail in George VI’s coffin (E22). (https://www.rct.uk/collection/2000811/the-coffin-of-king-george-vi-during-the-lying-in-state)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P111(x,y) ⇒ E79(x)&lt;/li&gt;&lt;li&gt;P111(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P111(x,y) ⇒ P16(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P112" external="true">
+      <fullName>P112 diminished (was diminished by)</fullName>
+      <directName>diminished</directName>
+      <inverseName>was diminished by</inverseName>
+      <domain id="E80" />
+      <range id="E18" />
+      <subPropertyOf id="P31" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing that was diminished by an instance of E80 Part Removal.&lt;/p&gt;&lt;p&gt;Although an instance of E80 Part removal activity normally concerns only one instance of E18 Physical Thing, it is possible to imagine circumstances under which more than one item might be diminished by a single instance of E80 Part Removal activity. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The coffin of Tut-Ankh-Amun (E22) &lt;em&gt;was&lt;/em&gt; &lt;em&gt;diminished by &lt;/em&gt;the opening of the coffin of Tut-Ankh-Amun (E80). (Carter, 2014)&lt;/li&gt;&lt;li&gt;The coral of the Cocos Islands (E20) &lt;em&gt;was diminished&lt;/em&gt; by the removal of the Porite coral specimen by Charles Darwin (E80). (Natural History Museum, 2010, b)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P112(x,y) ⇒ E80(x)&lt;/li&gt;&lt;li&gt;P112(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P112(x,y) ⇒ P31(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P113" external="true">
+      <fullName>P113 removed (was removed by)</fullName>
+      <directName>removed</directName>
+      <inverseName>was removed by</inverseName>
+      <domain id="E80" />
+      <range id="E18" />
+      <subPropertyOf id="P12" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E18 Physical Thing that is removed during an instance of E80 Part Removal activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The opening of the coffin of Tut-Ankh-Amun (E80) &lt;em&gt;removed &lt;/em&gt;The mummy of Tut-Ankh-Amun (E20, E22). (Carter, 2014)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P113(x,y) ⇒ E80(x)&lt;/li&gt;&lt;li&gt;P113(x,y) ⇒ E18(y) &lt;/li&gt;&lt;li&gt;P113(x,y) ⇒ P12(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P121" external="true">
+      <fullName>P121 overlaps with</fullName>
+      <directName>overlaps with</directName>
+      <domain id="E53" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This symmetric property associates an instance of E53 Place with another instance of E53 Place geometrically overlapping it. &lt;/p&gt;&lt;p&gt;It does not specify anything about the shared area. This property is purely spatial. It does not imply that phenomena that define, by their extent, places related by &lt;em&gt;P121 overlaps with&lt;/em&gt; have ever covered a common area at the same time or even coexisted. In contrast, spatiotemporal overlaps described by &lt;em&gt;P132 spatiotemporally overlaps&lt;/em&gt; are the total of areas simultaneously covered by the related spacetime volumes.&lt;/p&gt;&lt;p&gt;This property is symmetric. This property is reflexive. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The territory of the United States as in 2020 (E53) &lt;em&gt;overlaps with&lt;/em&gt; the Arctic (E53). (Gannett et al., 1904)&lt;/li&gt;&lt;li&gt;The maximal extent of the Kingdom of Greece (1832-1973) (E53) &lt;em&gt;overlaps with&lt;/em&gt; the maximal extent of the Republic of Turkey (29&lt;sup&gt;th&lt;/sup&gt; October 1923 to now) (E53).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P121(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P121(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P121(x,y) ⇒ P121(y,x)&lt;/li&gt;&lt;li&gt;P121(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P122" external="true">
+      <fullName>P122 borders with</fullName>
+      <directName>borders with</directName>
+      <domain id="E53" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This symmetric property associates an instance of E53 Place with another instance of E53 Place which shares a part of its border. &lt;/p&gt;&lt;p&gt;This property is purely spatial. It does not imply that the phenomena that define, by their extent, places related by &lt;em&gt;P122 borders&lt;/em&gt; &lt;em&gt;with&lt;/em&gt; have ever shared a respective border at the same time or even coexisted. In particular, this may be the case when the respective common border is formed by a natural feature. &lt;/p&gt;&lt;p&gt;This property is not transitive. This property is symmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Scotland in its 1603 borders (E53) &lt;em&gt;borders with&lt;/em&gt; England in its 1603 borders (E53). (Crofton, 2015)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P122(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P122(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P122(x,y) ⇒ P122(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P123" external="true">
+      <fullName>P123 resulted in (resulted from)</fullName>
+      <directName>resulted in</directName>
+      <inverseName>resulted from</inverseName>
+      <domain id="E81" />
+      <range id="E18" />
+      <subPropertyOf id="P92" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance or instances of E18 Physical Thing that are the result of an instance of E81 Transformation. New items replace the transformed item or items, which cease to exist as units of documentation. The physical continuity between the old and the new is expressed by the links to the common instance of E81 Transformation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The transformation of the Venetian Loggia in Heraklion into a city hall (E81, E12) &lt;em&gt;resulted in&lt;/em&gt; the City Hall of Heraklion (E24). [AND: &lt;em&gt;has produced (P108) &lt;/em&gt;the City Hall of Heraklion (E22)] (Municipality of Heraklion, 2021)&lt;/li&gt;&lt;li&gt;The mummification of Tut-Ankh-Amun (E81, E12) &lt;em&gt;resulted in&lt;/em&gt; the mummy of Tut-Ankh-Amun (E22,E20). [also: &lt;em&gt;has produced (P108) &lt;/em&gt;the mummy of Tut-Ankh-Amun (E22, E20).] (Carter &amp;amp; Mace 1977)&lt;/li&gt;&lt;li&gt;The death, carbonization and petrification of some people of Pompeii in 79AD by the intense heat of a pyroclastic cloud and ashes from the eruption of Mount Vesuvius (E69, E81) &lt;em&gt;resulted in&lt;/em&gt; petrified bodies (E20). [Some of these bodies could later be preserved in plaster.]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P123(x,y) ⇒ E81(x)&lt;/li&gt;&lt;li&gt;P123(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P123(x,y) ⇒ P92(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P124" external="true">
+      <fullName>P124 transformed (was transformed by)</fullName>
+      <directName>transformed</directName>
+      <inverseName>was transformed by</inverseName>
+      <domain id="E81" />
+      <range id="E18" />
+      <subPropertyOf id="P93" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance or instances E18 Physical Thing that have ceased to exist due to an instance of E81 Transformation.&lt;/p&gt;&lt;p&gt;The item that has ceased to exist and was replaced by the result of the Transformation. The continuity between both items, the new and the old, is expressed by the links to the common instance of E81 Transformation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The transformation of the Venetian Loggia in Heraklion into a city hall (E81, E12) transformed the Venetian Loggia in Heraklion (E24). (Municipality of Heraklion, 2021)&lt;/li&gt;&lt;li&gt;The mummification of Tut-Ankh-Amun (E81, E12) transformed the deceased Pharaoh Tut-Ankh-Amun (E21). (Carter &amp;amp; Mace, 1977)&lt;/li&gt;&lt;li&gt;The death, carbonization and petrification of some people of Pompeii in 79AD by the intense heat of a pyroclastic cloud and ashes from the eruption of Mount Vesuvius (E69, E81) transformed some people of Pompeii (E21). [AND: &lt;em&gt;was death of (P100)&lt;/em&gt; some people of Pompeii (E21).]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P124(x,y) ⇒ E81(x)&lt;/li&gt;&lt;li&gt;P124(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P124(x,y) ⇒ P93(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P125" external="true">
+      <fullName>P125 used object of type (was type of object used in)</fullName>
+      <directName>used object of type</directName>
+      <inverseName>was type of object used in</inverseName>
+      <domain id="E7" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E7 Activity to an instance of E55 Type, which classifies an instance of E70 Thing used in an instance of E7 Activity, when the specific instance is either unknown or not of interest, such as use of “a hammer”.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E7 Activity through &lt;em&gt;P16 used specific object&lt;/em&gt;, E70 Thing, &lt;em&gt;P2 has type,&lt;/em&gt; to E55 Type.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The English archers’ activity in the Battle of Agincourt (E7) &lt;em&gt;used object of type&lt;/em&gt; long bow (E55). (Curry, 2015)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P125(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P125(x,y) ⇒ E55(y)&lt;/li&gt;&lt;li&gt;P125(x,y) ⇔ (∃z) [E70(z) ∧ P16(x,z) ∧ P2(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P126" external="true">
+      <fullName>P126 employed (was employed in)</fullName>
+      <directName>employed</directName>
+      <inverseName>was employed in</inverseName>
+      <domain id="E11" />
+      <range id="E57" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E57 Material employed in an instance of E11 Modification.&lt;/p&gt;&lt;p&gt;The instance of E57 Material used during the instance of E11 Modification does not necessarily become incorporated into the instance of E24 Physical Human-Made Thing that forms the subject of the instance of E11 Modification.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The repairing of the Queen Mary (E11) &lt;em&gt;employed&lt;/em&gt; Steel (E57). [Beginning October 1942] (Britton, 2012)&lt;/li&gt;&lt;li&gt;Distilled water (E57) &lt;em&gt;was employed in&lt;/em&gt; the restoration of the Sistine Chapel (E11). (Pietrangeli, 1986)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P126(x,y) ⇒ E11(x)&lt;/li&gt;&lt;li&gt;P126(x,y) ⇒ E57(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P127" external="true">
+      <fullName>P127 has broader term (has narrower term)</fullName>
+      <directName>has broader term</directName>
+      <inverseName>has narrower term</inverseName>
+      <domain id="E55" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E55 Type with another instance of E55 Type that has a broader meaning. &lt;/p&gt;&lt;p&gt;It allows instances of E55 Types to be organised into hierarchies. This is the sense of “broader term generic (BTG)” as defined in ISO 25964-2:2013 (International Organization for Standardization 2013).&lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;dime (E55) &lt;em&gt;has broader term&lt;/em&gt; coin (E55). (Yerkes, 1989)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P127(x,y) ⇒ E55(x)&lt;/li&gt;&lt;li&gt;P127(x,y) ⇒ E55(y)&lt;/li&gt;&lt;li&gt;[P127(x,y) ∧ P127(y,z)] ⇒ P127(x,z)&lt;/li&gt;&lt;li&gt;P127(x,y) ⇒ ¬P127(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P128" external="true">
+      <fullName>P128 carries (is carried by)</fullName>
+      <directName>carries</directName>
+      <inverseName>is carried by</inverseName>
+      <domain id="E18" />
+      <range id="E90" />
+      <subPropertyOf id="P130" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies an instance E90 Symbolic Object carried by an instance of E18 Physical Thing. Since an instance of E90 Symbolic Object is defined as an immaterial idealization over potentially multiple carriers, any individual realization on a particular physical carrier may be defective, due to deterioration or shortcomings in the process of creating the realization compared to the intended ideal. As long as such defects do not substantially affect the complete recognition of the respective symbolic object, it is still regarded as carrying an instance of this E90 Symbolic Object. If these defects are of scholarly interest, the particular realization can be modelled as an instance of E25 Human-Made Feature. Note, that any instance of E90 Symbolic Object incorporated (P165) in the carried symbolic object is also carried by the same instance of E18 Physical Thing.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Matthew’s paperback copy of Reach for the Sky (E18) &lt;em&gt;carries&lt;/em&gt; the text of Reach for the Sky (E73). [see also: (Brickhill, 2001)] (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P128(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P128(x,y) ⇒ E90(y) &lt;/li&gt;&lt;li&gt;P128(x,y) ⇒ P130(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P129" external="true">
+      <fullName>P129 is about (is subject of)</fullName>
+      <directName>is about</directName>
+      <inverseName>is subject of</inverseName>
+      <domain id="E89" />
+      <range id="E1" />
+      <subPropertyOf id="P67" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property documents that an instance of E89 Propositional Object has as subject an instance of E1 CRM Entity. &lt;/p&gt;&lt;p&gt;This differs from &lt;em&gt;P67 refers to (is referred to by)&lt;/em&gt;, which refers to an instance of E1 CRM Entity, in that it describes the primary subject or subjects of an instance of E89 Propositional Object.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The text entitled ‘Reach for the sky’ (E33)&lt;em&gt; is about&lt;/em&gt; Douglas Bader (E21). (Brickhill, 2001)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P129(x,y) ⇒ E89(x)&lt;/li&gt;&lt;li&gt;P129(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P129(x,y) ⇒ P67(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P130" external="true">
+      <fullName>P130 shows features of (features are also found on)</fullName>
+      <directName>shows features of</directName>
+      <inverseName>features are also found on</inverseName>
+      <domain id="E70" />
+      <range id="E70" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property generalises the notions of “copy of” and “similar to” into a directed relationship, where the domain expresses the derivative or influenced item and the range the source or influencing item, if such a direction can be established. The property can also be used to express similarity in cases that can be stated between two objects only, without historical knowledge about its reasons. The property expresses a symmetric relationship in case no direction of influence can be established either from evidence on the item itself or from historical knowledge. This holds in particular for siblings of a derivation process from a common source or non-causal cultural parallels, such as some weaving patterns.&lt;/p&gt;&lt;p&gt;The &lt;em&gt;P130.1&lt;/em&gt; &lt;em&gt;kind of similarity&lt;/em&gt; property of the &lt;em&gt;P130 shows features of (features are also found on)&lt;/em&gt; property enables the relationship between the domain and the range to be further clarified, in the sense from domain to range, if applicable. For example, it may be expressed if both items are product “of the same mould”, or if two texts “contain identical paragraphs”. &lt;/p&gt;&lt;p&gt;If the reason for similarity is a sort of derivation process, i.e. that the creator has used or had in mind the form of a particular thing during the creation or production, this process should be explicitly modelled. In these cases, &lt;em&gt;P130 shows features of &lt;/em&gt;can be regarded as a shortcut of such a process. However, the current model does not contain any path specific enough to infer this property. Specializations of the CIDOC CRM may however be more explicit, for instance describing the use of moulds etc.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is irreflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Mary Lamb’s Cymbeline from Charles and Mary Lamb’s Tales from Shakespeare (E89) &lt;em&gt;shows features of&lt;/em&gt; William Shakespeare’s Cymbeline (E89). (Carrington, 1954)&lt;/li&gt;&lt;li&gt;The audio recording of Dante Alighieri’s La divina commedia read by Enrico de Negri (E73) &lt;em&gt;shows features of&lt;/em&gt; the text of Dante Alighieri’s La divina commedia (E89). (Alighieri, 1956)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P130(x,y) ⇒ E70(x)&lt;/li&gt;&lt;li&gt;P130(x,y) ⇒ E70(y) &lt;/li&gt;&lt;li&gt;P130(x,y,z) ⇒ [P130(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;¬P130(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P130.1">
+        <identifierText>&lt;p&gt;P130.1 kind of similarity: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>kind of similarity</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P132" external="true">
+      <fullName>P132 spatiotemporally overlaps with</fullName>
+      <directName>spatiotemporally overlaps with</directName>
+      <domain id="E92" />
+      <range id="E92" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This symmetric property associates two instances of E92 Spacetime Volume that have some of their extents in common. If only the fuzzy boundaries of the instances of E92 Spacetime Volume overlap, this property cannot be determined from observation alone and therefore should not be applied. However, there may be other forms of justification that the two instances of E92 Spacetime Volume must have some of their extents in common regardless of where and when precisely. &lt;/p&gt;&lt;p&gt;If this property holds for two instances of E92 Spacetime Volume then it cannot be the case that &lt;em&gt;P133 is spatiotemporally separated&lt;/em&gt; from also holds for the same two instances. Furthermore, there are cases where neither &lt;em&gt;P132 spatiotemporally overlaps with&lt;/em&gt; nor &lt;em&gt;P133 is spatiotemporally separated from&lt;/em&gt; holds between two instances of E92 Spacetime Volume. This would occur where only an overlap of the fuzzy boundaries of the two instances of E92 Spacetime Volume occurs and no other evidence is available. &lt;/p&gt;&lt;p&gt;This property is not transitive. This property is symmetric. This property is reflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The “Urnfield” period (E4&lt;em&gt;) spatiotemporally overlaps with&lt;/em&gt; the “Hallstatt” period (E4). (Gimbutas, 1965)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P132(x,y) ⇒ E92(x)&lt;/li&gt;&lt;li&gt;P132(x,y) ⇒ E92(y)&lt;/li&gt;&lt;li&gt;P132(x,y) ⇒ P132(y,x)&lt;/li&gt;&lt;li&gt;P132(x,y) ⇒ P132 (x,y)&lt;/li&gt;&lt;li&gt;P132(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P133" external="true">
+      <fullName>P133 is spatiotemporally separated from</fullName>
+      <directName>is spatiotemporally separated from</directName>
+      <domain id="E92" />
+      <range id="E92" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This symmetric property associates two instances of E92 Spacetime Volume that have no extents in common. If only the fuzzy boundaries of the instances of E92 Spacetime Volume overlap, this property cannot be determined from observation alone and therefore should not be applied. However, there may be other forms of justification that the two instances of E92 Spacetime Volume must not have any of their extents in common regardless of where and when precisely. &lt;/p&gt;&lt;p&gt;If this property holds for two instances of E92 Spacetime Volume then it cannot be the case that &lt;em&gt;P132 spatiotemporally overlaps with&lt;/em&gt; also holds for the same two instances. Furthermore, there are cases where neither &lt;em&gt;P132 spatiotemporally overlaps with&lt;/em&gt; nor &lt;em&gt;P133 is spatiotemporally separated from&lt;/em&gt; holds between two instances of E92 Spacetime Volume. This would occur where only an overlap of the fuzzy boundaries of the two instances of E92 Spacetime Volume occurs and no other evidence is available.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is symmetric. This property is irreflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The “Hallstatt” period (E4) &lt;em&gt;is spatiotemporally separated from&lt;/em&gt; the “La Tène” era (E4). (Marion, 2004)&lt;/li&gt;&lt;li&gt;Kingdom of Greece (1831-1924) (E92) &lt;em&gt;is spatiotemporally separated from&lt;/em&gt; Ottoman Empire (1299-1922) (E92).&lt;/li&gt;&lt;li&gt;The path of the army of Alexander the Great (335-323 B.C.) (E7) &lt;em&gt;is spatiotemporally separated from&lt;/em&gt; the Mauryan Empire (E4). (Lane Fox, 2004)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P133(x,y) ⇒ E92(x)&lt;/li&gt;&lt;li&gt;P133(x,y) ⇒ E92(y)&lt;/li&gt;&lt;li&gt;P133(x,y) ⇒ P133(y,x)&lt;/li&gt;&lt;li&gt;P133(x,y) ⇒ ¬P133 (x,y)&lt;/li&gt;&lt;li&gt;¬P133(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P134" external="true">
+      <fullName>P134 continued (was continued by)</fullName>
+      <directName>continued</directName>
+      <inverseName>was continued by</inverseName>
+      <domain id="E7" />
+      <range id="E7" />
+      <subPropertyOf id="P15" />
+      <subPropertyOf id="P176i" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates two instances of E7 Activity, where the domain is considered as an intentional continuation of the range. A continuation of an activity may happen when the continued activity is still ongoing or after the continued activity has completely ended. The continuing activity may have started already before it decided to continue the other one. Continuation implies a coherence of intentions and outcomes of the involved activities.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The construction of the Kölner Dom (Cologne Cathedral), abandoned in the 15&lt;sup&gt;th&lt;/sup&gt; century (E7), &lt;em&gt;was&lt;/em&gt; &lt;em&gt;continued by &lt;/em&gt;construction in the 19&lt;sup&gt;th&lt;/sup&gt; century (E7). [The construction in the 19&lt;sup&gt;th&lt;/sup&gt; century adapted the initial plans so as to preserve the intended appearance.] (Wolff, 1999)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P134(x,y) ⇒ E7(x)&lt;/li&gt;&lt;li&gt;P134(x,y)⇒ E7(y) &lt;/li&gt;&lt;li&gt;P134(x,y) ⇒ P15(x,y)&lt;/li&gt;&lt;li&gt;P134(x,y) ⇒ P176i(x,y)&lt;/li&gt;&lt;li&gt;P134(x,y) ⇒ ¬P134(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P135" external="true">
+      <fullName>P135 created type (was created by)</fullName>
+      <directName>created type</directName>
+      <inverseName>was created by</inverseName>
+      <domain id="E83" />
+      <range id="E55" />
+      <subPropertyOf id="P94" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E55 Type, which is created in an instance of E83 Type Creation activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The description of a new ribbon worm species by Bürger (E83) &lt;em&gt;created type &lt;/em&gt;‘&lt;em&gt;Lineus kennelii&lt;/em&gt;’ (E55). (Bürger, 1892)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P135(x,y) ⇒ E83(x)&lt;/li&gt;&lt;li&gt;P135(x,y) ⇒ E55(y) &lt;/li&gt;&lt;li&gt;P135(x,y) ⇒ P94(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P136" external="true">
+      <fullName>P136 was based on (supported type creation)</fullName>
+      <directName>was based on</directName>
+      <inverseName>supported type creation</inverseName>
+      <domain id="E83" />
+      <range id="E1" />
+      <subPropertyOf id="P15" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies one or more instances of E1 CRM Entity that were used as evidence to declare a new instance of E55 Type.&lt;/p&gt;&lt;p&gt;The examination of these items is often the only objective way to understand the precise characteristics of a new type. Such items should be deposited in a museum or similar institution for that reason. The taxonomic role renders the specific relationship of each item to the type, such as “holotype” or “original element”.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The taxon creation of the plant species ‘&lt;em&gt;Serratula glauca &lt;/em&gt;Linné, 1753.’ (E83) &lt;em&gt;was based on&lt;/em&gt; Object BM000576251 of the Clayton Herbarium (E20) &lt;em&gt;in the taxonomic role&lt;/em&gt; original element (E55). (Blake, 1918)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P136(x,y) ⇒ E83(x)&lt;/li&gt;&lt;li&gt;P136(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P136(x,y,z) ⇒ [P136(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P136(x,y) ⇒ P15(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P136.1">
+        <identifierText>&lt;p&gt;P136.1 in the taxonomic role: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>in the taxonomic role</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P137" external="true">
+      <fullName>P137 exemplifies (is exemplified by)</fullName>
+      <directName>exemplifies</directName>
+      <inverseName>is exemplified by</inverseName>
+      <domain id="E1" />
+      <range id="E55" />
+      <subPropertyOf id="P2" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E1 CRM Entity with an instance of E55 Type for which it has been declared to be a particularly characteristic example.&lt;/p&gt;&lt;p&gt;The &lt;em&gt;P137.1 in the taxonomic role &lt;/em&gt;property of &lt;em&gt;P137 exemplifies (is exemplified by)&lt;/em&gt; allows differentiation of taxonomic roles. The taxonomic role renders the specific relationship of this example to the type, such as “prototypical”, “archetypical”, “lectotype”, etc. The taxonomic role “lectotype” is not associated with the instance of E83 Type Creation itself but is selected in a later phase.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Object BM000098044 of the Clayton Herbarium (E20) &lt;em&gt;exemplifies ‘Spigelia marilandica’&lt;/em&gt; (L.) L. (E55) &lt;em&gt;in the taxonomic role&lt;/em&gt; lectotype (E55). (Natural History Museum, 2021)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P137(x,y) ⇒ E1(x)&lt;/li&gt;&lt;li&gt;P137(x,y) ⇒ E55(y) &lt;/li&gt;&lt;li&gt;P137(x,y,z) ⇒ [P137(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P137(x,y) ⇒ P2(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P137.1">
+        <identifierText>&lt;p&gt;P137.1 in the taxonomic role: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>in the taxonomic role</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P138" external="true">
+      <fullName>P138 represents (has representation)</fullName>
+      <directName>represents</directName>
+      <inverseName>has representation</inverseName>
+      <domain id="E36" />
+      <range id="E1" />
+      <subPropertyOf id="P67" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property establishes the relationship between an instance of E36 Visual Item and the instance of E1 CRM Entity that it visually represents.&lt;/p&gt;&lt;p&gt;Any entity may be represented visually. This property is part of the fully developed path from E24 Physical Human-Made Thing through &lt;em&gt;P65 shows visual item (is shown by),&lt;/em&gt; E36 Visual Item, &lt;em&gt;P138 represents (has representation) &lt;/em&gt;to E1 CRM Entity, which is shortcut by &lt;em&gt;P62 depicts (is depicted by)&lt;/em&gt;. &lt;em&gt;P138.1 mode of representation&lt;/em&gt; allows the nature of the representation to be refined.&lt;/p&gt;&lt;p&gt;This property is also used for the relationship between an original and a digitisation of the original by the use of techniques such as digital photography, flatbed or infrared scanning. Digitisation is here seen as a process with a mechanical, causal component rendering the spatial distribution of structural and optical properties of the original and does not necessarily include any visual similarity identifiable by human observation.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The digital file found at https://www.emunch.no/N/full/No-MM_N0001-01.jpg (E36) &lt;em&gt;represents&lt;/em&gt; page 1 of Edward Munch's manuscript MM N 1, Munch-museet (E22) &lt;em&gt;mode of representation&lt;/em&gt; Digitisation (E55).&lt;/li&gt;&lt;li&gt;The 3D model VAM_A.200-1946_trace_1M.ply (E73) &lt;em&gt;represents&lt;/em&gt; Victoria &amp;amp; Albert Museum’s Madonna and child sculpture (visual work) A.200-1946 (E22) &lt;em&gt;mode of representation&lt;/em&gt; 3D surface (E55).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P138(x,y) ⇒ E36(x)&lt;/li&gt;&lt;li&gt;P138(x,y) ⇒ E1(y) &lt;/li&gt;&lt;li&gt;P138(x,y,z) ⇒ [P138(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P138(x,y) ⇒ P67(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P138.1">
+        <identifierText>&lt;p&gt;P138.1 mode of representation: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>mode of representation</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P139" external="true">
+      <fullName>P139 has alternative form (is alternative form of)</fullName>
+      <directName>has alternative form</directName>
+      <inverseName>is alternative form of</inverseName>
+      <domain id="E41" />
+      <range id="E41" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E41 Appellation with another instance of E41 Appellation that constitutes a derivative or variant of the former and that may also be used for identifying items identified by the former, in suitable contexts, independent from the particular item to be identified. This property should not be confused with additional variants of names used characteristically for a single, particular item, such as individual nicknames. It is a directed relationship, where the range expresses the derivative or variant and the domain the source of derivation or original form of variation, if such a direction can be established. Otherwise, the relationship is symmetric. &lt;/p&gt;&lt;p&gt;Multiple names assigned to an object, which do not apply to all things identified with the specific instance of E41 Appellation, should be modelled as repeated values of &lt;em&gt;P1 is identified by (identifies) &lt;/em&gt;of this object.&lt;/p&gt;&lt;p&gt;&lt;em&gt;P139.1 has type &lt;/em&gt;allows the type of derivation to be refined, for instance “transliteration from Latin 1 to ASCII”. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;“Martin Doerr” (E41) &lt;em&gt;has alternative form&lt;/em&gt; “Martin Dörr” (E41) &lt;em&gt;has type&lt;/em&gt; alternate spelling (E55).&lt;/li&gt;&lt;li&gt;“Гончарова, Наталья Сергеевна” (E41) &lt;em&gt;has alternative form&lt;/em&gt; "Gončarova, Natal´â Sergeevna" (E41) &lt;em&gt;has type&lt;/em&gt; ISO 9:1995 transliteration (E55).&lt;/li&gt;&lt;li&gt;“Αθήνα” (E41) &lt;em&gt;has alternative form&lt;/em&gt; “Athina” (E41) &lt;em&gt;has type&lt;/em&gt; transcription (E55).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P139(x,y) ⇒ E41(x)&lt;/li&gt;&lt;li&gt;P139(x,y) ⇒ E41(y) &lt;/li&gt;&lt;li&gt;P139(x,y,z) ⇒ [P139(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;¬P139(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P139.1">
+        <identifierText>&lt;p&gt;P139.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P140" external="true">
+      <fullName>P140 assigned attribute to (was attributed by)</fullName>
+      <directName>assigned attribute to</directName>
+      <inverseName>was attributed by</inverseName>
+      <domain id="E13" />
+      <range id="E1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E13 Attribute Assignment with the instance of E1 CRM Entity about which it made an attribution. The instance of E1 CRM Entity plays the role of the domain of the attribution. &lt;/p&gt;&lt;p&gt;The kind of attribution made should be documented using &lt;em&gt;P177 assigned property of type (is type of property assigned)&lt;/em&gt;.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Current Ownership Assessment of Martin Doerr’s silver cup February 1997 (E13) &lt;em&gt;assigned attribute to&lt;/em&gt; Martin Doerr’s silver cup (E22). (fictitious)&lt;/li&gt;&lt;li&gt;The Identifier Assignment on 1&lt;sup&gt;st&lt;/sup&gt; June 1997 of the silver cup donated by Martin Doerr (E15) &lt;em&gt;assigned attribute to&lt;/em&gt; silver cup 232 (E22). (fictitious)&lt;/li&gt;&lt;li&gt;The examination of MS Sinai Greek 418 (E13) &lt;em&gt;assigned attribute to&lt;/em&gt; MS Sinai Greek 418 (E22). (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P140(x,y) ⇒ E13(x)&lt;/li&gt;&lt;li&gt;P140(x,y) ⇒ E1(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P141" external="true">
+      <fullName>P141 assigned (was assigned by)</fullName>
+      <directName>assigned</directName>
+      <inverseName>was assigned by</inverseName>
+      <domain id="E13" />
+      <range id="E1" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E13 Attribute Assignment with the instance of E1 CRM Entity used in the attribution. The instance of E1 CRM Entity here plays the role of the range of the attribution.&lt;/p&gt;&lt;p&gt;The kind of attribution made should be documented using &lt;em&gt;P177 assigned property of type (is type of property assigned)&lt;/em&gt;.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Current Ownership Assessment of Martin Doerr’s silver cup February 1997 (E13) &lt;em&gt;assigned &lt;/em&gt;Martin Doerr (E21). (fictitious)&lt;/li&gt;&lt;li&gt;The Identifier Assignment on 1&lt;sup&gt;st&lt;/sup&gt; June 1997 of the silver cup donated by Martin Doerr (E15) &lt;em&gt;assigned &lt;/em&gt;232 (E42). (fictitious)&lt;/li&gt;&lt;li&gt;The examination of MS Sinai Greek 418 (E13) &lt;em&gt;assigned&lt;/em&gt; unsupported (E55.) (Honey &amp;amp; Pickwoad, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P141(x,y) ⇒ E13(x)&lt;/li&gt;&lt;li&gt;P141(x,y) ⇒ E1(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P142" external="true">
+      <fullName>P142 used constituent (was used in)</fullName>
+      <directName>used constituent</directName>
+      <inverseName>was used in</inverseName>
+      <domain id="E15" />
+      <range id="E90" />
+      <subPropertyOf id="P16" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E15 Identifier Assignment with the instance of E90 Symbolic Object used as constituent of an instance of E42 Identifier in this act of assignment. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Assigning the personal name identifier “Guillaume, de Machaut, ca. 1300-1377” on 1&lt;sup&gt;st&lt;/sup&gt; June 2001 (E15) &lt;em&gt;used constituent&lt;/em&gt; “ca. 1300-1377” (E41). (Kelly, 2014)&lt;/li&gt;&lt;li&gt;Assigning a uniform title to the anonymous textual work known as ‘The Adoration of the Shepherds’(E15) &lt;em&gt;used constituent&lt;/em&gt; “Coventry” (E41). (Encyclopedia Britannica, 1998)&lt;/li&gt;&lt;li&gt;Assigning a uniform title to Pina Bausch’s choreographic work entitled ‘Rite of spring’ (E15) &lt;em&gt;used constituent&lt;/em&gt; “(Choreographic Work: Bausch)” (E90). (Brandstetter and Klein, 2015) &lt;/li&gt;&lt;li&gt;Assigning a uniform title to the motion picture directed in 1933 by Merian C. Cooper and Ernest B. Schoedsack and entitled ‘King Kong’ (E15) &lt;em&gt;used constituent&lt;/em&gt; “1933” (E61). (Goldner and Turner, 1976)&lt;/li&gt;&lt;li&gt;Assigning the corporate name identifier ‘Univerza v Ljubljani. Oddelek za bibliotekarstvo’ to The Department for library science of the University of Ljubljana in 2018 (E15) &lt;em&gt;used constituent&lt;/em&gt; “Univerza v Ljubljani” (E42). [Done by the Department of Library and Information Science and Book Studies Library, University of Ljubljana in 2018]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P142(x,y) ⇒ E15(x)&lt;/li&gt;&lt;li&gt;P142(x,y) ⇒ E90(y)&lt;/li&gt;&lt;li&gt;P142(x,y) ⇒ P16(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P143" external="true">
+      <fullName>P143 joined (was joined by)</fullName>
+      <directName>joined</directName>
+      <inverseName>was joined by</inverseName>
+      <domain id="E85" />
+      <range id="E39" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor that becomes member of an instance of E74 Group in an instance of E85 Joining.&lt;/p&gt;&lt;p&gt;Joining events allow for describing actors becoming members of a group with the more detailed path E74 Group, &lt;em&gt;P144i gained member by&lt;/em&gt;, E85 Joining, &lt;em&gt;P143 joined,&lt;/em&gt; E39 Actor, compared to the shortcut offered by &lt;em&gt;P107 has current or former member (is current or former member of).&lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The election of Sir Isaac Newton as Member of Parliament to the Convention Parliament of 1689 (E85) &lt;em&gt;joined &lt;/em&gt;Sir Isaac Newton (E21). (Iliffe, 2013)&lt;/li&gt;&lt;li&gt;The inauguration of Mikhail Sergeyevich Gorbachev as leader of the Union of Soviet Socialist Republics (USSR) in 1985 (E85) &lt;em&gt;joined&lt;/em&gt; Mikhail Sergeyevich Gorbachev (E21). (Galeotti, 1997)&lt;/li&gt;&lt;li&gt;The implementation of the membership treaty 1&lt;sup&gt;st&lt;/sup&gt; January 1973 between EU and Denmark (E85) &lt;em&gt;joined&lt;/em&gt; Denmark (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P143(x,y) ⇒ E85(x)&lt;/li&gt;&lt;li&gt;P143(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P143(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P144" external="true">
+      <fullName>P144 joined with (gained member by)</fullName>
+      <directName>joined with</directName>
+      <inverseName>gained member by</inverseName>
+      <domain id="E85" />
+      <range id="E74" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E74 Group of which an instance of E39 Actor becomes a member through an instance of E85 Joining.&lt;/p&gt;&lt;p&gt;Although a joining activity normally concerns only one instance of E74 Group, it is possible to imagine circumstances under which becoming member of one Group implies becoming member of another Group as well. &lt;/p&gt;&lt;p&gt;Joining events allow for describing people becoming members of a group with a more detailed path from E74 Group through, &lt;em&gt;P144i gained member by&lt;/em&gt;, E85 Joining, &lt;em&gt;P143 joined&lt;/em&gt;, E39 Actor, compared to the shortcut offered by &lt;em&gt;P107 has current or former member (is current or former member of)&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;The property &lt;em&gt;P144.1 kind of member&lt;/em&gt; can be used to specify the type of membership or the role the member has in the group. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The election of Sir Isaac Newton as Member of Parliament to the Convention Parliament of 1689 (E85) &lt;em&gt;joined with&lt;/em&gt; the Convention Parliament (E74). (Iliffe, 2013)&lt;/li&gt;&lt;li&gt;The inauguration of Mikhail Sergeyevich Gorbachev as Leader of the Union of Soviet Socialist Republics (USSR) in 1985 (E85) &lt;em&gt;joined with&lt;/em&gt; the office of Leader of the Union of Soviet Socialist Republics (USSR) (E74) &lt;em&gt;kind of member&lt;/em&gt; President (E55). (Galeotti, 1997)&lt;/li&gt;&lt;li&gt;The implementation of the membership treaty 1&lt;sup&gt;st&lt;/sup&gt; January 1973 between EU and Denmark (E85) &lt;em&gt;joined with&lt;/em&gt; EU (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P144(x,y) ⇒ E85(x)&lt;/li&gt;&lt;li&gt;P144(x,y)⇒ E74(y) &lt;/li&gt;&lt;li&gt;P144(x,y,z) ⇒ [P144(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P144(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P144.1">
+        <identifierText>&lt;p&gt;P144.1 kind of member: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>kind of member</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P145" external="true">
+      <fullName>P145 separated (left by)</fullName>
+      <directName>separated</directName>
+      <inverseName>left by</inverseName>
+      <domain id="E86" />
+      <range id="E39" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E39 Actor that leaves an instance of E74 Group through an instance of E86 Leaving.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The end of Sir Isaac Newton’s duty as Member of Parliament for the University of Cambridge to the Convention Parliament in 1702 (E86) &lt;em&gt;separated&lt;/em&gt; Sir Isaac Newton (E21). (Iliffe, 2013)&lt;/li&gt;&lt;li&gt;George Washington’s leaving office in 1797 (E86) &lt;em&gt;separated &lt;/em&gt;George Washington (E21). (Unger, 2015)&lt;/li&gt;&lt;li&gt;The implementation of the treaty regulating the termination of Greenland membership in EU between EU, Denmark and Greenland 1&lt;sup&gt;st&lt;/sup&gt; February 1985 (E86) &lt;em&gt;separated&lt;/em&gt; Greenland (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P145(x,y) ⇒ E86(x)&lt;/li&gt;&lt;li&gt;P145(x,y) ⇒ E39(y) &lt;/li&gt;&lt;li&gt;P145(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P146" external="true">
+      <fullName>P146 separated from (lost member by)</fullName>
+      <directName>separated from</directName>
+      <inverseName>lost member by</inverseName>
+      <domain id="E86" />
+      <range id="E74" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property identifies the instance of E74 Group an instance of E39 Actor leaves through an instance of E86 Leaving.&lt;/p&gt;&lt;p&gt;Although a leaving activity normally concerns only one instance of E74 Group, it is possible to imagine circumstances under which leaving one E74 Group implies leaving another E74 Group as well.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The end of Sir Isaac Newton’s duty as Member of Parliament for the University of Cambridge to the Convention Parliament in 1702 (E86) &lt;em&gt;separated from &lt;/em&gt;the Convention Parliament (E74). (Iliffe, 2013)&lt;/li&gt;&lt;li&gt;George Washington’s leaving office in 1797 (E86) &lt;em&gt;separated from &lt;/em&gt;the office of President of the United States (E74). (Unger, 2015)&lt;/li&gt;&lt;li&gt;The implementation of the treaty regulating the termination of Greenland membership in EU between EU, Denmark and Greenland 1&lt;sup&gt;st&lt;/sup&gt; February 1985 (E86) &lt;em&gt;separated from&lt;/em&gt; EU (E74).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P146(x,y) ⇒ E86(x)&lt;/li&gt;&lt;li&gt;P146(x,y) ⇒ E74(y) &lt;/li&gt;&lt;li&gt;P146(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P147" external="true">
+      <fullName>P147 curated (was curated by)</fullName>
+      <directName>curated</directName>
+      <inverseName>was curated by</inverseName>
+      <domain id="E87" />
+      <range id="E78" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E87 Curation Activity with the instance of E78 Curated Holding with that is subject of that curation activity following some implicit or explicit curation plan.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The curation activity of the Benaki Museum for the Toys, Games and Childhood Collection (E87) &lt;em&gt;curated&lt;/em&gt; The Toys, Games and Childhood Collection of the Benaki Museum (E78). [The curation activity included the acquisition of dolls and games of urban and folk manufacture dating from the 17&lt;sup&gt;th&lt;/sup&gt; to the 20&lt;sup&gt;th&lt;/sup&gt; century, from England, France and Germany for the Toys, Games and Childhood Collection of the museum.] (Benaki Museum, 2016)&lt;/li&gt;&lt;li&gt;The curation activity for the permanent Numismatic Collection of the Historical Museum of Crete, Heraklion, Crete from 2005 up to the present (E87) &lt;em&gt;curated&lt;/em&gt; the Numismatic Collection (E78). (Historical Museum of Crete, 2005)&lt;/li&gt;&lt;li&gt;The curation activity of Mikael Heggelund Foslie (E87) &lt;em&gt;curated&lt;/em&gt; the Mikael Heggelund Foslie’s coralline red algae Herbarium (E78). (Woelkerling et al., 2005)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt; P147(x,y) ⇒ E87(x)&lt;/li&gt;&lt;li&gt; P147(x,y) ⇒ E78(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P148" external="true">
+      <fullName>P148 has component (is component of)</fullName>
+      <directName>has component</directName>
+      <inverseName>is component of</inverseName>
+      <domain id="E89" />
+      <range id="E89" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object.&lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Dante’s “Divine Comedy” (E89)&lt;em&gt; has component&lt;/em&gt; Dante’s “Hell” (E89). (Alighieri, 1956)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P148(x,y) ⇒ E89(x)&lt;/li&gt;&lt;li&gt;P148(x,y) ⇒ E89(y)&lt;/li&gt;&lt;li&gt;[P148(x,y) ∧ P148(y,z)] ⇒ P148(x,z)&lt;/li&gt;&lt;li&gt;P148(x,y) ⇒ ¬P148(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P150" external="true">
+      <fullName>P150 defines typical parts of (defines typical wholes for)</fullName>
+      <directName>defines typical parts of</directName>
+      <inverseName>defines typical wholes for</inverseName>
+      <domain id="E55" />
+      <range id="E55" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E55 Type “A” with an instance of E55 Type “B”, when items of type “A” typically form part of items of type “B”, such as “car motors” and “cars”. &lt;/p&gt;&lt;p&gt;It allows types to be organised into hierarchies based on one type describing a typical part of another. This property is equivalent to “broader term partitive (BTP)” as defined in ISO 2788 and “broaderPartitive” in SKOS.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;car motors (E55) &lt;em&gt;defines typical parts of&lt;/em&gt; cars (E55). (fictitious)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P150(x,y) ⇒ E55(x)&lt;/li&gt;&lt;li&gt;P150(x,y) ⇒ E55(y)&lt;/li&gt;&lt;li&gt;P150(x,y) ⇒ ¬P150(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P151" external="true">
+      <fullName>P151 was formed from (participated in)</fullName>
+      <directName>was formed from</directName>
+      <inverseName>participated in</inverseName>
+      <domain id="E66" />
+      <range id="E74" />
+      <subPropertyOf id="P11" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E66 Formation with an instance of E74 Group from which the new group was formed preserving a sense of continuity such as in mission, membership or tradition.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The formation of the House of Bourbon-Conti in 1581 (E66) &lt;em&gt;was formed from&lt;/em&gt; House of Condé (E74). (Collectif &amp;amp; Musée d'art et d'histoire Louis-Senlecq, 1900)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P151(x,y) ⇒ E66(x)&lt;/li&gt;&lt;li&gt;P151(x,y) ⇒ E74(y) &lt;/li&gt;&lt;li&gt;P151(x,y) ⇒ P11(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P152" external="true">
+      <fullName>P152 has parent (is parent of)</fullName>
+      <directName>has parent</directName>
+      <inverseName>is parent of</inverseName>
+      <domain id="E21" />
+      <range id="E21" />
+      <quantification>&lt;p&gt;many to many, necessary (2,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E21 Person with another instance of E21 Person who plays the role of the first instance’s parent, regardless of whether the relationship is biological parenthood, assumed or pretended biological parenthood or an equivalent legal status of rights and obligations obtained by a social or legal act. &lt;/p&gt;&lt;p&gt;This property is, among others, a shortcut of the fully developed paths from E21 Person through&lt;em&gt; P98i was born, &lt;/em&gt;E67 Birth&lt;em&gt;, P96 by mother &lt;/em&gt;to E21 Person&lt;em&gt;, &lt;/em&gt;and&lt;em&gt; &lt;/em&gt;from E21 Person through&lt;em&gt; P98i was born, &lt;/em&gt;E67 Birth&lt;em&gt;, P97 from father &lt;/em&gt;to E21 Person.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is irreflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Gaius Octavius (E21) &lt;em&gt;has parent&lt;/em&gt; Julius Caesar (E21). (Bleicken &amp;amp; Bell, 2015)&lt;/li&gt;&lt;li&gt;Steve Jobs (E21) &lt;em&gt;has parent&lt;/em&gt; Joanne Simpson (E21). [Biological mother] (Isaacson, 2011)&lt;/li&gt;&lt;li&gt;Steve Jobs (E21) &lt;em&gt;has parent&lt;/em&gt; Clara Jobs (E21). [Adoption mother] (Isaacson, 2011)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P152(x,y) ⇒ E21(x)&lt;/li&gt;&lt;li&gt;P152(x,y) ⇒ E21(y)&lt;/li&gt;&lt;li&gt;P152(x,y) ⇐ (∃z) [E67(z) ˄ P98i(x,z) ˄ P96(z,y)]&lt;/li&gt;&lt;li&gt;P152(x,y) ⇐ (∃z) [E67(z) ˄ P98i(x,z) ˄ P97(z,y)]&lt;/li&gt;&lt;li&gt;¬P152(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P156" external="true">
+      <fullName>P156 occupies (is occupied by)</fullName>
+      <directName>occupies</directName>
+      <inverseName>is occupied by</inverseName>
+      <domain id="E18" />
+      <range id="E53" />
+      <subPropertyOf id="P53" />
+      <subPropertyOf id="P157i" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the largest volume in space, an instance of E53 Place, that an instance of E18 Physical Thing has occupied at any time during its existence, with respect to the reference space relative to the physical thing itself. This allows for describing the thing itself as a place that may contain other things, such as a box that may contain coins. In other words, it is the volume that contains all the points which the thing has covered at some time during its existence. The reference space for the associated place must be the one that is permanently at rest (&lt;em&gt;P157 is at rest relative to)&lt;/em&gt; relative to the physical thing. For instances of E19 Physical Objects it is the one which is at rest relative to the object itself, i.e., which moves together with the object. For instances of E26 Physical Feature it is one which is at rest relative to the physical feature itself and the surrounding matter immediately connected to it. Therefore, there is a 1:1 relation between the instance E18 Physical Thing and the instance of E53 Place it occupies. We include in the occupied space the space filled by the matter of the physical thing and all its inner spaces. &lt;/p&gt;&lt;p&gt;This property implies the fully developed path from E18 Physical Thing through &lt;em&gt;P196 defines, &lt;/em&gt;E92 Spacetime Volume,&lt;em&gt; P161 has spatial projection&lt;/em&gt; to E53 Place. However, in contrast to &lt;em&gt;P156 occupies,&lt;/em&gt; the property &lt;em&gt;P161 has spatial projection&lt;/em&gt; does not constrain the reference space of the referred instance of E53 Place. &lt;/p&gt;&lt;p&gt;In contrast to &lt;em&gt;P156 occupies&lt;/em&gt;, for the property &lt;em&gt;P53 has former or current location&lt;/em&gt; the following holds: &lt;/p&gt;&lt;p&gt;It does not constrain the reference space of the referred instance of E53 Place. &lt;/p&gt;&lt;p&gt;It identifies a possibly wider instance of E53 Place at which a thing is or has been for some unspecified time-span. &lt;/p&gt;&lt;p&gt;If the reference space of the referred instance of E53 Place is not at rest with respect to the physical thing found there, the physical thing may move away after some time to another place and/or may have been at some other place before. The same holds for the fully developed path from E18 Physical Thing through &lt;em&gt;P196 defines&lt;/em&gt;, E92 Spacetime Volume,&lt;em&gt; P161 has spatial projection&lt;/em&gt; to E53 Place. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Saint Titus reliquary&lt;em&gt; &lt;/em&gt;(E22) &lt;em&gt;occupies&lt;/em&gt; the space of the Saint Titus reliquary (E53). [The reliquary is currently kept in the Saint Titus Church in Heraklion, Crete since 1966 and contains the skull of Saint Titus.] (Fisher &amp;amp; Garvey, 2010)&lt;/li&gt;&lt;li&gt;Burg Eltz near Koblenz, Germany (E24) &lt;em&gt;occupies&lt;/em&gt; the space within the 1661AD outer walls of Burg Eltz (E53). [The castle (English name: Eltz Castle) underwent a series of expansions starting in the 12&lt;sup&gt;th&lt;/sup&gt; century until it reached its current extent in 1661AD and contains buildings from various periods.]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P156(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P156(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P156(x,y) ⇔ (∃z) [E18(x) ∧ E53(y) ∧ P196(x,z) ∧ P161(z,y) ∧ P157(y,x)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P157" external="true">
+      <fullName>P157 is at rest relative to (provides reference space for)</fullName>
+      <directName>is at rest relative to</directName>
+      <inverseName>provides reference space for</inverseName>
+      <domain id="E53" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to many, necessary(1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E53 Place with the instance of E18 Physical Thing that determines a reference space for this instance of E53 Place by being at rest with respect to this reference space. The relative stability of form of an instance of E18 Physical Thing defines its default reference space. The reference space is not spatially limited to the referred thing. For example, a ship determines a reference space in terms of which other ships in its neighbourhood may be described. Larger constellations of matter, such as continental plates, may comprise many physical features that are at rest with them and define the same reference space. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The spatial extent of the municipality of Athens in 2014 (E53) &lt;em&gt;is at rest relative to &lt;/em&gt;The Royal Observatory in Greenwich (E25). (Maunder, 1900)&lt;/li&gt;&lt;li&gt;The place where Lord Nelson died on H.M.S. Victory (E53) &lt;em&gt;is at rest relative to &lt;/em&gt;H.M.S. Victory (E22). (Adkin, 2005)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P157(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P157(x,y) ⇒ E18(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P160" external="true">
+      <fullName>P160 has temporal projection (is temporal projection of)</fullName>
+      <directName>has temporal projection</directName>
+      <inverseName>is temporal projection of</inverseName>
+      <domain id="E92" />
+      <range id="E52" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the temporal projection of an instance of E92 Spacetime Volume. The property &lt;em&gt;P4 has time-span&lt;/em&gt; is the same as &lt;em&gt;P160 has temporal projection&lt;/em&gt; if it is used to document an instance of E4 Period or any subclass of it. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The spatio-temporal trajectory of the H.M.S. Temeraire from its building in 1798 to its destruction in 1838 (E92) &lt;em&gt;has temporal projection &lt;/em&gt;the time-span of the existence of H.M.S. Temeraire (E52) [&lt;em&gt;at some time within (P82)&lt;/em&gt; “1798-1838” (E61).] (Willis, 2010)&lt;/li&gt;&lt;li&gt;The Battle of Waterloo 1815 (E7) &lt;em&gt;has temporal projection&lt;/em&gt; the time-span of the Battle of Waterloo (E52) [&lt;em&gt;at some time within (P82)&lt;/em&gt; “Sunday, 18&lt;sup&gt;th&lt;/sup&gt; June 1815” (E61).] (Black, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P160(x,y) ⇒ E92(x)&lt;/li&gt;&lt;li&gt;P160(x,y)⇒ E52(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P161" external="true">
+      <fullName>P161 has spatial projection (is spatial projection of)</fullName>
+      <directName>has spatial projection</directName>
+      <inverseName>is spatial projection of</inverseName>
+      <domain id="E92" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E92 Spacetime Volume with an instance of E53 Place that is the result of the spatial projection of the instance of the E92 Spacetime Volume on a reference space.&lt;/p&gt;&lt;p&gt;In general, there can be more than one useful reference space (for reference space see &lt;em&gt;P156 occupies&lt;/em&gt; and &lt;em&gt;P157 is at rest relative to&lt;/em&gt;) to describe the spatial projection of a spacetime volume, for example, in describing a sea battle, the difference between the battle ship and the seafloor as reference spaces. Thus, it can be seen that the projection is not unique.&lt;/p&gt;&lt;p&gt;The spatial projection is the actual spatial coverage of a spacetime volume, which normally has fuzzy boundaries except for instances of E92 Spacetime Volume which are geometrically defined in the same reference system as the range of this property and are an exception to this and do not have fuzzy boundaries. Modelling explicitly fuzzy spatial projections serves therefore as a common topological reference of different spatial approximations rather than absolute geometric determination, for instance for relating outer or inner spatial boundaries for the respective spacetime volumes.&lt;/p&gt;&lt;p&gt;The spatial projection is unique with respect to the reference system. For instance, there is exactly one spatial projection of Lord Nelson’s dying relative to the ship HMS Victory, i.e. the location of his body relative to the ship HMS Victory at the time of his death.&lt;/p&gt;&lt;p&gt;In case the domain of an instance of &lt;em&gt;P161 has spatial projection&lt;/em&gt; is an instance of E4 Period, the spatial projection describes all areas that period was ever present at, for instance, the Roman Empire. &lt;/p&gt;&lt;p&gt;This property is part of the fully developed path from E18 Physical Thing through &lt;em&gt;P196 defines, &lt;/em&gt;E92 Spacetime Volume,&lt;em&gt; P161 has spatial projection &lt;/em&gt;to E53 Place, which in turn is implied by &lt;em&gt;P156 occupies (is occupied by). &lt;/em&gt;&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Roman Empire (E4) &lt;em&gt;has spatial projection&lt;/em&gt; all areas ever claimed by Rome (E53). (Clare &amp;amp; Edwards, 1992)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P161(x,y) ⇒ E92(x)&lt;/li&gt;&lt;li&gt;P161(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;(∃y,z,u) [E92(x) ˄ E53(y) ˄ E53(z) ˄ E18(u) ˄ P157(y,u) ˄ P157(z,u) ˄ P161(x,y) ˄ P161(x,z) ] ⇒ (x = y)&lt;/li&gt;&lt;li&gt;P161(x,y) ˄ E4(x) ⇒ P7(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P164" external="true">
+      <fullName>P164 is temporally specified by (temporally specifies)</fullName>
+      <directName>is temporally specified by</directName>
+      <inverseName>temporally specifies</inverseName>
+      <domain id="E93" />
+      <range id="E52" />
+      <subPropertyOf id="P160" />
+      <quantification>&lt;p&gt;many to one, necessary(1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property relates an instance of E93 Presence with the instance of E52 Time-Span that defines the time-slice of the spacetime volume that this instance of E93 Presence is related to via the property &lt;em&gt;P166 was a presence of (had presence).&lt;/em&gt;&lt;/p&gt;&lt;p&gt;There are two typical cases for the determination of the related instance of E52 Time-Span. In the first, it is the temporal extent of an instance of E2 Temporal Entity (documented with &lt;em&gt;P4 has time-span (is time-span of)&lt;/em&gt;): this then documents the simultaneity of the instance of E93 Presence and the instance of E2 Temporal Entity, even if the absolute time-span is not known, and can be regarded as a phenomenal time-span. In the second, the instance of E52 Time-Span is a date range declared in or derived from historical sources or provided by dating methods: this is a declarative time-span.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;2016-02-09 (E52) &lt;em&gt;temporally specifies&lt;/em&gt; the last day of the 2016 Carnival in Cologne (E93).&lt;/li&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts in December 1755 (E93) &lt;em&gt;is temporally specified by&lt;/em&gt; December 1755 (E52.) (Leppmann, 1970)&lt;/li&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts from 19&lt;sup&gt;th&lt;/sup&gt; November 1755 until 9&lt;sup&gt;th&lt;/sup&gt; April 1768 (E93) &lt;em&gt;is temporally specified by&lt;/em&gt; 19&lt;sup&gt;th&lt;/sup&gt; November 1755 until 9&lt;sup&gt;th&lt;/sup&gt; April 1768 (E52). (Leppmann, 1970)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P164(x,y) ⇒ E93(x)&lt;/li&gt;&lt;li&gt;P164(x,y) ⇒ E52(y)&lt;/li&gt;&lt;li&gt;P164(x,y) ⇒ P160(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P165" external="true">
+      <fullName>P165 incorporates (is incorporated in)</fullName>
+      <directName>incorporates</directName>
+      <inverseName>is incorporated in</inverseName>
+      <domain id="E73" />
+      <range id="E90" />
+      <subPropertyOf id="P106" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E73 Information Object with an instance of E90 Symbolic Object (or any of its subclasses) that was included in it.&lt;/p&gt;&lt;p&gt;This property makes it possible to recognise the autonomous status of the incorporated signs, which were created in a distinct context, and can be incorporated in many instances of E73 Information Object, and to highlight the difference between structural and accidental whole-part relationships between conceptual entities.&lt;/p&gt;&lt;p&gt;It accounts for many cultural facts that are quite frequent and significant: the inclusion of a poem in an anthology, the re-use of an operatic aria in a new opera, the use of a reproduction of a painting for a book cover or a CD booklet, the integration of textual quotations, the presence of lyrics in a song that sets those lyrics to music, the presence of the text of a play in a movie based on that play, etc.&lt;/p&gt;&lt;p&gt;In particular, this property allows for modelling relationships of different levels of symbolic specificity, such as the natural language words making up a particular text, the characters making up the words and punctuation, the choice of fonts and page layout for the characters.&lt;/p&gt;&lt;p&gt;When restricted to information objects, that is, seen as a property with E73 Information Object as domain and range the property is transitive.&lt;/p&gt;&lt;p&gt;A digital photograph of a manuscript page incorporates the text of a manuscript page, if the respective text is defined as a sequence of symbols of a particular type, such as Latin characters, and the resolution and quality of the digital image is sufficient to resolve these symbols so they are readable on the digital image.&lt;/p&gt;&lt;p&gt;This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The content of Charles-Moïse Briquet’s ‘Les Filigranes: dictionnaire historique des marques du papier’ (E32) &lt;em&gt;incorporates&lt;/em&gt; the visual aspect of the watermark used around 1358-61 by some Spanish papermaker(s) and identified as ‘Briquet 4019’ (E37). (Briquet, 1985)&lt;/li&gt;&lt;li&gt;The visual content of Jacopo Amigoni’s painting known as ‘The Singer Farinelli and friends’ (E36) &lt;em&gt;incorporates&lt;/em&gt; the musical notation of Farinelli’s musical work entitled ‘La Partenza’ (E73). (National Gallery of Victoria)&lt;/li&gt;&lt;li&gt;The visual content of Nicolas Poussin’s painting entitled ‘Les Bergers d’Arcadie’ (E36) &lt;em&gt;incorporates&lt;/em&gt; the Latin phrase ‘Et in Arcadia ego’ (E33). (Wikipedia, 2020)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P165(x,y) ⇒ E73(x)&lt;/li&gt;&lt;li&gt;P165(x,y) ⇒ E90(y)&lt;/li&gt;&lt;li&gt;P165(x,y) ⇒ P106(x,y)&lt;/li&gt;&lt;li&gt;P165(x,y) ⇒ ¬P165(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P166" external="true">
+      <fullName>P166 was a presence of (had presence)</fullName>
+      <directName>was a presence of</directName>
+      <inverseName>had presence</inverseName>
+      <domain id="E93" />
+      <range id="E92" />
+      <subPropertyOf id="P10" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E93 Presence with the instance of E92 Spacetime Volume of which it represents a temporal restriction (i.e. a time-slice). Instantiating this property constitutes a necessary part of the identity of the respective instance of E93 Presence. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Roman Empire on 19&lt;sup&gt;th&lt;/sup&gt; August AD 14 (E93) &lt;em&gt;was a presence of&lt;/em&gt; The Roman Empire (E4). (Clare and Edwards, 1992)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P166(x,y) ⇒ E93(x)&lt;/li&gt;&lt;li&gt;P166(x,y) ⇒ E92(y)&lt;/li&gt;&lt;li&gt;P166(x,y) ⇒ P10(x,y) &lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P167" external="true">
+      <fullName>P167 was within (includes)</fullName>
+      <directName>was within</directName>
+      <inverseName>includes</inverseName>
+      <domain id="E93" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E93 Presence with an instance of E53 Place that geometrically includes the spatial projection of the respective instance of E93 Presence. Besides others, this property may be used to state in which space an object has been for some known time, such as a room of a castle or in a drawer. It may also be used to describe a confinement of the spatial extent of some realm during a known time-span. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E93 Presence through &lt;em&gt;P161 has spatial projection,&lt;/em&gt; E53 Place, &lt;em&gt;P89 falls within (contains)&lt;/em&gt; to E53 Place. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts in December 1755 (E93) &lt;em&gt;was within&lt;/em&gt; Rome (E53). (Leppmann, 1970)&lt;/li&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts from 19&lt;sup&gt;th&lt;/sup&gt; November 1755 until 9&lt;sup&gt;th&lt;/sup&gt; April 1768 (E93) &lt;em&gt;was within&lt;/em&gt; Italy (E53). (Leppmann, 1970)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P167(x,y) ⇒ E93(x)&lt;/li&gt;&lt;li&gt;P167(x,y) ⇒ E53(y)&lt;/li&gt;&lt;li&gt;P167(x,y) ⇔ (∃z) [E53(z) ˄ P161(x,z) ˄ P89(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P168" external="true">
+      <fullName>P168 place is defined by (defines place)</fullName>
+      <directName>place is defined by</directName>
+      <inverseName>defines place</inverseName>
+      <domain id="E53" />
+      <range id="E94" />
+      <subPropertyOf id="P1" />
+      <quantification>&lt;p&gt;one to many, dependent (0,n:1,1) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E53 Place with an instance of E94 Space Primitive that defines it. Syntactic variants or use of different scripts may result in multiple instances of E94 Space Primitive defining exactly the same place. Transformations between different reference systems always result in new definitions of places approximating each other and not in alternative definitions. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The centroid from https://sws.geonames.org/735927 (E53) place &lt;em&gt;is defined by&lt;/em&gt; 40°31'17.9"N 21°15'48.3"E (E94). [A single point for approximating the centre of the city of Kastoria, Greece]&lt;/li&gt;&lt;li&gt;Martin’s coordinates for Kastoria (E53) place &lt;em&gt;is defined by&lt;/em&gt; 40°30'23"N 21°14'53"E, 40°31'40"N 21°16'43"E (E94). [A square covering the built settlement structure of Kastoria, Greece]&lt;/li&gt;&lt;li&gt;Martin’s centroid for Kastoria (E53) place&lt;em&gt; is defined by&lt;/em&gt; 40°31'01.5"N 21°15'48"E (E94). [A point in the lake of Kastoria in the centre of the area covered by the city]&lt;/li&gt;&lt;li&gt;The position measured by Alexander von Humboldt for the Plaza Mayor in Cumaná, Sucre, Venezuela 1799-1800AD (E53) &lt;em&gt;place&lt;/em&gt; &lt;em&gt;is defined by&lt;/em&gt; 10°27'52"N 66°30'02"W (E94). [West of the Observatory of Paris = 64°09'51"W of Greenwich, actually 1.1km east of today’s Plaza Andrés Eloy Blanco of Cumaná] (Humboldt, 1859)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P168(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P168(x,y) ⇒ E94(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P169" external="true">
+      <fullName>P169 defines spacetime volume (spacetime volume is defined by)</fullName>
+      <directName>defines spacetime volume</directName>
+      <inverseName>spacetime volume is defined by</inverseName>
+      <domain id="E95" />
+      <range id="E92" />
+      <subPropertyOf id="P1i" />
+      <quantification>&lt;p&gt;many to one, necessary&lt;strong&gt; &lt;/strong&gt;(1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E95 Spacetime Primitive with the instance of E92 Spacetime Volume it defines. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;{40°30'23"N 21°14'53"E, 40°31'40"N 21°16'43"E, 200BC-2020AD} (E95) &lt;em&gt;defines spacetime volume&lt;/em&gt; Martin’s spatiotemporal enclosure 2020 for the evolution of the settlement of today’s city of Kastoria, Greece, since its conquest by the Romans (E92). [A square covering the current built settlement structure of Kastoria, Greece, through the years 200BC to 2020AD, which includes the extents of earlier phases of the city]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P169(x,y) ⇒ E95(x)&lt;/li&gt;&lt;li&gt;P169(x,y) ⇒ E92(y)&lt;/li&gt;&lt;li&gt;P169(x,y) ⇒ P1i(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P170" external="true">
+      <fullName>P170 defines time (time is defined by)</fullName>
+      <directName>defines time</directName>
+      <inverseName>time is defined by</inverseName>
+      <domain id="E61" />
+      <range id="E52" />
+      <subPropertyOf id="P1i" />
+      <quantification>&lt;p&gt;many to one (0,1:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E61 Time Primitive with the instance of E52 Time-Span that constitutes the interpretation of the terms of the time primitive as an extent in absolute, real time. &lt;/p&gt;&lt;p&gt;The quantification allows several instances of E61 Time Primitive that are each expressed in different syntactic forms, to define the same instance of E52 Time-Span.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;“1800/1/1 0:00:00 – 1899/31/12 23:59:59” (E61) &lt;em&gt;defines time&lt;/em&gt; the 19&lt;sup&gt;th&lt;/sup&gt; century (E52).&lt;/li&gt;&lt;li&gt;“1968/1/1 – 2018/1/1” (E61) &lt;em&gt;defines time&lt;/em&gt; 1968/1/1 – 2018/1/1 (E52). [an arbitrary time-span during which the Saint Titus reliquary was present in the Saint Titus Church in Heraklion, Crete]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P170(x,y) ⇒ E61(x)&lt;/li&gt;&lt;li&gt;P170(x,y) ⇒ E52(y)&lt;/li&gt;&lt;li&gt;P170(x, y) ⇒ P81i(x, y) ∧ P82i(x, y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P171" external="true">
+      <fullName>P171 at some place within</fullName>
+      <directName>at some place within</directName>
+      <domain id="E53" />
+      <range id="E94" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the maximum spatial extent within which an instance of E53 Place falls. Since instances of E53 Places may not have precisely known spatial extents, the CIDOC CRM supports statements about maximum spatial extents of instances of E53 Place. This property allows an instance of E53 Place’s maximum spatial extent (i.e., its outer boundary) to be assigned an instance of E94 Space Primitive value. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the fully developed path from E53 Place&lt;em&gt;, P89 falls within, &lt;/em&gt;E53 Place&lt;em&gt;, P168 place is defined by&lt;/em&gt; to E94 Space Primitive through a declarative Place that is not explicitly documented, to a Space Primitive: declarative places are defined in CRMgeo (Doerr and Hiebel 2013).&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The spatial extent of the Acropolis of Athens (E53)&lt;em&gt; at some place within &lt;/em&gt;POLYGON ((37.969172 23.720787, 37.973122 23.721495 37.972741 23.728994, 37.969299 23.729735, 37.969172 23.720787)) (E94).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P171(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P171(x,y) ⇒ E94(y)&lt;/li&gt;&lt;li&gt;P171(x,y) ⇔ (∃z) [E53(z) ˄ P89(x,z) ˄ P168(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P172" external="true">
+      <fullName>P172 contains</fullName>
+      <directName>contains</directName>
+      <domain id="E53" />
+      <range id="E94" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes a minimum spatial extent which is contained within an instance of E53 Place. Since instances of E53 Place may not have precisely known spatial extents, the CIDOC CRM supports statements about minimum spatial extents of instances of E53 Place. This property allows an instance of E53 Place’s minimum spatial extent (i.e., its inner boundary or a point being within a Place) to be assigned an instance of E94 Space Primitive value. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the fully developed path from E53 Place&lt;em&gt;, P89i contains, &lt;/em&gt;E53 Place&lt;em&gt;, P168 place is defined by &lt;/em&gt;to&lt;em&gt; &lt;/em&gt;E94 Space Primitive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The spatial extent of the Acropolis of Athens (E53) &lt;em&gt;contains &lt;/em&gt;POINT (37.971431 23.725947) (E94).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P172(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P172(x,y) ⇒ E94(y)&lt;/li&gt;&lt;li&gt;P172(x,y) ⇔ (∃z) [E53(z) ˄ P89i(x,z) ˄ P168(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P173" external="true">
+      <fullName>P173 starts before or with the end of (ends after or with the start of)</fullName>
+      <directName>starts before or with the end of</directName>
+      <inverseName>ends after or with the start of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity starts before or simultaneously with the end of the temporal extent of the range instance B of E2 Temporal Entity.&lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;start&lt;/sup&gt; ≤ B&lt;sup&gt;end&lt;/sup&gt; is true.&lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to the disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, met-by, overlaps, starts, started-by, contains, finishes, finished-by, equals, during, overlapped by}.&lt;/p&gt;&lt;p&gt;This property is not transitive. &lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_01.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 8: Temporal entity A starts before or with the end of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_02.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 9: Temporal entity A starts before or with the end of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The legendary run from Marathon to Athens 490BC (E7) &lt;em&gt;starts before or with the end of&lt;/em&gt; The Battle of Marathon 490BC (E7).&lt;/li&gt;&lt;li&gt;LMIIB (E4) &lt;em&gt;ends after or with the start of &lt;/em&gt;the&lt;em&gt; &lt;/em&gt;Tutankhamun period (1332-1323 B.C.E.) (E4). [Evidence for this is provided by the scarab seal found at Poros in a context of LMIIB. The scarab belongs to the type “nh.s n Jmn”. During the Akhenaten period he production of these scarab seals stopped (the name of Amun is not referred to during his reign). So the scarab could not have been produced before the Tutankhamun period and is probably a later production.] (Karetsou, 2000)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P173(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt;P173(x,y) ⇒ E2(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P174" external="true">
+      <fullName>P174 starts before the end of (ends after the start of)</fullName>
+      <directName>starts before the end of</directName>
+      <inverseName>ends after the start of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P173" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n) &lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity starts definitely before the end of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;start&lt;/sup&gt; &amp;lt; B&lt;sup&gt;end&lt;/sup&gt; is true. &lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, overlaps, starts, started-by, contains, finishes, finished-by, equals, during, overlapped by}&lt;/p&gt;&lt;p&gt;Typically, this property is a consequence of a known influence of some event on another event or activity, such as a novel written by someone being continued by someone else, or the knowledge of a defeat on a distant battlefield causing people to end their ongoing activities. This property is not transitive. This property is irreflexive. &lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_03.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 10: Temporal entity A starts before the end of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_04.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 11: Temporal entity A starts before the end of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The settling activity of the city of Assur (Ashur) (E7) &lt;em&gt;starts before the end of&lt;/em&gt; The Tenth Dynasty of Egypt (E4). [There are some 200 - 300 years differences in the chronology of the First Intermediate Period, and Assur is dated to “about 2500 BC”.] (Pedersén, 1986)&lt;/li&gt;&lt;li&gt;The building of the current St. Peters in Rome (E7) &lt;em&gt;starts before the end of &lt;/em&gt;the demolition of the old 4&lt;sup&gt;th&lt;/sup&gt; c. St. Peters (E6, E7) (Bosman, 2004)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P174(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt;P174(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt;P174(x,y) ⇒ P173(x,y)&lt;/li&gt;&lt;li&gt;¬P174(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P175" external="true">
+      <fullName>P175 starts before or with the start of (starts after or with the start of)</fullName>
+      <directName>starts before or with the start of</directName>
+      <inverseName>starts after or with the start of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P174" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity starts before or simultaneously with the start of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;start&lt;/sup&gt; ≤ B&lt;sup&gt;start&lt;/sup&gt; is true.&lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, overlaps, starts, started-by, contains, finished-by, equals}&lt;/p&gt;&lt;p&gt;In a model with fuzzy borders, this property will not be transitive.&lt;/p&gt;&lt;p&gt;This property is irreflexive.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_05.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 12: Temporal entity A starts before or with the start of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_06.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 13: Temporal entity A starts before or with the start of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The production of the scarab seal found in Poros in a context of LMIIIB (E12) &lt;em&gt;starts after or with the start of &lt;/em&gt;Tutankhamun period (1332-1323 B.C) (E4). [The scarab stamp seal found in Poros was associated with finds dated to the LMIIIB period. The seal is dated to the Tutankhamun period or later because it belongs to the scarabs of type “nh.s n Jmn”: During Akhenaten period, the production of this type of scarab seal stopped (the name of Amun is not referred to during his reign). Therefore, the scarab cannot have been produced before the Tutankhamun period and is probably a later production] (Karetsou, 2000)&lt;/li&gt;&lt;li&gt;The production of the cylindrical seal of the first Dynasty of Babylon found in Tholos B in Platanos (E12) &lt;em&gt;starts after or with the start of&lt;/em&gt; the Hammurabi period of the kingdom (E4). [Of the cylindrical seal of the first Dynasty of Babylon found in tholos B in Platanos believed to connect king Hammurabi with the MM I period. Specifically, although the finding is believed to have been found in a MM I layer, it contained material from the MM III/YM I period. Therefore, the seal may be from the Hammurabi period or, it may be from a later period.] (Walberg, 1992.)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt; P175(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt; P175(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt; P175(x,y) ⇒ P174(x,y)&lt;/li&gt;&lt;li&gt; ¬P175(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P176" external="true">
+      <fullName>P176 starts before the start of (starts after the start of)</fullName>
+      <directName>starts before the start of</directName>
+      <inverseName>starts after the start of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P175" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity starts definitely before the start of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;start&lt;/sup&gt; &amp;lt; B&lt;sup&gt;start&lt;/sup&gt; is true. &lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, overlaps, contains, finished-by}. This property is transitive. This property is asymmetric.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_07.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 14: Temporal entity A starts before the start of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_08.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 15: Temporal entity A starts before the start of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The reign of King Harold II (E4) &lt;em&gt;starts before the start of&lt;/em&gt; the Battle of Hastings (E7). (Wikipedia 2022a)&lt;/li&gt;&lt;li&gt;The life of Attila “the Hun” (E4) &lt;em&gt;starts before the start of&lt;/em&gt; the Battle of the Catalaunian Plains (E7). [June 20, 451 AD] (Wikipedia 2022b)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt; P176(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt; P176(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt; P176(x,y) ⇒ P175(x,y)&lt;/li&gt;&lt;li&gt;[P176(x,y) ∧ P176(y,z)] ⇒ P176(x,z)&lt;/li&gt;&lt;li&gt;P176(x,y) ⇒ ¬P176(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P177" external="true">
+      <fullName>P177 assigned property of type (is type of property assigned)</fullName>
+      <directName>assigned property of type</directName>
+      <inverseName>is type of property assigned</inverseName>
+      <domain id="E13" />
+      <range id="E55" />
+      <subPropertyOf id="P2" />
+      <quantification>&lt;p&gt;many to many, necessary (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E13 Attribute Assignment with the type of property or relation that this assignment maintains to hold between the item to which it assigns an attribute and the attribute itself. Note that the properties defined by the CIDOC CRM also constitute instances of E55 Type themselves. The direction of the assigned property of type is understood to be from the attributed item (the range of property &lt;em&gt;P140 assigned attribute to&lt;/em&gt;) to the attribute item (the range of the property &lt;em&gt;P141 assigned&lt;/em&gt;). More than one property type may be assigned to hold between two items.&lt;/p&gt;&lt;p&gt;A comprehensive explanation about refining CIDOC CRM concepts by E55 Type is given in the section “About Types” in the section on “Specific Modelling Constructs” of this document.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The Current Ownership Assessment of Martin Doerr’s silver cup February 1997 (E13) &lt;em&gt;assigned property of type P52 has former or current owner (is former or current keeper of) &lt;/em&gt;(E55). (fictitious)&lt;/li&gt;&lt;li&gt;1&lt;sup&gt;st&lt;/sup&gt; June 1997 Identifier Assignment of the silver cup donated by Martin Doerr (E15) &lt;em&gt;assigned property of type&lt;/em&gt; &lt;em&gt;P48 has preferred identifier (is preferred identifier of)&lt;/em&gt; (E55). (fictitious)&lt;/li&gt;&lt;li&gt;The examination of MS Sinai Greek 418 (E13) &lt;em&gt;assigned property of type&lt;/em&gt; binding structure type (E55). [‘binding structure type’ refers to a property, external to the CIDOC CRM, which connects a book (E22) to the type of its binding structure (E55)] (Honey &amp;amp; Pickwoad, 2010)&lt;/li&gt;&lt;li&gt;The condition assessment of the endband cores of MS Sinai Greek 418 (E14) &lt;em&gt;assigned property of type&lt;/em&gt; damage (E55). [‘damage’ refers to a property, external to the CIDOC CRM, which connects an instance of a physical thing like an endband core (E22) to the type of damage (E55) it shows] (Honey &amp;amp; Pickwoad, 2010)&lt;/li&gt;&lt;li&gt;The condition assessment of the cover of MS Sinai Greek 418 (E14) &lt;em&gt;assigned property of type&lt;/em&gt; quality (E55). [‘quality’ refers to a property, external to the CIDOC CRM, which connects an instance of a physical thing like a book cover (E22) to its quality (E55)] (Honey and Pickwoad, 2010)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P177(x,y) ⇒ E13(x)&lt;/li&gt;&lt;li&gt;P177(x,y) ⇒ E55(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P179" external="true">
+      <fullName>P179 had sales price (was sales price of)</fullName>
+      <directName>had sales price</directName>
+      <inverseName>was sales price of</inverseName>
+      <domain id="E96" />
+      <range id="E97" />
+      <quantification>&lt;p&gt;many to many (1,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property establishes the relationship between an instance of E96 Purchase and the instance of E97 Monetary Amount that forms the compensation for the transaction. The monetary amount agreed upon may change in the course of the purchase activity.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The sale of Vincent van Gogh’s “Still Life: Vase with Fifteen Sunflowers” 30&lt;sup&gt;th&lt;/sup&gt; March 1987 (E96)&lt;em&gt; had sales price&lt;/em&gt; Christie’s hammer price for “Still Life: Vase with Fifteen Sunflowers” (E97).&lt;/li&gt;&lt;li&gt;The purchase of 10 okka of nails by the captain A. Syrmas on 18&lt;sup&gt;th&lt;/sup&gt; September 1895 (E96)&lt;em&gt; had sales price &lt;/em&gt;20 piastre (grosi) (E97). (Syrmas, 1896)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P179(x,y) ⇒ E96(x)&lt;/li&gt;&lt;li&gt;P179(x,y) ⇒ E97(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P180" external="true">
+      <fullName>P180 has currency (was currency of)</fullName>
+      <directName>has currency</directName>
+      <inverseName>was currency of</inverseName>
+      <domain id="E97" />
+      <range id="E98" />
+      <subPropertyOf id="P91" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property establishes the relationship between an instance of E97 Monetary Amount and the instance of E98 Currency that it is measured in.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Christie’s hammer price for Vincent van Gogh’s “Still Life: Vase with Fifteen Sunflowers” in London on 30&lt;sup&gt;th&lt;/sup&gt; March 1987 (E97) &lt;em&gt;has currency&lt;/em&gt; British Pounds (E98).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P180(x,y) ⇒ E97(x)&lt;/li&gt;&lt;li&gt;P180(x,y) ⇒ E98(y)&lt;/li&gt;&lt;li&gt;P180(x,y) ⇒ P91(x,y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P182" external="true">
+      <fullName>P182 ends before or with the start of (starts after or with the end of)</fullName>
+      <directName>ends before or with the start of</directName>
+      <inverseName>starts after or with the end of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P176" />
+      <subPropertyOf id="P185" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity ends before or simultaneously with the start of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;end&lt;/sup&gt; ≤ B&lt;sup&gt;start&lt;/sup&gt; is true.&lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets}.&lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_09.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 16: Temporal entity A ends before or with the start of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_10.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 17: Temporal entity A ends before or with the start of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Lerna III (E4) &lt;em&gt;ends before or with the start of &lt;/em&gt;Lerna IV (E4). [“The site at Lerna probably was not left uninhabited for long after the destruction of the House of the Tiles and the raising of the tumulus. If there was a gap corresponding to the earliest stage of EH III in the Argolid, as has been suggested by some (see, e.g., Manning 1995: 55–60), it was a brief one. In Rutter’s view, the short life of the Fourth Settlement began ca. 2200/2150 b.c. and ended ca. 2050/2000 b.c.”] (Banks &amp;amp; Reese, 2013)&lt;/li&gt;&lt;li&gt;The use of LH I graves of Krisa in Phocis (E4) &lt;em&gt;ends before or with the start of &lt;/em&gt;LH III&lt;em&gt; &lt;/em&gt;phase of reuse of the graves of Krisa in Phocis (E4). [“…a &lt;em&gt;possible&lt;/em&gt; hiatus in the occupation of certain sites such as the settlement of Krisa in Phocis, which was well occupied in the MH and LHIII periods. LHIIB pottery from this settlement has already been identified, but no certain example of LHIIA pottery.”] (Phialon 2018)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt; P182(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt; P182(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt; P182(x,y) ⇒ P176(x,y)&lt;/li&gt;&lt;li&gt; P182(x,y) ⇒ P185(x,y)&lt;/li&gt;&lt;li&gt;[P182(x,y) ⋀ P182(y,z) ⇒ P182(x,z)]&lt;/li&gt;&lt;li&gt;P182(x,y) ⇒ ¬P182(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P183" external="true">
+      <fullName>P183 ends before the start of (starts after the end of)</fullName>
+      <directName>ends before the start of</directName>
+      <inverseName>starts after the end of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P182" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity ends definitely before the start of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;end&lt;/sup&gt; &amp;lt; B&lt;sup&gt;start&lt;/sup&gt; is true. &lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to the following Allen temporal relation (Allen, 1983) : {before}.&lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric. &lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_11.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 18: Temporal entity A ends before the start of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_12.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 19: Temporal entity A ends before the start of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Gisle taking office as Bishop of Linköping 1139 AD (E7) &lt;em&gt;ends before the start of &lt;/em&gt;The Guta saga composition (E65). (Peel, 1999)&lt;/li&gt;&lt;li&gt;Troy VII&lt;em&gt; &lt;/em&gt;(E4) &lt;em&gt;ends before the start of &lt;/em&gt;Troy VIII (E4). [uninhabited for some 200 years]&lt;/li&gt;&lt;li&gt;The use of the Tomb Four from Nikitopoulou group in Nihoria in the MHIII-LHI period (E4) &lt;em&gt;ends before the start of &lt;/em&gt;the period of reuse of the Tomb Four from Nikitopoulou group in LHIIIA (E4). [“Of the six tombs excavated in the Nikitopoulou group […] the finds in Tomb Four are of MH II or MH III-LH I date, with the exception of the finds with the Northern group of material, which is uniformly dated to LHIIA2, end the ewer in the middle of the floor, dated LHIIIA1. […] The preserved evidence seems clearly to indicate use in the MHIII-LHI use in the MHIII-LHI period followed by a period of reuse in LHIIIA, a pattern matched at architecturally similar sites such as &lt;em&gt;13:Kaminia &lt;/em&gt;and &lt;em&gt;10:Gouvalári&lt;/em&gt;.”] (Boyd, 2002)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P183(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt;P183(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt;P183(x,y) ⇒ P182(x,y)&lt;/li&gt;&lt;li&gt;[P183(x,y) ∧ P183(y,z)] ⇒ P183(x,z)&lt;/li&gt;&lt;li&gt;P183(x,y) ⇒ ¬P183(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P184" external="true">
+      <fullName>P184 ends before or with the end of (ends with or after the end of)</fullName>
+      <directName>ends before or with the end of</directName>
+      <inverseName>ends with or after the end of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P174" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity ends before or simultaneously with the end of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;end&lt;/sup&gt; ≤ B&lt;sup&gt;end &lt;/sup&gt;is true. &lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, overlaps, finished by, start, equals, during, finishes}.&lt;/p&gt;&lt;p&gt;This property is irreflexive&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_13.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 20: Temporal entity A ends before or with the end of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_14.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 21: Temporal entity A ends before or with the end of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The reign/life of Harold II (E4) &lt;em&gt;ends before or with the end of &lt;/em&gt;the Battle of Hastings (E7)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P184(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt;P184(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt;P184(x,y) ⇒ P174(x,y)&lt;/li&gt;&lt;li&gt;¬P184(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P185" external="true">
+      <fullName>P185 ends before the end of (ends after the end of)</fullName>
+      <directName>ends before the end of</directName>
+      <inverseName>ends after the end of</inverseName>
+      <domain id="E2" />
+      <range id="E2" />
+      <subPropertyOf id="P184" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property specifies that the temporal extent of the domain instance A of E2 Temporal Entity ends definitely before the end of the temporal extent of the range instance B of E2 Temporal Entity. &lt;/p&gt;&lt;p&gt;In other words, if A = [A&lt;sup&gt;start&lt;/sup&gt;, A&lt;sup&gt;end&lt;/sup&gt;] and B = [B&lt;sup&gt;start&lt;/sup&gt;, B&lt;sup&gt;end&lt;/sup&gt;], it means A&lt;sup&gt;end&lt;/sup&gt; &amp;lt; B&lt;sup&gt;end &lt;/sup&gt;is true. &lt;/p&gt;&lt;p&gt;This property is part of the set of temporal primitives P173 – P176, P182 – P185.&lt;/p&gt;&lt;p&gt;This property corresponds to a disjunction (logical OR) of the following Allen temporal relations (Allen, 1983): {before, meets, overlaps, starts, during}.&lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_15.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 22: Temporal entity A ends before the end of temporal entity B. Here A is longer than B&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+  &lt;img src="./version_images/images_7.1.3/image_16.png"&gt;
+  &lt;br/&gt;&lt;/p&gt;&lt;p&gt;Figure 23: Temporal entity A ends before the end of temporal entity B. Here A is shorter than B&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Godstow Abbey, Oxfordshire as a working abbey (E4 Period) &lt;em&gt;ends before the end of&lt;/em&gt; the reign of Henry VIII (E4 Period).&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt; P185(x,y) ⇒ E2(x)&lt;/li&gt;&lt;li&gt; P185(x,y) ⇒ E2(y)&lt;/li&gt;&lt;li&gt; P185(x,y) ⇒ P184(x,y)&lt;/li&gt;&lt;li&gt;[P185(x,y) ∧ P185(y,z)] ⇒ P185(x,z)P185(x,y) ⇒ ¬P185(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P186" external="true">
+      <fullName>P186 produced thing of product type (is produced by)</fullName>
+      <directName>produced thing of product type</directName>
+      <inverseName>is produced by</inverseName>
+      <domain id="E12" />
+      <range id="E99" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E12 Production with the instance of E99 Production Type, that is, the type of the things it produces.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The production activity of the Volkswagen factory related to the “Standard limousine Type II” during 1949-1953 (E12) &lt;em&gt;produced thing of product type&lt;/em&gt; Volkswagen Type 11 (Beetle) (E99). (Rieger, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P186(x,y) ⇒ E12(x)&lt;/li&gt;&lt;li&gt;P186(x,y) ⇒ E99(y)&lt;/li&gt;&lt;li&gt;P186(x,y) ⇒ (∃z) [E24(z) ∧ P108(x,z) ∧ P2(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P187" external="true">
+      <fullName>P187 has production plan (is production plan for)</fullName>
+      <directName>has production plan</directName>
+      <inverseName>is production plan for</inverseName>
+      <domain id="E99" />
+      <range id="E29" />
+      <quantification>&lt;p&gt;one to many, necessary (1,n:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E99 Product Type with an instance of E29 Design or Procedure that completely determines the production of instances of E18 Physical Thing. The resulting instances of E18 Physical Thing are considered exemplars of this instance of E99 Product Type when the process specified is correctly executed. Note that the respective instance of E29 Design or Procedure may not necessarily be fixed in a written/graphical form, and may require the use of tools or models unique to the product type. The same instance of E99 Product Type may be associated with several variant plans.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Volkswagen Type 11 (Beetle) (E99) &lt;em&gt;has production plan&lt;/em&gt; the production plans for Volkswagen Type 11 (Beetle) (E29). (Rieger, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P187(x,y) ⇒ E99(x)&lt;/li&gt;&lt;li&gt;P187(x,y) ⇒ E29(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P188" external="true">
+      <fullName>P188 requires production tool (is production tool for)</fullName>
+      <directName>requires production tool</directName>
+      <inverseName>is production tool for</inverseName>
+      <domain id="E99" />
+      <range id="E19" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E99 Product Type with an instance of E19 Physical Object that is needed for the production of an instance of E18 Physical Thing. When the process of production is correctly executed in accordance with the plan and using the specified instance of E19 Physical Object, the resulting instance of E18 Physical Thing is considered an exemplar of this instance of E99 Product Type. The instance of E19 Physical Object may bear distinct features that are transformed into characteristic features of the resulting instance of E18 Physical Thing. Examples include models and moulds.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Volkswagen Type 11 (Beetle) (E99) &lt;em&gt;requires production tool &lt;/em&gt;the luggage compartment lid mould for the Volkswagen Type 11 (Beetle) (E22). [See thumbnail image of the luggage compartment lid: &lt;a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Volkswagen_Type_1_(Auto_classique_St._Lazare_'10).jpg/220px-Volkswagen_Type_1_(Auto_classique_St._Lazare_'10).jpg"&gt;https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Volkswagen_Type_1_(Auto_classique_St._Lazare_%2710).jpg/220px-Volkswagen_Type_1_(Auto_classique_St._Lazare_%2710).jpg&lt;/a&gt;)] (Rieger, 2013)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P188(x,y) ⇒ E99(x)&lt;/li&gt;&lt;li&gt;P188(x,y) ⇒ E19(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P189" external="true">
+      <fullName>P189 approximates (is approximated by)</fullName>
+      <directName>approximates</directName>
+      <inverseName>is approximated by</inverseName>
+      <domain id="E53" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E53 Place with another instance of E53 Place, which is defined in the same reference space, and which is used to approximate the former. The property does not necessarily state the quality or accuracy of this approximation, but rather indicates the use of the first instance of place to approximate the second.&lt;/p&gt;&lt;p&gt;In common documentation practice, find or encounter spots e.g. in archaeology, botany or zoology are often related to the closest village, river or other named place without detailing the relation, e.g. if it is located within the village or in a certain distance of the specified place. In this case the stated “phenomenal” place found in the documentation can be seen as an approximation of the actual encounter spot without more specific knowledge. &lt;/p&gt;&lt;p&gt;In more recent documentation often point coordinate information is provided that originates from GPS measurements or georeferencing from a map. This point coordinate information does not state the actual place of the encounter spot but tries to approximate it with a “declarative” place. The accuracy depends on the methodology used when creating the coordinates. It may be dependent on technical limitations like GPS accuracy but also on the method where the GPS location is taken in relation to the measured feature. If the methodology is known a maximum deviation from the measured point can be calculated and the encounter spot or feature may be related to the resulting circle using an instance of &lt;em&gt;P171 at some place within&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;This property is not transitive. This property is reflexive.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;[40°31'17.9"N 21°15'48.3"E] (E53) &lt;em&gt;approximates &lt;/em&gt;Kastoria, Greece, TGN ID: 7010880 (E53). [The approximating declarative place with point shape is defined in terms of coordinates taken from &lt;a href="https://sws.geonames.org/735927" target="_blank"&gt;https://sws.geonames.org/735927&lt;/a&gt;]&lt;/li&gt;&lt;li&gt;[40°31'00.1"N 21°16'00.1"E] (E53) &lt;em&gt;approximates &lt;/em&gt;Kastoria, Greece, TGN ID: 7010880 (E53). [The approximating declarative place with point shape is defined in terms of coordinates taken from &lt;a href="http://vocab.getty.edu/page/tgn/7010880" target="_blank"&gt;http://vocab.getty.edu/page/tgn/7010880&lt;/a&gt;]&lt;/li&gt;&lt;li&gt;[40°04'60.0"N 22°21'00.0"E] (E53) &lt;em&gt;approximates &lt;/em&gt;Mount Olympus National Park, Greece (E53). [The approximating declarative place with point shape is defined in terms of coordinates taken from &lt;a href="https://www.geonames.org/6941814" target="_blank"&gt;https://www.geonames.org/6941814&lt;/a&gt;]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P189(x,y) ⇒ E53(x)&lt;/li&gt;&lt;li&gt;P189(x,y) ⇒ E53 (y) &lt;/li&gt;&lt;li&gt;P189(x,y,z) ⇒ [P189(x,y) ∧ E55(z)]&lt;/li&gt;&lt;li&gt;P189(x,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+      <propertyOfProperty id="P189.1">
+        <identifierText>&lt;p&gt;P189.1 has type: E55 Type&lt;/p&gt;</identifierText>
+        <labelText>has type</labelText>
+        <range id="E55" />
+      </propertyOfProperty>
+    </property>
+    <property id="P190" external="true">
+      <fullName>P190 has symbolic content</fullName>
+      <directName>has symbolic content</directName>
+      <domain id="E90" />
+      <range id="E62" />
+      <subPropertyOf id="P3" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E90 Symbolic Object with a complete, identifying representation of its content in the form of an instance of E62 String. &lt;/p&gt;&lt;p&gt;This property only applies to instances of E90 Symbolic Object that can be represented completely in this form. The representation may be more specific than the symbolic level defining the identity condition of the represented. This depends on the type of the symbolic object represented. For instance, if a name has type “Modern Greek character sequence”, it may be represented in a loss-free Latin transcription, meaning however the sequence of Greek letters. &lt;/p&gt;&lt;p&gt;As another example, if the represented object has type “English words sequence”, American English or British English spelling variants may be chosen to represent the English word “colour” without defining a different symbolic object. If a name has type “European traditional name”, no particular string may define its content.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The materials description of the painting (E33) &lt;em&gt;has symbolic content&lt;/em&gt; “Oil, French Watercolors on Paper, Graphite and Ink on Canvas, with an Oak frame.” (E62).&lt;/li&gt;&lt;li&gt;The title of Einstein’s 1915 text (E35) &lt;em&gt;has symbolic content&lt;/em&gt; “Relativity, the Special and the General Theory” (E62). (Einstein, 2001)&lt;/li&gt;&lt;li&gt;The story of Little Red Riding Hood (E33) &lt;em&gt;has symbolic content&lt;/em&gt; “Once upon a time there lived in a certain village.” (E62). (Lang, 1965)&lt;/li&gt;&lt;li&gt;The inscription on Rijksmuseum object SK-A-1601 (E34) has symbolic content “B” (E62). [reference: &lt;a href="https://www.rijksmuseum.nl/en/collection/SK-A-1601/catalogue-entry"&gt;https://www.rijksmuseum.nl/en/collection/SK-A-1601/catalogue-entry&lt;/a&gt; (accessed 10&lt;sup&gt;th&lt;/sup&gt; April 2021)]&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P190(x,y) ⇒ E90(x)&lt;/li&gt;&lt;li&gt;P190(x,y) ⇒ E62(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P191" external="true">
+      <fullName>P191 had duration (was duration of)</fullName>
+      <directName>had duration</directName>
+      <inverseName>was duration of</inverseName>
+      <domain id="E52" />
+      <range id="E54" />
+      <quantification>&lt;p&gt;one to one (1,1:1,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property describes the length of time covered by an instance of E52 Time-Span. It allows an instance of E52 Time-Span to be associated with an instance of E54 Dimension representing duration independent from the actual beginning and end. Indeterminacy of the duration value can be expressed by assigning a numerical interval to the property &lt;em&gt;P90 has value&lt;/em&gt; of E54 Dimension.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;The time-span of the Battle of Issos 333 B.C.E. (E52) &lt;em&gt;had duration&lt;/em&gt; Battle of Issos duration (E54). (Howard, 2012)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P191(x,y) ⇒ E52(x)&lt;/li&gt;&lt;li&gt;P191(x,y) ⇒ E54(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P195" external="true">
+      <fullName>P195 was a presence of (had presence)</fullName>
+      <directName>was a presence of</directName>
+      <inverseName>had presence</inverseName>
+      <domain id="E93" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;many to one, necessary (1,1:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E93 Presence with the instance of E18 Physical Thing of which it represents a temporal restriction (i.e. a time-slice) of the thing’s trajectory through spacetime. In other words, it describes where the instance of E18 Physical Thing was or moved around within a given time-span. Instantiating this property constitutes a necessary part of the identity of the respective instance of E93 Presence.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the fully developed path from E18 Physical Thing through &lt;em&gt;P196 defines&lt;/em&gt;, E92 Spacetime Volume, &lt;em&gt;P166 was a presence of (had presence)&lt;/em&gt; to E93 Presence. &lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts in December 1755 (E93) &lt;em&gt;was a presence of&lt;/em&gt; Johann Joachim Winckelmann (E21). (Wiencke, 1998)&lt;/li&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts from 19&lt;sup&gt;th&lt;/sup&gt; November 1755 until 9&lt;sup&gt;th&lt;/sup&gt; April 1768 (E93) &lt;em&gt;was a presence of&lt;/em&gt; Johann Joachim Winckelmann (E21). (Wiencke, 1998)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P195(x,y) ⇒ E93(x)&lt;/li&gt;&lt;li&gt;P195(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;P195(x,y) ⇔ (∃z)[E92(z) ∧ P166(z,x) ∧ P196i(z,y)]&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P196" external="true">
+      <fullName>P196 defines (is defined by)</fullName>
+      <directName>defines</directName>
+      <inverseName>is defined by</inverseName>
+      <domain id="E18" />
+      <range id="E92" />
+      <quantification>&lt;p&gt;one to one, necessary (1,1:0,1)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E18 Physical Thing with the instance of E92 Spacetime Volume that constitutes the complete trajectory of its geometric extent through spacetime for the whole time of the existence of the instance of E18 Physical Thing.&lt;/p&gt;&lt;p&gt;An instance of E18 Physical Thing not only occupies a particular geometric space at each instant of its existence, but in the course of its existence it also forms a trajectory through spacetime, which occupies a real, that is phenomenal, volume in spacetime, i.e. the instance of E92 Spacetime Volume this property associates it with. This real spatiotemporal extent of the instance of E18 Physical Thing is regarded as being unique, in all its details and fuzziness; the identity and existence of the instance of E92 Spacetime Volume depend uniquely on the identity of the instance of E18 Physical Thing, whose existence defines it. It constitutes a phenomenal spacetime volume as defined in CRMgeo (Doerr &amp;amp; Hiebel, 2013).&lt;/p&gt;&lt;p&gt;Included in this spacetime volume are both the spaces filled by the matter of the physical thing and any inner space that may exist, for instance the interior of a box. Physical things consisting of aggregations of physically unconnected objects, such as a set of chessmen, occupy a finite number of individually contiguous subsets of this spacetime volume equal to the number of objects that constitute the set and that are never connected during its existence.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;H.M.S. Temeraire (E22) defines the spacetime volume of H.M.S. Temeraire (E92). [it was built, during 1798, in Chatham and destroyed, during 1838, in Rotherhithe] (Willis, 2010)&lt;/li&gt;&lt;li&gt;The Saint Titus reliquary (E22) &lt;em&gt;defines &lt;/em&gt;the spacetime volume of the Saint Titus reliquary (E92). [the reliquary has been produced by the workshop of the Vogiatzis brothers located at Monastiraki, Athens, in 1966 as container for the skull of Saint Titus, which was placed into it at that time and has since then continued to fall within the container’s spacetime volume. The reliquary with the skull has been kept in the Saint Titus Church in Heraklion, Crete since 1966] (Fisher &amp;amp; Garvey, 2010; Panotis, 2016)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P196(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P196(x,y) ⇒ E92(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P197" external="true">
+      <fullName>P197 covered parts of (was partially covered by)</fullName>
+      <directName>covered parts of</directName>
+      <inverseName>was partially covered by</inverseName>
+      <domain id="E93" />
+      <range id="E53" />
+      <quantification>&lt;p&gt;many to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property associates an instance of E93 Presence with an instance of E53 Place that geometrically overlaps with the spatial projection of the respective instance of E93 Presence. A use case of this property is to state through which places an object or an instance of E21 Person has or was moved within a given time-span. It may also be used to describe a partial or complete, temporary or permanent extension of the spatial extent of some realm into a neighbouring region during a known time-span. It may also be used to describe a partial or complete, temporary or permanent extension of the spatial extent of some realm into a neighbouring region during a known time-span. &lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E93 Presence through &lt;em&gt;P161 has spatial projection&lt;/em&gt;, E53 Place&lt;em&gt;, P121 overlaps with,&lt;/em&gt; to E53 Place.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Johann Joachim Winckelmann’s whereabouts from 19&lt;sup&gt;th&lt;/sup&gt; November 1755 until 9&lt;sup&gt;th&lt;/sup&gt; April 1768 (E93) &lt;em&gt;covered parts of&lt;/em&gt; Paestum, Italy (E53). (Wiencke, 1998)&lt;/li&gt;&lt;li&gt;The Byzantine Empire 1013 AD (E93) &lt;em&gt;covered parts&lt;/em&gt; of The Italian Peninsula (E53). (Browning, 1980)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P197(x,y) ⇒ E93(x)&lt;/li&gt;&lt;li&gt;P197(x,y) ⇒ E53(y)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+    <property id="P198" external="true">
+      <fullName>P198 holds or supports (is held or supported by)</fullName>
+      <directName>holds or supports</directName>
+      <inverseName>is held or supported by</inverseName>
+      <domain id="E18" />
+      <range id="E18" />
+      <quantification>&lt;p&gt;one to many (0,n:0,n)&lt;/p&gt;</quantification>
+      <scopeNote>&lt;p&gt;This property relates one instance of E18 Physical Thing which acts as a container or support to a supported or contained instance of E18 Physical Thing. Typical examples of E18 Physical Things which are intended to function as a container or support include shelves, folders or boxes. These containers or supports provide a stable surface which is intended for other physical objects to be placed upon for storage, display, transport or other similar functions.&lt;/p&gt;&lt;p&gt;This property is a shortcut of the more fully developed path from E18 Physical Thing through &lt;em&gt;P59 has section&lt;/em&gt;, E53 Place, &lt;em&gt;P53i is former or current location&lt;/em&gt; &lt;em&gt;of,&lt;/em&gt; to E18 Physical Thing. It is not a sub-property of &lt;em&gt;P46 is composed of&lt;/em&gt;, as the held or supported object is not a component of the container or support.&lt;/p&gt;&lt;p&gt;This property can be used to avoid explicitly instantiating the E53 Place which is defined by an instance of E18 Physical Thing, especially when the only intended use of that instance of E18 Physical Thing is to act as a container or surface for the storage of other instances of E18 Physical Thing. The place’s existence is defined by the existence of the container or surface, and will go out of existence at the same time as the destruction of the container or surface. &lt;/p&gt;&lt;p&gt;This property is transitive. This property is asymmetric.&lt;/p&gt;</scopeNote>
+      <examples>&lt;ul&gt;&lt;li&gt;Archival folder “6” (E22) &lt;em&gt;holds or supports&lt;/em&gt; the piece of paper carrying the text of a letter from Lawrence Alloway to Sylvia Sleigh (E22).&lt;br&gt;[&lt;a href="http://archives2.getty.edu:8082/xtf/view?docId=ead/2003.M.46/2003.M.46.xml;chunk.id=aspace_ref12_kf7;brand=default"&gt;http://archives2.getty.edu:8082/xtf/view?docId=ead/2003.M.46/2003.M.46.xml;chunk.id=aspace_ref12_kf7;brand=default&lt;/a&gt;]&lt;/li&gt;&lt;li&gt;Archival folder "17" (E22) &lt;em&gt;holds or supports the&lt;/em&gt; daguerreotype that shows the image of Henry Ward Beecher as a young man (E22).&lt;br&gt;[&lt;a href="https://archives.yale.edu/repositories/12/archival_objects/1402266"&gt;https://archives.yale.edu/repositories/12/archival_objects/1402266&lt;/a&gt;]&lt;/li&gt;&lt;li&gt;Box "88" (E22) &lt;em&gt;holds or supports&lt;/em&gt; folder "17" (E22). [&lt;a href="https://archives.yale.edu/repositories/12/archival_objects/1402266"&gt;https://archives.yale.edu/repositories/12/archival_objects/1402266&lt;/a&gt;] &lt;/li&gt;&lt;li&gt;Bookshelf “GRI-708.1” (E22) &lt;em&gt;holds or supports&lt;/em&gt; the book entitled “Catalog of Paintings in the J. Paul Getty Museum” (E22). (Potts, 2015)&lt;/li&gt;&lt;/ul&gt;</examples>
+      <inFirstOrderLogic>&lt;ul&gt;&lt;li&gt;P198(x,y) ⇒ E18(x)&lt;/li&gt;&lt;li&gt;P198(x,y) ⇒ E18(y)&lt;/li&gt;&lt;li&gt;[P198(x,y) ∧ P198(y,z)] ⇒ P198(x,z)&lt;/li&gt;&lt;li&gt;[P198(x,y) ∧ P198(z,y)] ⇒ [P198(x,z) ˅ P198(z,x)]&lt;/li&gt;&lt;li&gt;P198(x,y) ⇐ (∃z) [E53(z) ˄ P59(x,z) ˄ P53i(z,y)]&lt;/li&gt;&lt;li&gt;P198(x,y) ⇒ ¬P198(y,x)&lt;/li&gt;&lt;/ul&gt;</inFirstOrderLogic>
+    </property>
+  </properties>
+  <externalReferences>
+    <extRef id="E1" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E1_CRM_Entity" label="CRM Entity" modelName="Cidoc-CRM v7.1.2" fullName="E1 CRM Entity"/>
+    <extRef id="E7" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E7_Activity" label="Activity" modelName="Cidoc-CRM v7.1.2" fullName="E7 Activity"/>
+    <extRef id="E12" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E12_Production" label="Production" modelName="Cidoc-CRM v7.1.2" fullName="E12 Production"/>
+    <extRef id="E18" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E18_Physical_Thing" label="Physical Thing" modelName="Cidoc-CRM v7.1.2" fullName="E18 Physical Thing"/>
+    <extRef id="E19" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E19_Physical_Object" label="Physical Object" modelName="Cidoc-CRM v7.1.2" fullName="E19 Physical Object"/>
+    <extRef id="E24" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E24_Physical_Human-Made_Thing" label="Physical Human-Made Thing" modelName="Cidoc-CRM v7.1.2" fullName="E24 Physical Human-Made Thing"/>
+    <extRef id="E25" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E25_Human-Made_Feature" label="Human-Made Feature" modelName="Cidoc-CRM v7.1.2" fullName="E25 Human-Made Feature"/>
+    <extRef id="E26" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E26_Physical_Feature" label="Physical Feature" modelName="Cidoc-CRM v7.1.2" fullName="E26 Physical Feature"/>
+    <extRef id="E28" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E28_Conceptual_Object" label="Conceptual Object" modelName="Cidoc-CRM v7.1.2" fullName="E28 Conceptual Object"/>
+    <extRef id="E29" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E29_Design_or_Procedure" label="Design or Procedure" modelName="Cidoc-CRM v7.1.2" fullName="E29 Design or Procedure"/>
+    <extRef id="E36" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E36_Visual_Item" label="Visual Item" modelName="Cidoc-CRM v7.1.2" fullName="E36 Visual Item"/>
+    <extRef id="E55" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E55_Type" label="Type" modelName="Cidoc-CRM v7.1.2" fullName="E55 Type"/>
+    <extRef id="E56" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E56_Language" label="Language" modelName="Cidoc-CRM v7.1.2" fullName="E56 Language"/>
+    <extRef id="E65" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E65_Creation" label="Creation" modelName="Cidoc-CRM v7.1.2" fullName="E65 Creation"/>
+    <extRef id="E70" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E70_Thing" label="Thing" modelName="Cidoc-CRM v7.1.2" fullName="E70 Thing"/>
+    <extRef id="E89" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E89_Propositional_Object" label="Propositional Object" modelName="Cidoc-CRM v7.1.2" fullName="E89 Propositional Object"/>
+    <extRef id="E90" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/E90_Symbolic_Object" label="Symbolic Object" modelName="Cidoc-CRM v7.1.2" fullName="E90 Symbolic Object"/>
+    <extRef id="F28" uri="https://www.cidoc-crm.org/frbroo/ModelVersion/frbroo-v.-2.4#F28_Expression_Creation" label="Expression Creation" modelName="FRBRoo v2.4" fullName="F28 Expression Creation"/>
+    <extRef id="I1" uri="https://www.cidoc-crm.org/crminf/ModelVersion/version-0.7#I1_Argumentation" label="Argumentation" modelName="CRMinf v0.7(b)" fullName="I1 Argumentation"/>
+    <extRef id="O8" domainID="S4" rangeID="S15" uri="http://www.cidoc-crm.org/extensions/crmsci/versions/2.0/O8_observed" label="observed" modelName="CRMsci v2.0" fullName="O8 observed (was observed by)"/>
+    <extRef id="P2" domainID="E1" rangeID="E55" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P2_has_type" label="has type" modelName="Cidoc-CRM v7.1.2" fullName="P2 has type (is type of)"/>
+    <extRef id="P16" domainID="E7" rangeID="E70" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P16_used_specific_object" label="used specific object" modelName="Cidoc-CRM v7.1.2" fullName="P16 used specific object (was used for)"/>
+    <extRef id="P33" domainID="E7" rangeID="E29" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P33_used_specific_technique" label="used specific technique" modelName="Cidoc-CRM v7.1.2" fullName="P33 used specific technique (was used by)"/>
+    <extRef id="P46" domainID="E18" rangeID="E18" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P46_is_composed_of" label="is composed of" modelName="Cidoc-CRM v7.1.2" fullName="P46 is composed of (forms part of)"/>
+    <extRef id="P56" domainID="E19" rangeID="E26" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P56_bears_feature" label="bears feature" modelName="Cidoc-CRM v7.1.2" fullName="P56 bears feature (is found on)"/>
+    <extRef id="P67" domainID="E89" rangeID="E1" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P67_refers_to" label="refers to" modelName="Cidoc-CRM v7.1.2" fullName="P67 refers to (is referred to by)"/>
+    <extRef id="P94" domainID="E65" rangeID="E28" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P94_has_created" label="has created" modelName="Cidoc-CRM v7.1.2" fullName="P94 has created (was created by)"/>
+    <extRef id="P106" domainID="E90" rangeID="E90" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P106_is_composed_of" label="is composed of" modelName="Cidoc-CRM v7.1.2" fullName="P106 is composed of (forms part of)"/>
+    <extRef id="P108" domainID="E12" rangeID="E24" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P108_has_produced" label="has produced" modelName="Cidoc-CRM v7.1.2" fullName="P108 has produced (was produced by)"/>
+    <extRef id="P148" domainID="E89" rangeID="E89" uri="http://www.cidoc-crm.org/cidoc-crm/7.1.2/P148_has_component" label="has component" modelName="Cidoc-CRM v7.1.2" fullName="P148 has component (is component of)"/>
+    <extRef id="S4" uri="http://www.cidoc-crm.org/extensions/crmsci/versions/2.0/S4_Observation" label="Observation" modelName="CRMsci v2.0" fullName="S4 Observation"/>
+    <extRef id="S15" uri="http://www.cidoc-crm.org/extensions/crmsci/versions/2.0/S15_Observable_Entity" label="Observable Entity" modelName="CRMsci v2.0" fullName="S15 Observable Entity"/>
+  </externalReferences>
+</root>
+`
 
 
 function getSuperClassesOf(id) {
-
-    return $(xmlFile).find("class[id='" + id + "']").find("subClassOf").map(function () { return $.trim($(this).attr("id")); }).get();
+    return $(xmlFile).find("class[id='" + id + "']").find("subClassOf").map(function() {
+        return $.trim($(this).attr("id"));
+    }).get();
 }
 
 
@@ -130,10 +3415,44 @@ function getClassName(id) {
     return id;
 }
 
+let docUrls = {
+    'S': 'http://www.cidoc-crm.org/extensions/crmsci/versions/2.0/',
+    'P': 'http://www.cidoc-crm.org/cidoc-crm/7.1.2/',
+}
+let weirdOnes = {
+    'I': 'https://www.cidoc-crm.org/crminf/ModelVersion/version-0.7#I1_Argumentation',
+    'F': 'https://www.cidoc-crm.org/frbroo/ModelVersion/frbroo-v.-2.4#F28_Expression_Creation',
+}
+docUrls['E'] = docUrls['P']
+docUrls['O'] = docUrls['S']
+
+function getObjectLink(id) {
+    const obj = [
+        ...$(xmlFile).find(`class[id='${id}']`).get(),
+        ...$(xmlFile).find(`property[id='${id}']`).get()
+    ][0]
+
+    if (!obj || obj.getAttribute('external')) {
+        const prefix = id.replace(/[0-9]/g, '')
+        if (docUrls[prefix]) {
+            return docUrls[prefix] + id
+        } else {
+            return weirdOnes[prefix]
+        }
+    } else {
+        return `#${id}`
+    }
+}
+
 function getClassNameWithLink(id) {
     var clsname = getClassName(id);
+    const link = getObjectLink(id)
     if (clsname !== id) {
-        return '<a href="#' + id + '">' + id + '</a> ' + clsname;
+        if (link.startsWith('#')) {
+            return `<a href="${link}">` + id + '</a> ' + clsname;
+        } else {
+            return `<a href="${link}" target="_blank">` + id + '</a> ' + clsname;
+        }
     }
     return id;
 }
@@ -162,7 +3481,9 @@ function getIdName(id) {
         return retVal;
     }
     else {
-        var fns = $(xmlFile).find("class, property").filter("[id='" + id + "']").map(function () { return $.trim($(this).find("fullName").text()); }).get();
+        var fns = $(xmlFile).find("class, property").filter("[id='" + id + "']").map(function() {
+            return $.trim($(this).find("fullName").text());
+        }).get();
 
         if (Array.isArray(fns) && fns.length) {
             return fns[0];
@@ -179,19 +3500,30 @@ function getPropertyClassRepresentation(id, direct, allfields) {
     var propDomain = prop.map(function () { return $.trim($(this).find("domain").attr("id")); }).get();
     var propRange = prop.map(function () { return $.trim($(this).find("range").attr("id")); }).get();
 
+    function aAttrs (link) {
+        if (link.startsWith('#')) {
+            return 'onclick="closeModals();"'
+        } else {
+            return 'target="_blank"'
+        }
+    }
+
     var retHtml = '';
 
     if (!direct || allfields) {
-        retHtml += '<a href="#' + propDomain + '" onclick="closeModals();">' + propDomain + '</a> ' + getClassName(propDomain) + '. ';
+        const propDomainLink = getObjectLink(propDomain[0])
+        retHtml += `<a href="${propDomainLink}" ${aAttrs(propDomainLink)}>${propDomain}</a> ${getClassName(propDomain)}. `;
     }
 
-    retHtml += '<a href="#' + id + '" onclick="closeModals();">' + id + '</a> ' + propDName;
+    const propLink = getObjectLink(id)
+    retHtml += `<a href="${propLink}" ${aAttrs(propLink)}>${id}</a> ${propDName}`;
     if (propIName != '') {
         retHtml += ' (' + propIName + ')';
     }
 
     if (direct || allfields) {
-        retHtml += ': <a href="#' + propRange + '" onclick="closeModals();">' + propRange + '</a> ' + getClassName(propRange);
+        const propRangeLink = getObjectLink(propRange[0])
+        retHtml += `: <a href="${propRangeLink}" ${aAttrs(propRangeLink)}>${propRange}</a> ${getClassName(propRange)}`;
     }
 
 
@@ -430,8 +3762,19 @@ function searchXMLClass(id) {
     $("#graphcontainer").hide();
     $("#graphlegend").hide();
     $("#graph").hide();
-
-    $("#goToCurrent").attr("href", "#" + id);
+    
+    const link = getObjectLink(id)
+    if (link.startsWith('#')) {
+        $("#goToCurrent")
+            .attr('href', link)
+            .attr('onclick', 'closeModals();')
+            .removeAttr('target')
+    } else {
+        $("#goToCurrent")
+            .attr("href", link)
+            .attr('target', '_blank')
+            .removeAttr('onclick')
+    }
 
     $("#currentGraphNode").text("'" + getIdName(id) + "'");
     $(this).delay(50).queue(function () {
@@ -504,8 +3847,22 @@ function searchXMLProperty(idWithInverse) {
     $("#graphlegend").hide();
     $("#graph").hide();
 
-    $("#goToCurrent").attr("href", "#" + idWithInverse.replace("i", ""));
-    $("#currentGraphNode").text("'" + getIdName(idWithInverse.replace("i", "")) + "'");
+    const id = idWithInverse.replace("i", "");
+    
+    const link = getObjectLink(id)
+    if (link.startsWith('#')) {
+        $('#goToCurrent')
+            .attr('href', link)
+            .attr('onclick', 'closeModals();')
+            .removeAttr('target')
+    } else {
+        $('#goToCurrent')
+            .attr('href', link)
+            .attr('target', '_blank')
+            .removeAttr('onclick')  
+    }
+
+    $("#currentGraphNode").text("'" + getIdName(id) + "'");
     $(this).delay(50).queue(function () {
         baseGraphProperty(idWithInverse);
     });
@@ -939,24 +4296,25 @@ $(document).ready(function () {
 	  xmlUrl = xmlUrl.slice(0, xmlUrl.indexOf('.html')).trim()+'.xml?v=20240213_122815';
 	}
 
-    $.ajax({
-        type: "GET",
-        url: xmlUrl,
-        dataType: "xml",
-        error: function (e) {
-            /*alert("An error occurred while processing XML file");*/
-            console.log("XML reading Failed: ", e);
+    closeModals();
+    // $.ajax({
+    //     type: "GET",
+    //     url: xmlUrl,
+    //     dataType: "xml",
+    //     error: function (e) {
+    //         /*alert("An error occurred while processing XML file");*/
+    //         console.log("XML reading Failed: ", e);
 
-        },
-        success: function (xml) {
-            xmlFile = xml;
-        },
-        complete: function (data) {
-            closeModals();
-        }
+    //     },
+    //     success: function (xml) {
+    //         xmlFile = xml;
+    //     },
+    //     complete: function (data) {
+    //         closeModals();
+    //     }
 
 
-    });
+    // });
 
 
 
