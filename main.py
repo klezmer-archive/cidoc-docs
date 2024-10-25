@@ -1,8 +1,8 @@
-import re
+import re, sys
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse
 
-with open('./crmtex-site/crmtex.html') as f:
+with open(sys.argv[1]) as f:
     soup = BeautifulSoup(f, features='html.parser')
 
 # Update all the in-page fragment links to point to the local page rather than the actual CRMtex
@@ -37,5 +37,4 @@ for el in soup.find_all(class_='entity-first-cell'):
         parent.append(props_el)
 
 # Write the modified file out
-with open('./crmtex-site/crmtex-modified.html', 'w') as f:
-    f.write(soup.prettify())
+sys.stdout.write(soup.prettify())
