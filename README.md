@@ -53,6 +53,6 @@
      parent tags in `xmlFile`
    - Also add `external="true"` to each of their main parent tags. This is used by some of the code
      modifications to point links at their docs sites rather than internal anchors.
-7. Run the python script on the downloaded HTML page: `python main.py crmtext.html.orig > docs/crmtex.html`
-8. Use my modified `cidoc_scripts.js` (see git for changes)
-9. TODO: deploy!!!
+7. Change the link in the `<head>` to point to `/cidoc_scripts.js`. To see details of the
+   modifications, look at the git log
+8. Run the python script on the downloaded HTML page: `python main.py crmtext.html.orig > docs/crmtex.html`
