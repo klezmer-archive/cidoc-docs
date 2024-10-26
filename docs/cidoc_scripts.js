@@ -4296,6 +4296,8 @@ $(document).ready(function () {
 	  xmlUrl = xmlUrl.slice(0, xmlUrl.indexOf('.html')).trim()+'.xml?v=20240213_122815';
 	}
 
+    // We're setting xmlFile manually above. Not sure if closeModals really needs to be called, but
+    // better safe than sorry
     closeModals();
     // $.ajax({
     //     type: "GET",
