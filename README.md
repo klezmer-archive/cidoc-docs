@@ -1,3 +1,7 @@
+# Why?
+The CIDOC CRM extension doc pages (e.g. CRMtex) don't have the dang buttons for showing the inheritence graph and inherited properties.
+Learning the ontology is _really freakin hard_ without those. This hack adds them in.
+
 # How'd I do it?
 1. Download the necessary assets from [CRMtex](https://cidoc-crm.org/extensions/crmtex/html/CRMtex_v2.0.html)
    - HTML source: view page source, copy, and paste it into crmtex.html.orig
