@@ -3358,7 +3358,7 @@ function getClassProperties(id) {
 }
 
 function getClassInverseProperties(id) {
-    return $(xmlFile).find("property").has(">range[id='" + id + "']").map(function () { return $.trim($(this).attr("id")); }).get();
+    return $(xmlFile).find("property").has("range[id='" + id + "']").map(function () { return $.trim($(this).attr("id")); }).get();
 }
 
 function getSuperPropertiesOf(idWithInverse) {
